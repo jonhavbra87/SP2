@@ -1,0 +1,79 @@
+<!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap 2/vite</title>
+    <script type="module" src="./src/js/main.js"></script>
+  </head>
+  <body>
+    <header>
+      <nav class="navbar navbar-expand-lg navbar-light bg-light">
+        <a class="navbar-brand" href="#">
+          <img
+            src="./src/assets/images/logo.png"
+            alt="Logo"
+            width="30"
+            height="30"
+          />
+          Your Site
+        </a>
+        <li class="nav-item">
+          <button class="btn btn-link nav-link" id="themeToggle">
+            Dark Mode
+          </button>
+        </li>
+
+        <div class="collapse navbar-collapse" id="navbarNav">
+          <ul class="navbar-nav ml-auto">
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="loginButton">Login</a>
+            </li>
+            <li class="nav-item">
+              <a class="nav-link" href="#" id="logoutButton">Logout</a>
+            </li>
+          </ul>
+        </div>
+      </nav>
+    </header>
+
+    <main class="container">
+      <div class="row">
+        <div class="col-12">
+          <h1>Welcome to Your Site</h1>
+          <p>Your site description here...</p>
+        </div>
+      </div>
+
+      <div class="row">
+        <div class="col-12">
+          <h2>Products</h2>
+          <div id="productsContainer" class="row">
+            <!-- Products will be dynamically loaded here -->
+          </div>
+        </div>
+      </div>
+    </main>
+
+    <footer class="text-center py-4">
+      <p>&copy; 2024 Your Company</p>
+    </footer>
+  </body>
+</html>
+
+<!-- <!doctype html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Bootstrap w/ Vite</title>
+    <script type="module" src="./js/main.js"></script>
+  </head>
+  <body>
+    <div class="container py-4 px-3 mx-auto">
+      <h1>Hello, Bootstrap and Vite!</h1>
+      <button class="btn btn-primary">Primary button</button>
+    </div>
+  </body>
+</html>
+ -->
