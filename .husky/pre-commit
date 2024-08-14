@@ -1,4 +1,4 @@
-#!/bin/sh
-. "$(dirname "$0")/_/husky.sh"
+# Because of v10.0.0 these two lines are not compatible: `#!/usr/bin/env sh` eller `. "$(dirname -- "$0")/_/husky.sh"`
+# Therefore, I have removed the first line and added "npx lint-staged" instead. If it fails to run, the code will not be committed.
 
-npx lint-staged
+npx lint-staged  # Dette vil kjøre lint-staged som en del av pre-commit hooken.
