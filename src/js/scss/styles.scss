@@ -1,0 +1,32 @@
+@import 'variables';
+
+// Import Bootstrap SCSS
+@import 'bootstrap/scss/bootstrap';
+
+// Custom styles (overrides Bootstrap's default styles)
+body {
+  font-family: 'Josefin Sans', sans-serif;
+  color: $text-color;
+}
+
+body.light-mode {
+  background-color: $bg-light;
+}
+
+body.dark-mode {
+  background-color: $bg-dark; // mørk bakgrunn
+}
+
+.navbar.light-mode {
+  background-color: #ffffff; // lys bakgrunn for navbar
+  color: #000000; // mørk tekstfarge
+}
+
+.navbar.dark-mode {
+  background-color: $bg-dark; // mørk bakgrunn for navbar
+  color: $text-color; // lys tekstfarge
+}
+
+p {
+  color: $text-color-light;
+}
