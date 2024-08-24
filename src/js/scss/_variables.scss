@@ -1,19 +1,24 @@
 // Colors
-$primary-color: #4d194d;
-$secondary-color: #272640;
-$tertiary-color: #ffd700;
-$fourth-color: #006466;
+$primary: #121212;
+$secondary: #c0c0c0;
+$tertiary: #ffd700;
+$fourth: #006466;
+$primary-color-blue: #0a3d62;
+
 //$background-color: #121212;
 
+// Definerer gradienten som en variabel
+$btn-border-gradient: linear-gradient(180deg, #a68629 0%, #f0d290 100%);
+
 //Text color
-$text-color: #ffffff;
-$text-color-light: #9a9a9a;
-$text-color-dark: #9e9e9e;
+$text-color: #f5f5f5;
+$text-color-light: #f5f5f5;
+$text-color-dark: #333333;
 
 //Background color
 $body-bg: #121212;
 $bg-light: #272640;
-$bg-dark: #121212;
+$gray-900: #121212;
 
 // Font
 $font-family-base: 'Roboto', sans-serif;

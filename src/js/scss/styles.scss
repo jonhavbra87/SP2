@@ -1,11 +1,12 @@
+//Font families goes here!
+
 @import 'variables';
 
 // Import Bootstrap SCSS
-@import 'bootstrap/scss/bootstrap';
+@import '../../../node_modules/bootstrap/scss/bootstrap';
 
 // Custom styles (overrides Bootstrap's default styles)
 body {
-  font-family: 'Josefin Sans', sans-serif;
   color: $text-color;
 }
 
@@ -14,19 +15,36 @@ body.light-mode {
 }
 
 body.dark-mode {
-  background-color: $bg-dark; // mørk bakgrunn
+  background-color: $gray-900;
 }
 
 .navbar.light-mode {
-  background-color: #ffffff; // lys bakgrunn for navbar
-  color: #000000; // mørk tekstfarge
+  background-color: #ffffff;
+  color: #000000;
 }
 
 .navbar.dark-mode {
-  background-color: $bg-dark; // mørk bakgrunn for navbar
-  color: $text-color; // lys tekstfarge
+  background-color: $gray-900;
+  color: $text-color;
 }
 
 p {
   color: $text-color-light;
 }
+
+.card-background {
+  border-radius: 12px;
+  border: 1px #f5f5f5;
+  background: linear-gradient(180deg, #a68629 0%, #f0d290 100%);
+  backdrop-filter: blur(10px);
+}
+
+// Overstyrer standard Bootstrap-knappestiler for å bruke gradient som border
+.btn-custom {
+  border-image: $btn-border-gradient !important;
+  border-image-slice: 1 !important;
+}
+
+/* .linear-gold {
+  background: linear-gradient(180deg, #A68629 0%, #F0D290 100%);
+} */
