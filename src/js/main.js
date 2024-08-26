@@ -2,4 +2,7 @@
 import '../js/scss/styles.scss'
 
 // Import our custom JS
-import './custom.js'
+//import './router.js'
+import router from './router.js'
+
+router()

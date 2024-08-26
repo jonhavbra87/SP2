@@ -1,0 +1,28 @@
+{
+    "data": {
+        "name": "lux1337",
+        "email": "lux1337@stud.noroff.no",
+        "bio": null,
+        "avatar": {
+            "url": "https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=80&h=400&w=400",
+            "alt": "A blurry multi-colored rainbow background"
+        },
+        "banner": {
+            "url": "https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=80&h=500&w=1500",
+            "alt": "A blurry multi-colored rainbow background"
+        },
+        "accessToken": "eyJhbGciOiJIUzI1NiIsInR5cCI6IkpXVCJ9.eyJuYW1lIjoibHV4MTMzNyIsImVtYWlsIjoibHV4MTMzN0BzdHVkLm5vcm9mZi5ubyIsImlhdCI6MTcyNDY2MjA1NH0.vt7e-nun_uwRR6-MMgrXXlQUedlYXQNYGJchlB7AFuc"
+    },
+    "meta": {}
+}
+
+
+----------------------------API KEY------------------------------------
+{
+    "data": {
+        "name": "Test key",
+        "status": "ACTIVE",
+        "key": "4ac6445f-6305-4510-89a4-cb5df85ce9c1"
+    },
+    "meta": {}
+}
