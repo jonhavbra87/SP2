@@ -1,7 +1,8 @@
 // import { API_BASE } from "../constants.js";
 // import { doFetch } from "../helpers/doFetch.js";
 
-import { API_BASE, API_AUCTIONS } from '../constants'
+import { load } from '../../storage/index.js'
+import { API_BASE, API_AUCTIONS, API_KEY } from '../constants'
 // import { doFetch } from "../helpers/doFetch";
 
 /**
@@ -30,7 +31,12 @@ const action = '/listings'
 export async function getPosts() {
   const url = `${API_BASE}${API_AUCTIONS}${action}`
 
-  const response = await fetch(url)
+  const response = await fetch(url, {
+    headers: {
+      Authorization: `Bearer ${load('token')}`,
+      'X-Noroff-API-Key': API_KEY,
+    },
+  })
   return await response.json()
 }
 const listings = await getPosts()
