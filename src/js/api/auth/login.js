@@ -1,5 +1,5 @@
-import { API_FULL_URL } from '../constants.js'
-import * as storage from '../../storage/index.js'
+// import { API_FULL_URL } from '../constants.js'
+// import * as storage from '../../storage/index.js'
 
 /**
  * Logs in a user by sending their profile data to the API.
@@ -14,14 +14,14 @@ import * as storage from '../../storage/index.js'
  * @returns {Promise<void>} - A promise that resolves if the login is successful.
  * @throws {Error} Throws an error if the login request fails.
  **/
-
+/* 
 const action = 'login'
 const method = 'post'
 
 export async function login(profile) {
   const loginURL = API_FULL_URL + action
 
-  const body = JSON.stringify(profile)
+  const body = JSON.stringify(profile).data;
 
   const response = await fetch(loginURL, {
     headers: {
@@ -38,4 +38,4 @@ export async function login(profile) {
   } else {
     throw new Error('Failed to log in: ' + response.statusText)
   }
-}
+} */

@@ -2,17 +2,16 @@
 //import * as listeners from "./listeners/index.js";
 //import * as utilities from "./utilities/index.js";
 
-import { API_FULL_URL } from './api/constants.js'
-import { displayModal } from './utilities/displayModal.js'
-
+import { getPosts, setAuthListener } from './api/index.js'
 export default function router() {
   const path = window.location.pathname
 
   switch (path) {
     case '/':
       console.log('router is working')
-      console.log(API_FULL_URL)
-      displayModal()
+      //displayModal()
+      getPosts()
+      setAuthListener()
       break
     case '/profile/':
       break
