@@ -12,5 +12,9 @@ export function load(key) {
 }
 
 export function remove(key) {
-  localStorage.removeItem(key)
+  if (localStorage.getItem(key) !== null) {
+    localStorage.removeItem(key)
+  } else {
+    console.warn(`Key "${key}" does not exist in localStorage.`)
+  }
 }

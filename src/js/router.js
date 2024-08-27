@@ -4,6 +4,7 @@
 
 import { setAuthListener } from './ui/listeners/auth.js'
 import { getPosts } from './api/posts/getPosts.js'
+import { logout } from './api/auth/logout.js'
 
 export default function router() {
   const path = window.location.pathname
@@ -14,6 +15,7 @@ export default function router() {
       //displayModal()
       getPosts()
       setAuthListener()
+      logout()
       break
     case '/profile/':
       break
