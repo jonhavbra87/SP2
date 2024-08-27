@@ -1,18 +1,4 @@
-//import { login } from "./auth/login";
-import { API_AUTH, API_BASE, API_LOGIN, API_REGISTER } from './constants'
-
-export function save(key, value) {
-  localStorage.setItem(key, JSON.stringify(value))
-}
-
-export function load(key) {
-  try {
-    const value = localStorage.getItem(key)
-    return JSON.parse(value)
-  } catch {
-    return null
-  }
-}
+import { API_BASE } from './constants'
 
 const auction = '/auction'
 const action = '/listings'
@@ -26,7 +12,7 @@ export async function getPosts() {
 const listings = await getPosts()
 console.log(listings.data)
 
-export async function register(name, email, password) {
+/* export async function register(name, email, password) {
   const response = await fetch(`${API_BASE}${API_AUTH}${API_REGISTER}`, {
     headers: {
       'Content-Type': 'application/json',
@@ -39,8 +25,8 @@ export async function register(name, email, password) {
     return await response.json()
   }
   throw new Error('Failed to register: ' + response.statusText)
-}
-
+} */
+/* 
 export async function login(email, password) {
   const response = await fetch(`${API_BASE}${API_AUTH}${API_LOGIN}`, {
     headers: {
@@ -84,3 +70,4 @@ export function setAuthListener() {
   document.getElementById('loginForm').addEventListener('submit', onAuth)
   // document.forms.auth.addEventListener("submit", onAuth);
 }
+ */

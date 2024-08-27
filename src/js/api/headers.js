@@ -1,4 +1,4 @@
-// import { load } from "../storage/index.js";
+// import { load } from "../api/storage/index.js";
 // import { API_KEY } from "./constants.js";
 
 /**
@@ -21,12 +21,11 @@
         // Return headers object if token exists
         return {
             "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`,
-            "X-Noroff-API-Key": API_KEY
-            }
+            "Authorization": `Bearer ${accessToken}`
         };
 
     } catch (error) {
         // Catch any errors in the token loading process and throw a meaningful error
         throw new Error("Unable to retrieve headers due to an access token issue.");
+    }
 } */
