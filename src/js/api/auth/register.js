@@ -1,6 +1,4 @@
-// import { API_SOCIAL_URL } from "../constants.mjs";
-
-import { API_AUTH, API_BASE, API_REGISTER } from '../constants'
+//import { API_AUTH, API_BASE, API_REGISTER } from '../constants'
 
 /**
  * Registers a new user profile to the social network API.
@@ -15,7 +13,7 @@ import { API_AUTH, API_BASE, API_REGISTER } from '../constants'
  * ```
  * **/
 
-const method = 'POST'
+/* const method = 'POST'
 
 export async function register(profile) {
   const registerURL = `${API_BASE}${API_AUTH}${API_REGISTER}`
@@ -32,6 +30,6 @@ export async function register(profile) {
 
   const result = await response.json()
   alert('You have been registered in successfully')
-  // window.location.href = "/profile/login/";
+   window.location.href = "/profile/login/";
   return result
-}
+} */

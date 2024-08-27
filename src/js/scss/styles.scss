@@ -10,24 +10,6 @@ body {
   color: $text-color;
 }
 
-body.light-mode {
-  background-color: $bg-light;
-}
-
-body.dark-mode {
-  background-color: $gray-900;
-}
-
-.navbar.light-mode {
-  background-color: #ffffff;
-  color: #000000;
-}
-
-.navbar.dark-mode {
-  background-color: $gray-900;
-  color: $text-color;
-}
-
 p {
   color: $text-color-light;
 }
@@ -44,7 +26,12 @@ p {
   border-image: $btn-border-gradient !important;
   border-image-slice: 1 !important;
 }
-
+.form-control {
+  background-color: $secondary;
+  color: $text-color-dark;
+  border: 1px solid $primary;
+  border-radius: 5px;
+}
 /* .linear-gold {
   background: linear-gradient(180deg, #A68629 0%, #F0D290 100%);
 } */

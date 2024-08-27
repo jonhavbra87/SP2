@@ -35,9 +35,13 @@ export async function login(email, password) {
 
   if (response.ok) {
     const { accessToken, ...user } = (await response.json()).data
+    if (!accessToken) {
+      throw new Error('No access token found in response')
+    }
+
     storage.save('accessToken', accessToken)
     storage.save('profile', user)
-    alert('You have been logged in successfully')
+    // alert('You have been logged in successfully')
 
     return user
   } else {
