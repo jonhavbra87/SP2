@@ -1,5 +1,6 @@
-import { API_FULL_URL } from '../constants.js'
+// import { API_FULL_URL } from '../constants.js'
 import * as storage from '../../storage/index.js'
+import { API_BASE, API_AUTH, API_LOGIN } from '../constants'
 
 /**
  * Logs in a user by sending their profile data to the API.
@@ -15,13 +16,14 @@ import * as storage from '../../storage/index.js'
  * @throws {Error} Throws an error if the login request fails.
  **/
 
-const action = 'login'
-const method = 'post'
+// body: JSON.stringify({ email, password }),
 
-export async function login(profile) {
-  const loginURL = API_FULL_URL + action
+const method = 'POST'
 
-  const body = JSON.stringify(profile)
+export async function login(email, password) {
+  const loginURL = `${API_BASE}${API_AUTH}${API_LOGIN}`
+
+  const body = JSON.stringify({ email, password })
 
   const response = await fetch(loginURL, {
     headers: {
@@ -30,11 +32,14 @@ export async function login(profile) {
     method,
     body,
   })
+
   if (response.ok) {
-    const { accessToken, ...user } = await response.json()
+    const { accessToken, ...user } = (await response.json()).data
     storage.save('accessToken', accessToken)
     storage.save('profile', user)
     alert('You have been logged in successfully')
+
+    return user
   } else {
     throw new Error('Failed to log in: ' + response.statusText)
   }
