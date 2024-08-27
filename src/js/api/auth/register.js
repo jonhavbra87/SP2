@@ -1,5 +1,7 @@
 // import { API_SOCIAL_URL } from "../constants.mjs";
 
+import { API_AUTH, API_BASE, API_REGISTER } from '../constants'
+
 /**
  * Registers a new user profile to the social network API.
  * This function takes a profile object, converts it to JSON,
@@ -13,24 +15,23 @@
  * ```
  * **/
 
-// const action = "/auth/register";
-// const method = "post";
+const method = 'POST'
 
-// export async function register(profile) {
-//   const registerURL = API_SOCIAL_URL + action;
+export async function register(profile) {
+  const registerURL = `${API_BASE}${API_AUTH}${API_REGISTER}`
 
-//   const body = JSON.stringify(profile);
+  const body = JSON.stringify(profile)
 
-//   const response = await fetch(registerURL, {
-//     headers: {
-//       "Content-Type": "application/json",
-//     },
-//     method,
-//     body,
-//   });
+  const response = await fetch(registerURL, {
+    headers: {
+      'Content-Type': 'application/json',
+    },
+    method,
+    body,
+  })
 
-//   const result = await response.json();
-//   alert("You have been registered in successfully");
-//   window.location.href = "/profile/login/";
-//   return result;
-// }
+  const result = await response.json()
+  alert('You have been registered in successfully')
+  // window.location.href = "/profile/login/";
+  return result
+}

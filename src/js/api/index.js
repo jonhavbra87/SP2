@@ -1,4 +1,4 @@
-import { API_BASE } from './constants'
+/* import { API_BASE } from './constants'
 
 const auction = '/auction'
 const action = '/listings'
@@ -10,7 +10,7 @@ export async function getPosts() {
   return await response.json()
 }
 const listings = await getPosts()
-console.log(listings.data)
+console.log(listings.data) */
 
 /* export async function register(name, email, password) {
   const response = await fetch(`${API_BASE}${API_AUTH}${API_REGISTER}`, {

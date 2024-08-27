@@ -1,10 +1,8 @@
 // import { API_BASE } from "../constants.js";
 // import { doFetch } from "../helpers/doFetch.js";
 
-// export const action = "/posts"
-// export const author = "?_author=true"
-// export const comment = "&_comments=true"
-// export const reactions = "&_reactions=true"
+import { API_BASE, API_AUCTIONS } from '../constants'
+// import { doFetch } from "../helpers/doFetch";
 
 /**
  * Fetches posts from a social API with detailed query parameters to include authors, comments, and reactions.
@@ -17,16 +15,23 @@
 
 /* export async function getPosts() {
     try {
-        const url = `${API_BASE}${action}`;
-        const posts = await doFetch(url), {
-        headers: {
-            "Content-Type": "application/json",
-            "Authorization": `Bearer ${accessToken}`,
-            "X-Noroff-API-Key": API_KEY
-        }
-    }
+        const url = `${API_BASE}${API_AUCTIONS}${action}`;
+        const posts = await doFetch(url);
+        console.log(posts);
+        
         return posts;
     } catch (error) {
         throw new Error(error)
     }
 } */
+
+const action = '/listings'
+
+export async function getPosts() {
+  const url = `${API_BASE}${API_AUCTIONS}${action}`
+
+  const response = await fetch(url)
+  return await response.json()
+}
+const listings = await getPosts()
+console.log(listings.data)

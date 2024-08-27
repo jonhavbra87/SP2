@@ -1,5 +1,5 @@
 // import { API_FULL_URL } from '../constants.js'
-import * as storage from '../storage/index.js'
+import * as storage from '../../storage/index.js'
 import { API_BASE, API_AUTH, API_LOGIN } from '../constants'
 
 /**
@@ -43,46 +43,4 @@ export async function login(email, password) {
   } else {
     throw new Error('Failed to log in: ' + response.statusText)
   }
-}
-/* 
-const action = "/auth/register";
-
-export async function register(profile) {
-  const registerURL = API_SOCIAL_URL + action;
-
-  const body = JSON.stringify(profile);
-
-  const response = await fetch(registerURL, {
-    headers: {
-      "Content-Type": "application/json",
-    },
-    method,
-    body,
-  });
-
-  const result = await response.json();
-  alert("You have been registered in successfully");
-  window.location.href = "/profile/login/";
-  return result;
-} */
-
-export async function onAuth(event) {
-  event.preventDefault()
-  const email = event.target.email.value
-  const password = event.target.password.value
-
-  try {
-    if (event.submitter.dataset.auth === 'login') {
-      await login(email, password)
-    } else {
-      // await register(name, email, password)
-    }
-  } catch (error) {
-    console.error('Authentication error:', error)
-  }
-}
-
-export function setAuthListener() {
-  document.getElementById('loginForm').addEventListener('submit', onAuth)
-  // document.forms.auth.addEventListener("submit", onAuth);
 }

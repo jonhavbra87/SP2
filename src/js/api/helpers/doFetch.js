@@ -1,4 +1,4 @@
-// import { authFetch } from "../authFetch.js";
+import { authFetch } from '../authFetch.js'
 
 /**
  * Fetches data from the provided URL with authentication.
@@ -15,14 +15,12 @@
  * @throws {Error} Throws an error if the fetch request or JSON parsing fails and displays an alert with the error message.
  */
 
-/* export async function doFetch(url) {
-    try {
-        const response = await authFetch(url);
-        const json = await response.json();
-        return json;
-    } catch (error) {
-       
-        throw new Error(`Error fetching data: ${error.message}`)
-        
-    }
-} */
+export async function doFetch(url) {
+  try {
+    const response = await authFetch(url)
+    const json = await response.json()
+    return json
+  } catch (error) {
+    throw new Error(`Error fetching data: ${error.message}`)
+  }
+}
