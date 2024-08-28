@@ -7,5 +7,3 @@ export const API_AUTH = '/auth'
 export const API_LOGIN = '/login'
 export const API_REGISTER = '/register'
 export const API_AUCTIONS = '/auction'
-
-// export const API_FULL_URL = `${API_BASE}${API_AUTH}`
