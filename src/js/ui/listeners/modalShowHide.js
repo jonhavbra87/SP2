@@ -1,17 +1,25 @@
 export function modalShowHide() {
-  const toggleModalButton = document.querySelector(`[data-bs="modal"]`)
-
-  const openModalButton = document.getElementById(`loginModal`)
-
+  const modal = document.getElementById(`loginModal`)
+  const openModalButton = document.querySelector(
+    `[data-bs-target="#loginModal"]`,
+  )
   const closeModalButton = document.getElementById(`closeModal`)
 
-  toggleModalButton.addEventListener('click', () => {
-    openModalButton.classList.add('show')
+  openModalButton.addEventListener('click', () => {
+    console.log('openmodalbuttun clicked')
+
+    modal.classList.add('show')
   })
 
-  // closeModalButton.addEventListener('click', () => {
+  closeModalButton.addEventListener('click', () => {
+    console.log('close modal pressed')
 
-  //   closeModalButton.classList.remove('show')
+    modal.classList.remove('show')
+  })
 
-  // });
+  window.addEventListener('click', function (event) {
+    if (event.target === modal) {
+      modal.classList.remove('show')
+    }
+  })
 }
