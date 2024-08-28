@@ -5,6 +5,7 @@
 import { setAuthListener } from './ui/listeners/auth.js'
 import { getPosts } from './api/posts/getPosts.js'
 import { logout } from './api/auth/logout.js'
+import { navbarShowHide } from './ui/listeners/navbarShowHide.js'
 
 export default function router() {
   const path = window.location.pathname
@@ -16,6 +17,7 @@ export default function router() {
       getPosts()
       setAuthListener()
       logout()
+      navbarShowHide()
       break
     case '/profile/':
       break
