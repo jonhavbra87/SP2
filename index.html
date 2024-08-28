@@ -6,6 +6,7 @@
     <title>Bootstrap 2/vite</title>
     <script type="module" src="./src/js/main.js"></script>
   </head>
+
   <body>
     <header>
       <nav
@@ -131,35 +132,104 @@
             </div>
           </div>
         </div> -->
-        <!-- Button trigger modal -->
-        <button type="button" class="btn btn-primary" data-bs="modal">
-          LOGIN MODAL
-        </button>
 
         <!-- Modal -->
         <div
-          class="modal"
+          class="modal fade"
           id="loginModal"
           tabindex="-1"
           aria-labelledby="loginModalLabel"
           aria-hidden="true"
         >
-          <div class="modal-dialog modal-dialog-centered">
+          <div class="modal-dialog modal-dialog-centered modal-lg">
             <div class="modal-content">
-              <div class="modal-header">
-                <h5 class="modal-title" id="loginModalLabel">Login</h5>
-                <button
-                  type="button"
-                  class="btn-close"
-                  id="closeModal"
-                  aria-label="Close"
-                ></button>
-              </div>
-              <div class="modal-body">
+              <button
+                type="button"
+                class="btn-close"
+                id="closeModal"
+                aria-label="Close"
+              ></button>
+              <div class="modal-body p-5 d-flex">
+                <!-- Left side (Image and text) -->
+                <div
+                  class="col-md-4 p-4 d-flex flex-column justify-content-center text-center bg-dark text-light"
+                >
+                  <img
+                    src="./src/assets/logo.png"
+                    class="img-modal mx-auto"
+                    alt="Logo of CrownBid"
+                    class="img-fluid mx-auto mb-3"
+                  />
+                  <p class="lead">
+                    Discover the world of
+                    <span class="text-warning">luxury</span> at
+                    <span class="text-warning">CrownBid</span>.
+                  </p>
+                  <p>
+                    Exclusive auctions, rare treasures, and unparalleled
+                    elegance await. Whether you're seeking a timeless
+                    masterpiece or a modern luxury item, CrownBid is your
+                    gateway to premium selections and extraordinary deals.
+                    Elevate your collection—one bid at a time.
+                  </p>
+                </div>
                 <!-- Login Form Content -->
-                <form id="loginForm">
-                  <!-- Form fields here -->
-                </form>
+                <div class="col-md-8 p-5 border-start">
+                  <h4 class="mb-4">Login</h4>
+                  <p class="mb-4">
+                    Please provide your existing information for successful
+                    login
+                  </p>
+
+                  <form id="loginForm">
+                    <div class="form-group mb-3">
+                      <label for="email">Email</label>
+                      <input
+                        class="form-control"
+                        type="email"
+                        id="email"
+                        name="email"
+                        placeholder="Email"
+                        pattern="^[^\s@]+@(noroff.no|stud.noroff.no)$"
+                        title="Only @(stud.)noroff.no domains are allowed to register."
+                        required
+                      />
+                      <div class="invalid-feedback text-secondary">
+                        Please enter your email.
+                      </div>
+                    </div>
+                    <div class="form-group mb-3">
+                      <label for="password">Password</label>
+                      <input
+                        class="form-control"
+                        type="password"
+                        name="password"
+                        id="password"
+                        minlength="8"
+                        placeholder="Password"
+                        required
+                      />
+                      <div class="invalid-feedback text-secondary">
+                        Password must include at least 8 letters & numbers.
+                      </div>
+                    </div>
+
+                    <button
+                      class="btn btn-primary btn-lg"
+                      type="submit"
+                      aria-label="Login button"
+                      data-auth="login"
+                    >
+                      Login
+                    </button>
+                  </form>
+                  <div class="text-center mt-4">
+                    <p class="border-top">
+                      Not an account yet?
+                      <a href="#" class="text-warning">Register here &rarr;</a>
+                    </p>
+                  </div>
+                </div>
               </div>
             </div>
           </div>

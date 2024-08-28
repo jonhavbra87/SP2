@@ -11,7 +11,7 @@ body {
 }
 
 p {
-  color: $text-color-light;
+  color: $text-color;
 }
 
 /* Navbar show/close */
@@ -37,11 +37,11 @@ p {
 }
 
 .form-control {
-  background-color: $secondary;
-  color: $text-color-black;
+  background-color: $body-bg;
   border: 1px solid $primary;
   border-radius: 5px;
 }
+
 .modal {
   display: none;
   position: fixed;
@@ -61,8 +61,8 @@ p {
 .modal-dialog {
   position: relative;
   margin: auto;
-  max-width: 500px;
-  background: white;
+  max-width: 1198px;
+  background: transparent;
   border-radius: 5px;
 }
 
@@ -70,7 +70,24 @@ p {
 .modal-body {
   padding: 20px;
 }
+.img-modal {
+  width: 300px;
+}
 
+#closeModal {
+  position: absolute;
+  top: 2opx; /* Avstand fra toppen */
+  right: 20px; /* Avstand fra høyre */
+  color: #fff !important;
+  background: none;
+  border: none;
+  font-size: 1.5rem;
+  cursor: crosshair;
+}
+#closeModal:hover {
+  color: #b58900;
+  cursor: pointer;
+}
 /* .linear-gold {
   background: linear-gradient(180deg, #A68629 0%, #F0D290 100%);
 } */
