@@ -37,9 +37,7 @@ export async function getPosts() {
       'X-Noroff-API-Key': API_KEY,
     },
   });
-  return await response.json();
+  const result = await response.json();
+  console.log(result);
+  return result;
 }
-
-//sjekk ut dette! tok bort await getPosts()
-const listings = getPosts();
-console.log(listings.data);
