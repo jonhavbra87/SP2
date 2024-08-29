@@ -7,6 +7,7 @@ import { getPosts } from './api/posts/getPosts.js'
 import { logout } from './api/auth/logout.js'
 import { navbarShowHide } from './ui/listeners/navbarShowHide.js'
 import { modalShowHide } from './ui/listeners/modalShowHide.js'
+import { loginListener } from './ui/listeners/loginListener.js'
 
 export default function router() {
   const path = window.location.pathname
@@ -20,6 +21,7 @@ export default function router() {
       logout()
       navbarShowHide()
       modalShowHide()
+      loginListener()
       break
     case '/profile/':
       break

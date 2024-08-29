@@ -13,7 +13,7 @@
  * ```
  * **/
 
-/* const method = 'POST'
+const method = 'POST'
 
 export async function register(profile) {
   const registerURL = `${API_BASE}${API_AUTH}${API_REGISTER}`
@@ -30,6 +30,6 @@ export async function register(profile) {
 
   const result = await response.json()
   alert('You have been registered in successfully')
-   window.location.href = "/profile/login/";
+  window.location.href = '/profile/login/'
   return result
-} */
+}
