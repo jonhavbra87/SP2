@@ -1,10 +1,10 @@
-import { remove } from '../../storage/index.js'
+import { remove } from '../../storage/index.js';
 
 export function logout() {
-  const logOutBtn = document.querySelector('[data-auth="logout"]')
+  const logOutBtn = document.querySelector('[data-auth="logout"]');
 
   logOutBtn.addEventListener('click', () => {
-    remove('accessToken')
-    remove('profile')
-  })
+    remove('accessToken');
+    remove('profile');
+  });
 }

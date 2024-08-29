@@ -1,4 +1,4 @@
-//import { API_AUTH, API_BASE, API_REGISTER } from '../constants'
+import { API_AUTH, API_BASE, API_REGISTER } from '../constants';
 
 /**
  * Registers a new user profile to the social network API.
@@ -13,12 +13,13 @@
  * ```
  * **/
 
-/* const method = 'POST'
+const method = 'POST';
 
-export async function register(profile) {
-  const registerURL = `${API_BASE}${API_AUTH}${API_REGISTER}`
+export async function register(name, email, password) {
+  const registerURL = `${API_BASE}${API_AUTH}${API_REGISTER}`;
 
-  const body = JSON.stringify(profile)
+  const body = JSON.stringify({ name, email, password });
+  console.log(body);
 
   const response = await fetch(registerURL, {
     headers: {
@@ -26,10 +27,9 @@ export async function register(profile) {
     },
     method,
     body,
-  })
+  });
 
-  const result = await response.json()
-  alert('You have been registered in successfully')
-   window.location.href = "/profile/login/";
-  return result
-} */
+  const result = await response.json();
+
+  return result;
+}
