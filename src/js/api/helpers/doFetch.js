@@ -1,4 +1,4 @@
-import { authFetch } from '../authFetch.js'
+import { authFetch } from '../authFetch.js';
 
 /**
  * Fetches data from the provided URL with authentication.
@@ -17,10 +17,10 @@ import { authFetch } from '../authFetch.js'
 
 export async function doFetch(url) {
   try {
-    const response = await authFetch(url)
-    const json = await response.json()
-    return json
+    const response = await authFetch(url);
+    const json = await response.json();
+    return json;
   } catch (error) {
-    throw new Error(`Error fetching data: ${error.message}`)
+    throw new Error(`Error fetching data: ${error.message}`);
   }
 }

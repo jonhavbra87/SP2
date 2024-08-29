@@ -1,4 +1,4 @@
-const fetchMock = jest.fn()
+const fetchMock = jest.fn();
 
 export const createMockFetch = (response = {}, status = 200) => {
   fetchMock.mockImplementation(() =>
@@ -7,7 +7,7 @@ export const createMockFetch = (response = {}, status = 200) => {
       status,
       json: () => Promise.resolve(response),
     }),
-  )
+  );
 
-  return fetchMock
-}
+  return fetchMock;
+};

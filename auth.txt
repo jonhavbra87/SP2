@@ -67,3 +67,58 @@ export async function updatePost(postId, updatedPost) {
         throw error;
     }
 }
+
+
+
+-------------------MODAL---------
+ <!--       <div class="col-12">
+
+          <div id="loginModal" class="modal">
+            <div class="modal-content">
+              <span class="close">&times;</span>
+              <div class="modal-body">
+                <div class="row">
+
+                  <div class="col left-col">
+                    <img
+                      src="/src/assets/logo.png"
+                      alt="CrownBid Logo"
+                      class="logo"
+                    />
+                    <h5>Discover the world of luxury at CrownBid.</h5>
+                    <p>
+                      Exclusive auctions, rare treasures, and unparalleled
+                      elegance await...
+                    </p>
+                  </div>
+
+                  <div class="col right-col">
+                    <h5>Login</h5>
+                    <p>
+                      Please provide your existing information for a successful
+                      login.
+                    </p>
+                    <form>
+                      <div class="input-group">
+                        <label for="email">Email</label>
+                        <input type="email" id="email" placeholder="Email" />
+                      </div>
+                      <div class="input-group">
+                        <label for="password">Password</label>
+                        <input
+                          type="password"
+                          id="password"
+                          placeholder="Password"
+                        />
+                      </div>
+                      <button type="submit" class="btn">Login</button>
+                    </form>
+                    <p class="register">
+                      Not an account yet? <a href="#">Register here →</a>
+                    </p>
+                  </div>
+                </div>
+              </div>
+            </div>
+          </div>
+        </div> -->

@@ -1,20 +1,20 @@
 export function save(key, value) {
-  localStorage.setItem(key, JSON.stringify(value))
+  localStorage.setItem(key, JSON.stringify(value));
 }
 
 export function load(key) {
   try {
-    const value = localStorage.getItem(key)
-    return JSON.parse(value)
+    const value = localStorage.getItem(key);
+    return JSON.parse(value);
   } catch {
-    return null
+    return null;
   }
 }
 
 export function remove(key) {
   if (localStorage.getItem(key) !== null) {
-    localStorage.removeItem(key)
+    localStorage.removeItem(key);
   } else {
-    console.warn(`Key "${key}" does not exist in localStorage.`)
+    console.warn(`Key "${key}" does not exist in localStorage.`);
   }
 }

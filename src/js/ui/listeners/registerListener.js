@@ -1,7 +1,7 @@
 import { onAuth } from '../events/onAuth';
 
-export function loginListener() {
-  document.getElementById('loginForm').addEventListener('submit', async (event) => {
+export function registerListener() {
+  document.getElementById('registerForm').addEventListener('submit', async (event) => {
     onAuth(event);
 
     const loader = document.getElementById('loader');

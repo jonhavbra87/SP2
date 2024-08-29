@@ -1,6 +1,6 @@
 // import { API_FULL_URL } from '../constants.js'
-import * as storage from '../../storage/index.js'
-import { API_BASE, API_AUTH, API_LOGIN } from '../constants'
+import * as storage from '../../storage/index.js';
+import { API_BASE, API_AUTH, API_LOGIN } from '../constants';
 
 /**
  * Logs in a user by sending their profile data to the API.
@@ -18,12 +18,12 @@ import { API_BASE, API_AUTH, API_LOGIN } from '../constants'
 
 // body: JSON.stringify({ email, password }),
 
-const method = 'POST'
+const method = 'POST';
 
 export async function login(email, password) {
-  const loginURL = `${API_BASE}${API_AUTH}${API_LOGIN}`
+  const loginURL = `${API_BASE}${API_AUTH}${API_LOGIN}`;
 
-  const body = JSON.stringify({ email, password })
+  const body = JSON.stringify({ email, password });
 
   const response = await fetch(loginURL, {
     headers: {
@@ -31,20 +31,20 @@ export async function login(email, password) {
     },
     method,
     body,
-  })
+  });
 
   if (response.ok) {
-    const { accessToken, ...user } = (await response.json()).data
+    const { accessToken, ...user } = (await response.json()).data;
     if (!accessToken) {
-      throw new Error('No access token found in response')
+      throw new Error('No access token found in response');
     }
 
-    storage.save('accessToken', accessToken)
-    storage.save('profile', user)
+    storage.save('accessToken', accessToken);
+    storage.save('profile', user);
     // alert('You have been logged in successfully')
 
-    return user
+    return user;
   } else {
-    throw new Error('Failed to log in: ' + response.statusText)
+    throw new Error('Failed to log in: ' + response.statusText);
   }
 }

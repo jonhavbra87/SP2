@@ -2,46 +2,48 @@
 //import * as listeners from "./listeners/index.js";
 //import * as utilities from "./utilities/index.js";
 
-import { setAuthListener } from './ui/listeners/auth.js'
-import { getPosts } from './api/posts/getPosts.js'
-import { logout } from './api/auth/logout.js'
-import { navbarShowHide } from './ui/listeners/navbarShowHide.js'
-import { modalShowHide } from './ui/listeners/modalShowHide.js'
-import { loginListener } from './ui/listeners/loginListener.js'
+// import { setAuthListener } from './ui/listeners/auth.js';
+import { getPosts } from './api/posts/getPosts.js';
+import { logout } from './api/auth/logout.js';
+import { navbarShowHide } from './ui/listeners/navbarShowHide.js';
+import { modalShowHide } from './ui/listeners/modalShowHide.js';
+import { loginListener } from './ui/listeners/loginListener.js';
+import { registerListener } from './ui/listeners/registerListener.js';
 
 export default function router() {
-  const path = window.location.pathname
+  const path = window.location.pathname;
 
   switch (path) {
     case '/':
-      console.log('router is working')
+      console.log('router is working');
       //displayModal()
-      getPosts()
-      setAuthListener()
-      logout()
-      navbarShowHide()
-      modalShowHide()
-      loginListener()
-      break
+      getPosts();
+      // setAuthListener();
+      logout();
+      navbarShowHide();
+      modalShowHide();
+      loginListener();
+      registerListener();
+      break;
     case '/profile/':
-      break
+      break;
     case '/profile/login/':
-      break
+      break;
     case '/profile/register/':
-      break
+      break;
     case '/profile/edit/':
-      break
+      break;
     case '/post/create/':
-      break
+      break;
     case '/post/edit/':
-      break
+      break;
     case '/post/delete/':
-      break
+      break;
     case '/posts/':
-      break
+      break;
     case '/post/':
-      break
+      break;
     default:
-      console.log('404 error. Page not found.')
+      console.log('404 error. Page not found.');
   }
 }
