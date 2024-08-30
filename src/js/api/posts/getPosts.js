@@ -14,18 +14,6 @@ import { API_BASE, API_AUCTIONS, API_KEY } from '../constants';
  * @throws {Error} Throws an Error object with a message if the fetch operation fails.
  */
 
-/* export async function getPosts() {
-    try {
-        const url = `${API_BASE}${API_AUCTIONS}${action}`;
-        const posts = await doFetch(url);
-        console.log(posts);
-        
-        return posts;
-    } catch (error) {
-        throw new Error(error)
-    }
-} */
-
 const action = '/listings';
 
 export async function getPosts() {

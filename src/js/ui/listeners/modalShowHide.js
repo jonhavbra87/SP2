@@ -4,7 +4,6 @@ export function modalShowHide() {
   const openLoginModalButton = document.querySelector('[data-bs-target="#loginModal"]');
   const openRegisterModalButton = document.querySelector('[data-bs-target="#registrationModal"]');
   const closeModalButtons = document.querySelectorAll('.btn-close');
-  console.log(closeModalButtons);
 
   openLoginModalButton.addEventListener('click', () => {
     console.log('openmodalbuttun clicked');
