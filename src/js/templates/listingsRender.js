@@ -1,7 +1,11 @@
 import { getPosts } from '../api/posts/getPosts.js';
 import { listingsAppend } from './listingsAppend.js';
+const loader = document.getElementById('loader');
 
 export async function listingsRender() {
+  loader.innerHTML = '';
+  loader.classList.add('d-none');
+
   const container = document.getElementById('listings');
   container.innerHTML = '';
 
