@@ -9,6 +9,7 @@ import { navbarShowHide } from './ui/listeners/navbarShowHide.js';
 import { modalShowHide } from './ui/listeners/modalShowHide.js';
 import { loginListener } from './ui/listeners/loginListener.js';
 import { registerListener } from './ui/listeners/registerListener.js';
+import * as templates from './templates/index.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -17,13 +18,14 @@ export default function router() {
     case '/':
       console.log('router is working');
       //displayModal()
-      getPosts();
+      //getPosts();
       // setAuthListener();
       logout();
       navbarShowHide();
       modalShowHide();
       loginListener();
       registerListener();
+      templates.listingsRender();
       break;
     case '/profile/':
       break;
