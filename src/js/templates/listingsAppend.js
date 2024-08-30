@@ -10,7 +10,6 @@ export function listingsAppend(postData, parent) {
       const cardContent = listingTemplate(postData);
 
       if (cardContent) {
-        cardContent.style.cursor = 'pointer';
         /*    cardContent.addEventListener('click', () => {
                     window.location.href = `/listingpecific/?id=${postData.id}`;
                 });     */

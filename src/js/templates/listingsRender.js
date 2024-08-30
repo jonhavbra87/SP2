@@ -1,5 +1,6 @@
 import { getPosts } from '../api/posts/getPosts.js';
 import { listingsAppend } from './listingsAppend.js';
+
 const loader = document.getElementById('loader');
 
 export async function listingsRender() {
