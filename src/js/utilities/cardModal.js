@@ -1,13 +1,18 @@
-export function cardModal() {
+/* export function cardModal() {
   const cardModal = document.getElementById('cardModal');
-  const openModalBtn = document.querySelector(`[data-bs-target="#cardModal"]`);
+  const openModalBtn = document.querySelector(`[data-bs-target="#cardModal"]`); //endre til id el noe annet
   const closeBtn = document.querySelector('.btn-close');
-  console.log(document.querySelector('[data-bs-target="#cardModal"]')); // Dette skal logge knappen hvis den eksisterer
+  //console.log(document.querySelector('[data-bs-target="#cardModal"]'));
 
   try {
-    // Manuell åpning av modal er ikke nødvendig, men hvis du vil gjøre noe ekstra, legg det her
-    openModalBtn.addEventListener('click', () => {
-      console.log('openmodalbutton clicked');
+    document.getElementById('listings').addEventListener('click', (event) => {
+      if (event.target && event.target.getAttribute('data-bs-target') === '#cardModal') {
+        console.log('openmodalbutton clicked');
+        console.log(cardModal);
+        openModalBtn.classList.add('show');
+
+        // Her kan du legge til ekstra funksjonalitet om nødvendig
+      }
     });
 
     // Pass på at du har valgt det riktige elementet, og at du legger til event listener på riktig måte
@@ -24,3 +29,4 @@ export function cardModal() {
     console.error(error.message);
   }
 }
+ */

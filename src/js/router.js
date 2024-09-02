@@ -10,7 +10,7 @@ import { modalShowHide } from './ui/listeners/modalShowHide.js';
 import { loginListener } from './ui/listeners/loginListener.js';
 import { registerListener } from './ui/listeners/registerListener.js';
 import * as templates from './templates/index.js';
-import { cardModal } from './utilities/cardModal.js';
+//import { cardModal } from './utilities/cardModal.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -24,7 +24,7 @@ export default function router() {
       loginListener();
       registerListener();
       templates.listingsRender();
-      cardModal();
+      //cardModal();
       break;
     case '/profile/':
       break;
