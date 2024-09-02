@@ -3,6 +3,7 @@
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
+import { listingAppend } from './templates/listingAppend.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -16,6 +17,12 @@ export default function router() {
       listeners.loginListener();
       listeners.registerListener();
       templates.listingsRender();
+      break;
+    case '/listings/':
+      console.log('router is working');
+      listeners.navbarShowHide();
+      listeners.modalShowHide();
+      listingAppend();
       break;
     case '/profile/':
       break;
@@ -33,8 +40,7 @@ export default function router() {
       break;
     case '/posts/':
       break;
-    case '/post/':
-      break;
+
     default:
       console.log('404 error. Page not found.');
   }

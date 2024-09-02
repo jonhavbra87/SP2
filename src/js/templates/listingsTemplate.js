@@ -1,6 +1,6 @@
 import * as create from '../render/helpers/create/index.js';
 
-export function listingTemplate(postData) {
+export function listingsTemplate(postData) {
   const card = create.CardContainer(postData);
   const cardBody = create.CardBodyContainer(postData);
   const media = create.mediaContainer(postData);

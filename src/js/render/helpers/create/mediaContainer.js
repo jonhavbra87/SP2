@@ -1,4 +1,4 @@
-export function createMediaContainer(postData) {
+export function mediaContainer(postData) {
   const imgContainer = document.createElement('div');
   imgContainer.classList.add('ratio', 'ratio-1x1');
 
