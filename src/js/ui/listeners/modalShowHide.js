@@ -5,7 +5,7 @@ export function modalShowHide() {
 
   const openLoginModalButton = document.querySelector('[data-bs-target="#loginModal"]');
   const openRegisterModalButton = document.querySelector('[data-bs-target="#registrationModal"]');
-  const openCardModalButtons = document.querySelectorAll('[data-bs-target="#cardModal"]');
+  //const openCardModalButtons = document.querySelectorAll('[data-bs-target="#cardModal"]');
 
   const closeModalButtons = document.querySelectorAll('.btn-close');
 
@@ -20,20 +20,11 @@ export function modalShowHide() {
     registerModal.classList.add('show');
   });
 
-  /*   openCardModalButtons.forEach((button) => {
-    button.addEventListener('click', () => {
-      console.log('Card modal opened');
-      cardModal.classList.add('show');
-    });
-  }); */
-
   document.getElementById('listings').addEventListener('click', (event) => {
     if (event.target && event.target.getAttribute('data-bs-target') === '#cardModal') {
       console.log('openmodalbutton clicked');
       console.log(cardModal);
       cardModal.classList.add('show');
-
-      // Her kan du legge til ekstra funksjonalitet om nødvendig
     }
   });
 

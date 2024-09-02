@@ -5,12 +5,8 @@
 // import { setAuthListener } from './ui/listeners/auth.js';
 import { getPosts } from './api/posts/getPosts.js';
 import { logout } from './api/auth/logout.js';
-import { navbarShowHide } from './ui/listeners/navbarShowHide.js';
-import { modalShowHide } from './ui/listeners/modalShowHide.js';
-import { loginListener } from './ui/listeners/loginListener.js';
-import { registerListener } from './ui/listeners/registerListener.js';
+import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
-//import { cardModal } from './utilities/cardModal.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -19,12 +15,11 @@ export default function router() {
     case '/':
       console.log('router is working');
       logout();
-      navbarShowHide();
-      modalShowHide();
-      loginListener();
-      registerListener();
+      listeners.navbarShowHide();
+      listeners.modalShowHide();
+      listeners.loginListener();
+      listeners.registerListener();
       templates.listingsRender();
-      //cardModal();
       break;
     case '/profile/':
       break;
