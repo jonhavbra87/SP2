@@ -14,10 +14,12 @@ export async function listingsRender() {
     const posts = await getPosts();
 
     if (!posts || !posts.length) {
+      console.warn('No posts found or posts array is empty.');
       return;
     }
     listingsAppend(posts, container);
   } catch (error) {
-    throw new Error(`Failed to render posts: ${error.message}`);
+    console.error('Failed to render posts:', error);
+    container.innerHTML = `<p class="error-message">Failed to load listings. Please try again later.</p>`;
   }
 }

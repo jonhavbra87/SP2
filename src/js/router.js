@@ -1,9 +1,5 @@
-//import * as templates from "./templates/index.js";
-//import * as listeners from "./listeners/index.js";
-//import * as utilities from "./utilities/index.js";
-
+/* ------ ROUTER ------ */
 // import { setAuthListener } from './ui/listeners/auth.js';
-import { getPosts } from './api/posts/getPosts.js';
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
