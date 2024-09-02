@@ -1,4 +1,4 @@
-import { onAuth } from '../events/onAuth';
+import { onAuth } from '../events/onAuth.js';
 
 export function registerListener() {
   document.getElementById('registerForm').addEventListener('submit', async (event) => {
