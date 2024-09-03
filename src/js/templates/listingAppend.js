@@ -1,7 +1,19 @@
-import { listingsTemplate } from './listingsTemplate.js';
+import { listingTemplate } from './listingTemplate.js';
 
 export function listingAppend(postData, parent) {
-  const card = listingsTemplate(postData);
+  // if (!postData) {
+  //   console.error('Failed to render posts: postData is undefined or null');
+  //   return;
+  // }
+  try {
+    const data = postData;
 
-  parent.append(card);
+    console.log('Appending post:', data);
+
+    const card = listingTemplate(data);
+
+    parent.append(card);
+  } catch (error) {
+    console.error('Failed to render posts:', error);
+  }
 }

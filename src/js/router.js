@@ -3,7 +3,9 @@
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
-import { listingAppend } from './templates/listingAppend.js';
+// import { listingAppend } from './templates/listingAppend.js';
+// import { getPost } from './api/posts/getPost.js';
+import { listingRender } from './templates/listingRender.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -18,11 +20,13 @@ export default function router() {
       listeners.registerListener();
       templates.listingsRender();
       break;
-    case '/listings/':
+    case '/src/listings/':
       console.log('router is working');
+      // getPost()
       listeners.navbarShowHide();
       listeners.modalShowHide();
-      listingAppend();
+      // listingAppend();
+      listingRender();
       break;
     case '/profile/':
       break;
