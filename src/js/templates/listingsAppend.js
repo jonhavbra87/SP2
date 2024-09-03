@@ -32,7 +32,3 @@ export function listingsAppend(postData, parent) {
     throw new Error(`Failed to render posts: ${error.message}`);
   }
 }
-
-/*      cardContent.addEventListener('click', () => {
-                    window.location.href = `/?id=${postData.id}`;
-                });     */
