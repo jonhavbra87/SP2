@@ -1,4 +1,5 @@
 import { modalShowHide } from '../ui/listeners/modalShowHide.js';
+import { listingRender } from './listingRender.js';
 import { listingsTemplate } from './listingsTemplate.js';
 
 export function listingsAppend(postData, parent) {
@@ -18,11 +19,12 @@ export function listingsAppend(postData, parent) {
         // modalButton.setAttribute('data-bs-target', `#modal-${modalId}`);
 
         readMoreBtn.onclick = () => {
-          // console.log('Modal button clicked, ID:', modalId);
+          console.log('Modal button clicked, ID:', readMoreBtn.id);
 
           // const modal =  modalShowHide(postData);
           window.location.href = `/listings/?id=${postData.id}`;
           // document.body.append(modal);
+          //history.pushState(null, '', `/listings/${postData.id}`);
         };
 
         parent.append(cardContent);
