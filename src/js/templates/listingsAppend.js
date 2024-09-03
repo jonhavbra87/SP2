@@ -1,4 +1,6 @@
-import { listingTemplate } from './listingTemplate.js';
+import { modalShowHide } from '../ui/listeners/modalShowHide.js';
+import { listingRender } from './listingRender.js';
+import { listingsTemplate } from './listingsTemplate.js';
 
 export function listingsAppend(postData, parent) {
   if (!postData) {
@@ -7,12 +9,23 @@ export function listingsAppend(postData, parent) {
   }
   try {
     postData.forEach((postData) => {
-      const cardContent = listingTemplate(postData);
+      const cardContent = listingsTemplate(postData);
 
       if (cardContent) {
-        /*    cardContent.addEventListener('click', () => {
-                    window.location.href = `/listingpecific/?id=${postData.id}`;
-                });     */
+        const readMoreBtn = cardContent.querySelector('.make-offer-btn');
+        // const modalId = `${postData.id}`;
+
+        // modalButton.setAttribute('data-bs-toggle', 'modal');
+        // modalButton.setAttribute('data-bs-target', `#modal-${modalId}`);
+
+        readMoreBtn.onclick = () => {
+          console.log('Modal button clicked, ID:', readMoreBtn.id);
+
+          // const modal =  modalShowHide(postData);
+          window.location.href = `/listings/?id=${postData.id}`;
+          // document.body.append(modal);
+        };
+
         parent.append(cardContent);
       }
     });

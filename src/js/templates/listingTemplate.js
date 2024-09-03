@@ -1,12 +1,12 @@
-import * as helpers from '../render/helpers/create/index.js';
+import * as createSpecific from '../render/helpers/create/specificCard/index.js';
 
 export function listingTemplate(postData) {
-  const card = helpers.createCardContainer(postData);
-  const cardBody = helpers.createCardBodyContainer(postData);
-  const media = helpers.createMediaContainer(postData);
-  const footerContainer = helpers.createFooterContainer(postData);
+  const card = createSpecific.specificCardContainer(postData);
+  const cardBody = createSpecific.specificCardBodyContainer(postData);
+  const footer = createSpecific.specificFooterContainer(postData);
+  const mediaCarousel = createSpecific.carouselContainer(postData.media);
 
-  cardBody.append(media, footerContainer);
+  cardBody.append(mediaCarousel, footer);
   card.append(cardBody);
 
   return card;

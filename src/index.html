@@ -4,8 +4,8 @@
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap 2/vite</title>
-    <script type="module" src="./src/js/main.js"></script>
-    <link rel="stylesheet" href="./src/js/scss/styles.scss" />
+    <script type="module" src="./js/main.js"></script>
+    <link rel="stylesheet" href="./js/scss/styles.scss" />
   </head>
 
   <body>
@@ -14,7 +14,7 @@
         <div class="container d-flex justify-content-between">
           <!-- Logo -->
           <a class="navbar-brand" href="/">
-            <img src="./src/assets/logo.png" alt="Logo of CrownBid" />
+            <img src="./assets/logo.png" alt="Logo of CrownBid" />
           </a>
 
           <!-- Navbar Toggler for small screens -->
@@ -66,7 +66,7 @@
     </header>
 
     <main>
-      <div class="d-flex flex-wrap gap-3 justify-content-center" id="listings">
+      <section class="d-flex flex-wrap gap-3 justify-content-center" id="listings">
         <div id="loader" class="lds-default">
           <div></div>
           <div></div>
@@ -81,11 +81,11 @@
           <div></div>
           <div></div>
         </div>
-      </div>
+      </section>
     </main>
 
     <footer class="text-center py-4">
-      <p>&copy; 2024 Your Company</p>
+      <p>&copy; 2024 CrownBid</p>
     </footer>
 
     <!-- Login Modal -->
@@ -258,33 +258,31 @@
     </div>
 
     <!-- Card Modal -->
-    <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+    <div class="modal fade" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <button type="button" class="btn-close" id="closeCardModal" aria-label="Close"></button>
           <div class="modal-body p-5 d-flex"></div>
           <div class="d-flex flex-wrap gap-3 justify-content-center">
-            <p>hello world</p>
+            <div class="d-block justify-content-center" id="listing">
+              <div id="loader" class="lds-default">
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+                <div></div>
+              </div>
+            </div>
           </div>
         </div>
       </div>
     </div>
   </body>
 </html>
-
-<!-- <!doctype html>
-<html lang="en">
-  <head>
-    <meta charset="UTF-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap w/ Vite</title>
-    <script type="module" src="./js/main.js"></script>
-  </head>
-  <body>
-    <div class="container py-4 px-3 mx-auto">
-      <h1>Hello, Bootstrap and Vite!</h1>
-      <button class="btn btn-primary">Primary button</button>
-    </div>
-  </body>
-</html>
- -->

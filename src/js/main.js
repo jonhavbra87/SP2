@@ -6,3 +6,4 @@ import '../js/scss/styles.scss';
 import router from './router.js';
 
 router();
+//console.log(await listings);

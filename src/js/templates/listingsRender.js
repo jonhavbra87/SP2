@@ -8,18 +8,18 @@ export async function listingsRender() {
   loader.classList.add('d-none');
 
   const container = document.getElementById('listings');
-  container.innerHTML = '';
+  //container.innerHTML = '';
 
   try {
-    const posts = await getPosts();
+    const listings = await getPosts();
 
-    if (!posts || !posts.length) {
-      console.warn('No posts found or posts array is empty.');
+    if (!listings || !listings.length) {
+      console.warn('No listings found or listings array is empty.');
       return;
     }
-    listingsAppend(posts, container);
+    listingsAppend(listings, container);
   } catch (error) {
-    console.error('Failed to render posts:', error);
+    console.error('Failed to render listings:', error);
     container.innerHTML = `<p class="error-message">Failed to load listings. Please try again later.</p>`;
   }
 }
