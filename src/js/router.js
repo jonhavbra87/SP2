@@ -4,6 +4,7 @@ import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
 import { listingRender } from './templates/listingRender.js';
+import { carousel } from './utilities/carousel.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -24,6 +25,7 @@ export default function router() {
       listeners.navbarShowHide();
       listeners.modalShowHide();
       listingRender();
+      carousel();
       break;
     case '/profile/':
       break;

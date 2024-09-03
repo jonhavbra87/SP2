@@ -24,7 +24,6 @@ export function listingsAppend(postData, parent) {
           // const modal =  modalShowHide(postData);
           window.location.href = `/listings/?id=${postData.id}`;
           // document.body.append(modal);
-          //history.pushState(null, '', `/listings/${postData.id}`);
         };
 
         parent.append(cardContent);

@@ -6,11 +6,7 @@ export function listingAppend(postData, parent) {
     return;
   }
   try {
-    const data = postData;
-
-    console.log('Appending post:', data);
-
-    const card = listingTemplate(data);
+    const card = listingTemplate(postData);
 
     parent.append(card);
   } catch (error) {

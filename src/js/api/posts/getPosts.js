@@ -26,6 +26,6 @@ export async function getPosts() {
     },
   });
   const result = await response.json();
-  console.log(result.data);
+
   return result.data;
 }
