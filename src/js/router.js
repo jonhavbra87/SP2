@@ -4,6 +4,7 @@ import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
 import { listingRender } from './templates/listingRender.js';
+import { searchListings } from './utilities/searchListings.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -17,6 +18,7 @@ export default function router() {
       listeners.loginListener();
       listeners.registerListener();
       templates.listingsRender();
+      searchListings();
       break;
     case '/listings':
     case '/listings/':

@@ -1,6 +1,6 @@
 import { listingTemplate } from '../../../templates';
 
-export function FooterContainer(postData, modalId) {
+export function FooterContainer(postData) {
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('d-flex', 'flex-column', 'justify-content-center', 'align-items-center');
 
