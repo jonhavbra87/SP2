@@ -19,8 +19,6 @@ export function listingsAppend(postData, parent) {
         // modalButton.setAttribute('data-bs-target', `#modal-${modalId}`);
 
         readMoreBtn.onclick = () => {
-          console.log('Modal button clicked, ID:', readMoreBtn.id);
-
           // const modal =  modalShowHide(postData);
           window.location.href = `/listings/?id=${postData.id}`;
           // document.body.append(modal);

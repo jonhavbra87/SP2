@@ -8,8 +8,6 @@ export async function listingRender() {
     const url = new URL(location.href);
     let id = url.searchParams.get('id');
 
-    console.log('ID:', id);
-
     const listingData = await getPost(id);
 
     console.log('Listing data:', listingData);
@@ -18,7 +16,6 @@ export async function listingRender() {
       const container = document.getElementById('specific-post');
 
       loader.innerHTML = '';
-
       loader.classList.add('d-none');
 
       listingAppend(listingData, container);

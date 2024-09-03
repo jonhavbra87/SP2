@@ -1,0 +1,115 @@
+export function carouselItem(media) {
+  const carouselItem = document.createElement('div');
+  carouselItem.classList.add('carousel-item');
+  if (index === 0) {
+    carouselItem.classList.add('active');
+  }
+
+  const carouselImage = document.createElement('img');
+  carouselImage.src = media.url;
+  carouselImage.classList.add('d-block', 'w-100');
+  carouselImage.alt = media.title;
+
+  carouselItem.append(carouselImage);
+
+  return carouselItem;
+}
+
+
+export function appendCarouselItems(media) {
+  return media.map((item) => {
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item');
+
+    const carouselImage = document.createElement('img');
+    carouselImage.src = item.url;
+    carouselImage.classList.add('d-block', 'w-100');
+    carouselImage.alt = item.alt || 'Carousel image';
+
+    carouselItem.append(carouselImage);
+    return carouselItem;
+  });
+}
+export function carouselContainer(media) {
+  const carousel = document.createElement('div');
+  carousel.classList.add('carousel', 'slide'); // Bootstrap classes for carousel
+  carousel.id = 'carouselIndicators'; // Assign an ID for targeting with data attributes
+
+  const carouselIndicators = document.createElement('div');
+  carouselIndicators.classList.add('carousel-indicators'); // Indicator container
+
+  const carouselInner = document.createElement('div');
+  carouselInner.classList.add('carousel-inner'); // Carousel inner container for slides
+
+  // Dynamically create indicators and carousel items based on media array
+  media.forEach((item, index) => {
+    // Create indicator buttons for each slide
+    const indicatorButton = document.createElement('button');
+    indicatorButton.type = 'button';
+    indicatorButton.dataset.bsTarget = '#carouselIndicators'; // Targets the carousel ID
+    indicatorButton.dataset.bsSlideTo = index; // Slide index
+    indicatorButton.classList.add('dots'); // Custom class for dots (if needed)
+    indicatorButton.ariaLabel = `Slide ${index + 1}`; // Accessibility label
+
+    if (index === 0) {
+      indicatorButton.classList.add('active'); // Set the first slide as active
+      indicatorButton.ariaCurrent = 'true'; // Mark it as the current slide
+    }
+    carouselIndicators.append(indicatorButton); // Add indicator to the container
+
+    // Create carousel item for each media entry
+    const carouselItem = document.createElement('div');
+    carouselItem.classList.add('carousel-item', 'slide'); // Bootstrap carousel item class and custom 'slide' class
+
+    if (index === 0) {
+      carouselItem.classList.add('active'); // Set the first item as active
+    }
+
+    const carouselImage = document.createElement('img');
+    carouselImage.src = item.url; // Set the image source
+    carouselImage.classList.add('d-block', 'w-100'); // Bootstrap classes for image styling
+    carouselImage.alt = item.alt || 'Carousel image'; // Set the image alt text
+
+    carouselItem.append(carouselImage); // Append image to carousel item
+    carouselInner.append(carouselItem); // Append item to carousel inner container
+  });
+
+  // Create previous button
+  const buttonPrev = document.createElement('button');
+  buttonPrev.type = 'button';
+  buttonPrev.dataset.bsTarget = '#carouselIndicators'; // Targets the carousel ID
+  buttonPrev.dataset.bsSlide = 'prev'; // Slide direction
+  buttonPrev.classList.add('carousel-control-prev', 'slider__btn--left'); // Bootstrap and custom classes for left button
+
+  const spanPrev1 = document.createElement('span');
+  spanPrev1.classList.add('carousel-control-prev-icon'); // Bootstrap class for icon
+  spanPrev1.ariaHidden = 'true'; // Hide from screen readers
+
+  const spanPrev2 = document.createElement('span');
+  spanPrev2.classList.add('visually-hidden'); // Hide visually
+  spanPrev2.textContent = 'Previous'; // Text for screen readers
+
+  buttonPrev.append(spanPrev1, spanPrev2); // Add icons and text to button
+
+  // Create next button
+  const buttonNext = document.createElement('button');
+  buttonNext.type = 'button';
+  buttonNext.dataset.bsTarget = '#carouselIndicators'; // Targets the carousel ID
+  buttonNext.dataset.bsSlide = 'next'; // Slide direction
+  buttonNext.classList.add('carousel-control-next', 'slider__btn--right'); // Bootstrap and custom classes for right button
+
+  const spanNext1 = document.createElement('span');
+  spanNext1.classList.add('carousel-control-next-icon'); // Bootstrap class for icon
+  spanNext1.ariaHidden = 'true'; // Hide from screen readers
+
+  const spanNext2 = document.createElement('span');
+  spanNext2.classList.add('visually-hidden'); // Hide visually
+  spanNext2.textContent = 'Next'; // Text for screen readers
+
+  buttonNext.append(spanNext1, spanNext2); // Add icons and text to button
+
+  // Assemble the carousel: append indicators, inner container, and control buttons
+  carousel.append(carouselIndicators, carouselInner, buttonPrev, buttonNext);
+
+  return carousel; // Return the assembled carousel element
+}
