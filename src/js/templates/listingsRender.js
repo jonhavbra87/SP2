@@ -8,7 +8,7 @@ export async function listingsRender() {
   loader.classList.add('d-none');
 
   const container = document.getElementById('listings');
-  container.innerHTML = '';
+  //container.innerHTML = '';
 
   try {
     const listings = await getPosts();

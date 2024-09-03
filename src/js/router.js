@@ -10,7 +10,7 @@ export default function router() {
 
   switch (path) {
     case '/':
-      console.log('router is working');
+      console.log('router is working on /');
       logout();
       listeners.navbarShowHide();
       listeners.modalShowHide();
@@ -20,7 +20,7 @@ export default function router() {
       break;
     case '/listings':
     case '/listings/':
-      console.log('router is working');
+      console.log('router is working on /listings/');
       listeners.navbarShowHide();
       listeners.modalShowHide();
       listingRender();
