@@ -1,9 +1,7 @@
 // Import our custom CSS
-import '../js/scss/styles.scss';
+import './scss/styles.scss';
 
 // Import our custom JS
-
 import router from './router.js';
 
 router();
-//console.log(await listings);

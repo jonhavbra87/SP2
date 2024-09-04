@@ -25,7 +25,7 @@ export function FooterContainer(postData) {
   cardCount.textContent = `Offers: ${postData._count.bids}`;
 
   const cardButton = document.createElement('button');
-  cardButton.classList.add('btn', 'btn-primary', 'text-uppercase', 'fw-bold', 'mb-2', 'make-offer-btn');
+  cardButton.classList.add('btn', 'btn-cb-primary', 'text-uppercase', 'fw-bold', 'mb-2', 'make-offer-btn');
   // cardButton.setAttribute('data-bs-toggle', 'modal');
   // cardButton.setAttribute('data-bs-target', `#modal-${postData.id}`);
   cardButton.textContent = 'Make offer';

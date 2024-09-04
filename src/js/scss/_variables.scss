@@ -1,9 +1,10 @@
 // Colors
-$primary: #d4af37;
-$secondary: #c0c0c0;
-//$tertiary: #ffd700;
-$fourth: #006466;
-$primary-color-blue: #0a3d62;
+
+// $primary: #d4af37;
+// $secondary: #c0c0c0;
+// //$tertiary: #ffd700;
+// $fourth: #006466;
+// $primary-color-blue: #0a3d62;
 
 //$background-color: #121212;
 
@@ -12,8 +13,6 @@ $btn-border-gradient: linear-gradient(180deg, #a68629 0%, #f0d290 100%);
 
 //Text color
 $text-color: #f5f5f5;
-$text-color-light: #f5f5f5;
-$text-color-dark: #737373;
 
 //Background color
 $body-bg: #121212;
@@ -22,6 +21,44 @@ $gray-900: #121212;
 
 //Buttons
 $btn-close-color: #f5f5f5;
+
+// Define primary color
+$cb-gold-color-rgb: rgb(166, 134, 41);
+$cb-gold-color-hsl: hsl(45, 60%, 41%);
+$cb-gold-color-hsl-lighter: hsl(45, 60%, 51%);
+$cb-gold-color-hsl-lightest: hsl(41, 76%, 75%);
+$cb-gold-color-hsl-darker: hsl(45, 60%, 31%);
+$cb-gold-color-hsl-darkest: hsl(45, 60%, 21%);
+
+$cb-silver-color-rgb: rgb(192, 192, 192);
+$cb-silver-color-hsl: hsl(0, 0%, 75%);
+$cb-silver-color-hsl-darker: hsl(0, 0%, 65%);
+$cb-silver-color-hsl-darkest: hsl(0, 0%, 55%);
+
+$cb-dark-color: #121212;
+$cb-light-color: #f5f5f5;
+$cb-light-grey: #737373;
+
+// .btn-cb-primary {
+//     --bs-btn-color: $cb-light-color;
+//     --bs-btn-bg: $cb-dark-color;
+//     --bs-btn-border-color: $cb-gold-color-hsl;
+
+//     --bs-btn-hover-color: $cb-dark-color;
+//     --bs-btn-hover-bg: $cb-gold-color-hsl-darker;
+//     --bs-btn-hover-border-color: $cb-gold-color-hsl-darker;
+
+//     --bs-btn-focus-shadow-rgb: $cb-gold-color-rgb;
+
+//     --bs-btn-active-color: $cb-dark-color;
+//     --bs-btn-active-bg: $cb-gold-color-hsl-darkest;
+//     --bs-btn-active-border-color: $cb-gold-color-hsl-darkest;
+
+//     --bs-btn-active-shadow: inset 0 3px 5px rgba(0, 0, 0, 0.125);
+//     --bs-btn-disabled-color: $cb-light-grey;
+//     --bs-btn-disabled-bg: $cb-light-color;
+//     --bs-btn-disabled-border-color: $cb-light-grey;
+// }
 
 // Font
 $font-family-base: 'Roboto', sans-serif;
