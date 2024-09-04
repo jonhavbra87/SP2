@@ -21,6 +21,7 @@ export default function router() {
       listeners.registerListener();
       templates.listingsRender();
       searchListings();
+      navigateToProfileListener();
       break;
     case '/listings':
     case '/listings/':
@@ -28,11 +29,13 @@ export default function router() {
       listeners.navbarShowHide();
       listeners.modalShowHide();
       listingRender();
+      navigateToProfileListener();
       break;
     case '/profile':
     case '/profile/':
       logout();
       getProfile();
+      renderProfile();
 
       // listeners.navbarShowHide();
       // templates.listingsRender();
