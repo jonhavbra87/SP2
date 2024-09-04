@@ -18,13 +18,15 @@ const action = '/listings';
 
 export async function getPosts() {
   const url = `${API_BASE}${API_AUCTIONS}${action}`;
+  const token = load('token');
 
   const response = await fetch(url, {
     headers: {
-      Authorization: `Bearer ${load('token')}`,
+      Authorization: `Bearer ${token}`,
       'X-Noroff-API-Key': API_KEY,
     },
   });
+
   const result = await response.json();
 
   return result.data;

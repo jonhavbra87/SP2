@@ -39,7 +39,7 @@ export async function login(email, password) {
       throw new Error('No access token found in response');
     }
 
-    storage.save('accessToken', accessToken);
+    storage.save('token', accessToken);
     storage.save('profile', user);
     // alert('You have been logged in successfully')
 

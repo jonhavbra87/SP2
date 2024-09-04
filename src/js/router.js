@@ -5,6 +5,8 @@ import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
 import { listingRender } from './templates/listingRender.js';
 import { searchListings } from './utilities/searchListings.js';
+import { getProfile } from './api/profiles/getProfile.js';
+import { load, save } from './storage/index.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -27,7 +29,14 @@ export default function router() {
       listeners.modalShowHide();
       listingRender();
       break;
+    case '/profile':
     case '/profile/':
+      logout();
+      getProfile();
+
+      // listeners.navbarShowHide();
+      // templates.listingsRender();
+      // searchListings();
       break;
 
     default:
