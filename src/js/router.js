@@ -5,6 +5,10 @@ import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
 import { listingRender } from './templates/listingRender.js';
 import { searchListings } from './utilities/searchListings.js';
+import { getProfile } from './api/profiles/getProfile.js';
+import { load, save } from './storage/index.js';
+import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
+import { renderProfile } from './templates/renderProfile.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -19,6 +23,7 @@ export default function router() {
       listeners.registerListener();
       templates.listingsRender();
       searchListings();
+      navigateToProfileListener();
       break;
     case '/listings':
     case '/listings/':
@@ -26,8 +31,16 @@ export default function router() {
       listeners.navbarShowHide();
       listeners.modalShowHide();
       listingRender();
+      navigateToProfileListener();
       break;
+    case '/profile':
     case '/profile/':
+      logout();
+      renderProfile();
+
+      listeners.navbarShowHide();
+      // templates.listingsRender();
+      // searchListings();
       break;
 
     default:

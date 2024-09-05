@@ -1,12 +1,15 @@
 export function save(key, value) {
-  localStorage.setItem(key, JSON.stringify(value));
+  if (key && value !== undefined) {
+    localStorage.setItem(key, JSON.stringify(value));
+    console.log(`Saved ${key}:`, value);
+  } else {
+    console.warn(`Attempted to save invalid key or value: ${key}, ${value}`);
+  }
 }
 
 export function load(key) {
   try {
     const value = localStorage.getItem(key);
-    console.log(`Loaded ${key}:`, value);
-
     return JSON.parse(value);
   } catch {
     return null;

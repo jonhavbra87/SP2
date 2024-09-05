@@ -1,5 +1,4 @@
-import { modalShowHide } from '../ui/listeners/modalShowHide.js';
-import { listingRender } from './listingRender.js';
+// import { modalShowHide } from '../ui/listeners/modalShowHide.js';
 import { listingsTemplate } from './listingsTemplate.js';
 
 export function listingsAppend(postData, parent) {
