@@ -3,9 +3,9 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap 2/vite</title>
-    <script type="module" crossorigin src="/assets/main-B1yTlxUa.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-Q1C6aj_q.css">
+    <title>Bootstrap 2/vite</title>
+    <script type="module" crossorigin src="/assets/main-C4y_ooyf.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-DzqfjcDX.css">
   </head>
 
   <body>
@@ -44,8 +44,10 @@
 
             <!-- Right aligned navbar items -->
             <div class="navbar-nav ml-auto">
+              <!-- Profile button -->
+              <a class="nav-link me-2" id="profileLink" href="#">Profile</a>
               <!-- Login Button -->
-              <button type="button" id="openLoginModal" class="btn btn-outline-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <button type="button" id="openLoginModal" class="btn btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
                 Login
               </button>
               <!-- Register Button -->
@@ -66,7 +68,6 @@
     </header>
 
     <main>
-      <button class="btn btn-cb-primary">test button</button>
       <section class="d-flex flex-wrap gap-3 justify-content-center" id="listings">
         <div id="loader" class="lds-default">
           <div></div>
@@ -148,7 +149,7 @@
                   <div class="invalid-feedback text-secondary">Password must include at least 8 letters & numbers.</div>
                 </div>
 
-                <button class="btn btn-primary btn-lg" type="submit" aria-label="Login button" data-auth="login">Login</button>
+                <button class="btn btn-cb-primary btn-lg" type="submit" aria-label="Login button" data-auth="login">Login</button>
               </form>
               <div class="text-center mt-4">
                 <p class="border-top">

@@ -27,9 +27,9 @@ export async function getProfile(name) {
       headers,
     });
 
-    // if (!response.ok) {
-    //   throw new Error(`Failed to fetch profile: ${response.statusText}`);
-    // }
+    if (!response.ok) {
+      throw new Error(`Failed to fetch profile: ${response.statusText}`);
+    }
 
     const profileData = await response.json();
 

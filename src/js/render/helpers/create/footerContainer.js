@@ -1,5 +1,3 @@
-import { listingTemplate } from '../../../templates';
-
 export function FooterContainer(postData) {
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('d-flex', 'flex-column', 'justify-content-center', 'align-items-center');
@@ -26,12 +24,12 @@ export function FooterContainer(postData) {
 
   const cardButton = document.createElement('button');
   cardButton.classList.add('btn', 'btn-cb-primary', 'text-uppercase', 'fw-bold', 'mb-2', 'make-offer-btn');
+  cardButton.textContent = 'Make offer';
+
+  // cardButton.addEventListener('click', () => {
   // cardButton.setAttribute('data-bs-toggle', 'modal');
   // cardButton.setAttribute('data-bs-target', `#modal-${postData.id}`);
-  cardButton.textContent = 'Make offer';
-  cardButton.addEventListener('click', () => {
-    listingTemplate(postData);
-  });
+  // });
 
   footerContainer.append(cardTitle, cardDescription, cardCreated, cardEndsAt, cardCount, cardButton);
 

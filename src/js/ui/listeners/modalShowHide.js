@@ -1,4 +1,4 @@
-export function modalShowHide(postData, modalId) {
+export function modalShowHide() {
   const loginModal = document.getElementById('loginModal');
   const registerModal = document.getElementById('registrationModal');
 
@@ -45,7 +45,7 @@ export function modalShowHide(postData, modalId) {
       console.log('Modal closed');
       loginModal.classList.remove('show');
       registerModal.classList.remove('show');
-      cardModal.classList.remove('show');
+      // cardModal.classList.remove('show');
     });
   });
 
