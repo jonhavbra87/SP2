@@ -1,10 +1,12 @@
-async function navigateToProfile() {
+export async function navigateToProfile() {
   try {
     // Retrieve profile data from localStorage
     const storedProfile = localStorage.getItem('profile');
+    console.log(storedProfile);
 
     if (storedProfile) {
       const storedProfileData = JSON.parse(storedProfile);
+      console.log(storedProfile);
 
       if (!storedProfileData || !storedProfileData.name) {
         throw new Error('Profile data is invalid.');

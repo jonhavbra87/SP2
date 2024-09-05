@@ -7,6 +7,8 @@ import { listingRender } from './templates/listingRender.js';
 import { searchListings } from './utilities/searchListings.js';
 import { getProfile } from './api/profiles/getProfile.js';
 import { load, save } from './storage/index.js';
+import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
+import { renderProfile } from './templates/renderProfile.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -34,10 +36,9 @@ export default function router() {
     case '/profile':
     case '/profile/':
       logout();
-      getProfile();
       renderProfile();
 
-      // listeners.navbarShowHide();
+      listeners.navbarShowHide();
       // templates.listingsRender();
       // searchListings();
       break;

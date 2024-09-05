@@ -20,6 +20,5 @@ export async function listingsRender() {
     listingsAppend(listings, container);
   } catch (error) {
     console.error('Failed to render listings:', error);
-    container.innerHTML = `<p class="error-message">Failed to load listings. Please try again later.</p>`;
   }
 }

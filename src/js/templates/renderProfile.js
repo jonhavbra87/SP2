@@ -5,12 +5,16 @@ import { profileTemplate } from './profileTemplates.js';
 export async function renderProfile() {
   try {
     const url = new URL(location.href);
-    const name = url.searchParams.get('name') || load('profile').name;
+    // let name = url.searchParams.get('name') || load('profile').name;
+    let name = url.searchParams.get('name');
+    console.log(name);
 
     const profileData = await getProfile(name);
+    console.log(profileData);
 
     if (profileData) {
-      const container = document.querySelector('#profile');
+      const container = document.querySelector('#profile-container');
+
       container.innerHTML = '';
 
       const profileCard = profileTemplate(profileData);

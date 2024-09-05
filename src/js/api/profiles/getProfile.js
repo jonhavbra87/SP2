@@ -13,16 +13,6 @@ const headers = {
   'X-Noroff-API-Key': API_KEY,
 };
 
-// const profile = load('profile');
-// let name = '';
-
-// if (profile && profile.name) {
-//   name = profile.name;
-//   console.log('Loaded profile name:', name);
-// } else {
-//   console.error('No profile found in localStorage');
-// }
-
 export async function getProfile(name) {
   if (!name) {
     console.error('No profile name found in localStorage');
@@ -30,20 +20,21 @@ export async function getProfile(name) {
   }
 
   const getProfileURL = `${API_BASE}${API_AUCTIONS}${action}/${name}`;
-  console.log('getProfileURL:', getProfileURL);
 
   try {
     const response = await fetch(getProfileURL, {
-      headers,
       method,
+      headers,
     });
 
+    // if (!response.ok) {
+    //   throw new Error(`Failed to fetch profile: ${response.statusText}`);
+    // }
+
     const profileData = await response.json();
-    console.log('response profileData:', profileData.data);
 
     return profileData.data;
   } catch (error) {
     console.error('Error fetching profile:', error);
-    throw error;
   }
 }
