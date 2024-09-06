@@ -1,4 +1,4 @@
-import { getPosts } from '../api/posts/getPosts.js';
+import { getListings } from '../api/listings/getListings.js';
 import { listingsAppend } from './listingsAppend.js';
 
 const loader = document.getElementById('loader');
@@ -11,7 +11,7 @@ export async function listingsRender() {
   // container.innerHTML = '';
 
   try {
-    const listings = await getPosts();
+    const listings = await getListings();
 
     if (!listings || !listings.length) {
       console.warn('No listings found or listings array is empty.');

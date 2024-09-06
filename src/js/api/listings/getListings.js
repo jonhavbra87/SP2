@@ -16,7 +16,7 @@ import { API_BASE, API_AUCTIONS, API_KEY } from '../constants';
 
 const action = '/listings';
 
-export async function getPosts() {
+export async function getListings() {
   const url = `${API_BASE}${API_AUCTIONS}${action}`;
   const token = load('token');
 

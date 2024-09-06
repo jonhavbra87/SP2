@@ -22,7 +22,41 @@ export function specificFooterContainer(postData) {
   cardCount.classList.add('card-text', 'text-end', 'mb-1');
   cardCount.textContent = `Offers: ${postData._count.bids}`;
 
-  footerContainer.append(cardTitle, cardDescription, cardCreated, cardEndsAt, cardCount);
+  const placeBidForm = document.createElement('form');
+  placeBidForm.classList.add('d-flex', 'flex-column', 'align-items-center', 'mt-3');
+  placeBidForm.id = 'placeBidForm';
+
+  const placeBidInput = document.createElement('input');
+  placeBidInput.classList.add('form-control', 'mb-2');
+  placeBidInput.type = 'number';
+  placeBidInput.placeholder = 'Place your bid';
+  placeBidInput.id = 'placeBidInput';
+  placeBidInput.required = true;
+
+  const placeBidButton = document.createElement('button');
+  placeBidButton.classList.add('btn', 'btn-primary', 'mb-2');
+  placeBidButton.type = 'submit';
+  placeBidButton.textContent = 'Place Bid';
+
+  // Add event listener for form submission
+  placeBidForm.addEventListener('submit', async (event) => {
+    event.preventDefault(); // Prevent default form submission
+
+    const bidAmount = placeBidInput.value; // Get the bid amount from the input
+
+    try {
+      // Assuming `postData.id` contains the listing ID
+      await placeBid(postData.id, bidAmount);
+      alert('Bid placed successfully!');
+    } catch (error) {
+      console.error('Error placing bid:', error);
+      alert(`Failed to place bid: ${error.message}`);
+    }
+  });
+
+  placeBidForm.append(placeBidInput, placeBidButton);
+
+  footerContainer.append(cardTitle, cardDescription, cardCreated, cardEndsAt, cardCount, placeBidForm);
 
   return footerContainer;
 }

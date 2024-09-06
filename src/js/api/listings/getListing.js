@@ -1,8 +1,9 @@
 import { API_AUCTIONS, API_BASE } from '../constants.js';
 
 const action = '/listings';
+// const bid = '/bid';${bid}`
 
-export async function getPost(id) {
+export async function getListing(id) {
   if (!id) {
     throw new Error('Get post requires a postID');
   }

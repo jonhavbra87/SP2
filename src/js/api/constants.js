@@ -1,6 +1,6 @@
 //VARIABLES FOR AUTHENTICATION
 
-import { getPosts } from './posts/getPosts';
+import { getListings } from './listings/getListings';
 
 export const API_KEY = '4ac6445f-6305-4510-89a4-cb5df85ce9c1';
 
@@ -10,4 +10,4 @@ export const API_LOGIN = '/login';
 export const API_REGISTER = '/register';
 export const API_AUCTIONS = '/auction';
 
-//export const listings = getPosts();
+//export const listings = getListings();
