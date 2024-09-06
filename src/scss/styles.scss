@@ -16,6 +16,23 @@ p {
   color: #f5f5f5;
 }
 
+h1,
+h2,
+h3,
+h4,
+h5,
+h6 {
+  font-family: 'Playfair Display', serif;
+}
+
+a,
+p {
+  font-family: 'Merriwether', serif;
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+}
+
 .btn-cb-primary {
   background-color: $cb-dark-color;
   color: $cb-light-color;

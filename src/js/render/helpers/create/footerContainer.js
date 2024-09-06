@@ -3,11 +3,11 @@ export function FooterContainer(postData) {
   footerContainer.classList.add('d-flex', 'flex-column', 'justify-content-center', 'align-items-center');
 
   const cardTitle = document.createElement('h4');
-  cardTitle.classList.add('card-title', 'fw-bold', 'mt-2', 'text-capitalize');
+  cardTitle.classList.add('card-title', 'fw-bold', 'mt-2', 'text-uppercase');
   cardTitle.textContent = postData.title;
 
   const cardDescription = document.createElement('p');
-  cardDescription.classList.add('card-text', 'text-center', 'mb-5');
+  cardDescription.classList.add('card-text', 'text-center', 'mt-2', 'mb-4');
   cardDescription.textContent = postData.description;
 
   const cardCreated = document.createElement('p');

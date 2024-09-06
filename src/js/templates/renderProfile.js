@@ -5,8 +5,8 @@ import { profileTemplate } from './profileTemplates.js';
 export async function renderProfile() {
   try {
     const url = new URL(location.href);
-    // let name = url.searchParams.get('name') || load('profile').name;
-    let name = url.searchParams.get('name');
+    let name = load('profile').name || url.searchParams.get('name');
+    // let name = url.searchParams.get('name');
     console.log(name);
 
     const profileData = await getProfile(name);
