@@ -52,13 +52,7 @@
                 Login
               </button>
               <!-- Register Button -->
-              <button
-                type="button"
-                id="openRegisterModal"
-                class="btn btn-outline-secondary me-2"
-                data-bs-toggle="modal"
-                data-bs-target="#registrationModal"
-              >
+              <button type="button" id="openRegisterModal" class="btn btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#registrationModal">
                 Register
               </button>
               <button class="btn btn-secondary btn-lg" type="button" aria-label="Logout button" data-auth="logout">Logout</button>
@@ -126,7 +120,7 @@
             </div>
             <!-- Login Form Content -->
             <div class="col-md-8 p-5 border-start">
-              <h4 class="mb-4">Login</h4>
+              <h4 id="loginModalLabel" class="mb-4">Login</h4>
               <p class="mb-4">Please provide your existing information for successful login</p>
 
               <form id="loginForm">
@@ -135,7 +129,7 @@
                   <input
                     class="form-control"
                     type="email"
-                    id="email"
+                    id="login-email"
                     name="email"
                     placeholder="name@stud.noroff.no"
                     pattern="^[^\s@]+@(stud.noroff.no)$"
@@ -145,8 +139,8 @@
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
-                  <label for="password">Password</label>
-                  <input class="form-control" type="password" name="password" id="password" minlength="8" placeholder="Password" required />
+                  <label for="login-password">Password</label>
+                  <input class="form-control" type="password" name="password" id="login-password" minlength="8" placeholder="Password" required />
                   <div class="invalid-feedback text-secondary">Password must include at least 8 letters & numbers.</div>
                 </div>
 
@@ -199,7 +193,7 @@
             </div>
             <!-- Registration Form Content -->
             <div class="col-md-8 p-5 border-start">
-              <h4 class="mb-4">Registration</h4>
+              <h4 id="registrationModalLabel" class="mb-4">Registration</h4>
               <p class="mb-4">Please provide your personal information for successful registration</p>
 
               <form id="registerForm">
@@ -209,7 +203,7 @@
                     class="form-control"
                     type="text"
                     name="username"
-                    id="username"
+                    id="register-username"
                     pattern="^\w+$"
                     title="Username must only contain lower case and upper case letters, numbers and underscore (_). Example: My_User123"
                     placeholder="Username"
@@ -222,7 +216,7 @@
                     class="form-control"
                     type="email"
                     id="email"
-                    name="email"
+                    name="register-email"
                     pattern="^[^\s@]+@(stud.noroff.no)$"
                     placeholder="name@stud.noroff.no"
                     title="Only @stud.noroff.no domains are allowed to register."
@@ -231,8 +225,8 @@
                   <div class="invalid-feedback text-secondary">Please enter your @stuf.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
-                  <label for="password">Password</label>
-                  <input class="form-control" type="password" id="password" name="password" placeholder="Password" />
+                  <label for="register-password">Password</label>
+                  <input class="form-control" type="password" id="password" name="register-password" placeholder="Password" />
                   <div class="invalid-feedback text-secondary">Password must include at least 12 letters & numbers.</div>
                 </div>
                 <div class="form-group mb-3">
@@ -261,7 +255,7 @@
     </div>
 
     <!-- Card Modal -->
-    <div class="modal fade" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+    <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <button type="button" class="btn-close" id="closeCardModal" aria-label="Close"></button>
@@ -282,6 +276,8 @@
                 <div></div>
                 <div></div>
               </div>
+              <div class="cardModalContainer" id="cardModalContent"></div>
+              <!-- Unik id for content -->
             </div>
           </div>
         </div>

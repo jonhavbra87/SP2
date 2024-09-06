@@ -1,11 +1,11 @@
 import { onAuth } from '../events/onAuth.js';
 
+const loader = document.getElementById('loader');
+
 export function loginListener() {
-  document.getElementById('loginForm').addEventListener('submit', async (event) => {
+  document.getElementById('loginModal').addEventListener('submit', async (event) => {
     onAuth(event);
-
-    const loader = document.getElementById('loader');
-
     loader.classList.remove('d-none');
+    loader.innerHTML = '';
   });
 }
