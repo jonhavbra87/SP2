@@ -5,10 +5,10 @@ import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
 import { listingRender } from './templates/listingRender.js';
 import { searchListings } from './utilities/searchListings.js';
-import { getProfile } from './api/profiles/getProfile.js';
 import { load, save } from './storage/index.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { renderProfile } from './templates/renderProfile.js';
+import { placeBid } from './api/listings/placeBid.js';
 
 export default function router() {
   const path = window.location.pathname;
@@ -32,6 +32,7 @@ export default function router() {
       listeners.modalShowHide();
       listingRender();
       navigateToProfileListener();
+      placeBid();
       break;
     case '/profile':
     case '/profile/':

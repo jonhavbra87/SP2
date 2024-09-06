@@ -2,7 +2,7 @@
 // import { doFetch } from "../helpers/doFetch.js";
 
 import { load } from '../../storage/index.js';
-import { API_BASE, API_AUCTIONS, API_KEY } from '../constants';
+import { API_BASE, API_AUCTIONS, API_KEY } from '../constants.js';
 // import { doFetch } from "../helpers/doFetch";
 
 /**
