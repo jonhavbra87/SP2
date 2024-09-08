@@ -1,14 +1,14 @@
-import { getPost } from '../api/posts/getPost.js';
+import { getListing } from '../api/fetch/getListing.js';
 import { listingAppend } from './listingAppend.js';
 
 const loader = document.getElementById('loader');
 
 export async function listingRender() {
   try {
-    const url = new URL(location.href);
+    const url = new URL(window.location.href);
     let id = url.searchParams.get('id');
 
-    const listingData = await getPost(id);
+    const listingData = await getListing(id);
 
     console.log('Listing data:', listingData);
 

@@ -7,13 +7,14 @@ export function mediaContainer(postData) {
   img.src = postData.media[0]?.url;
   img.alt = postData.media[0]?.alt || `Image from ${postData.title}`;
 
-  if (postData.media[0]?.url) {
-    img.src = postData.media[0]?.url;
+  // Check if the media array and URL exist
+  if (postData.media && postData.media.length > 0 && postData.media[0].url) {
+    img.src = postData.media[0].url;
+    img.alt = postData.media[0].alt || `Image from ${postData.title}`;
   } else {
-    // If the user don't upload a img, then this will create a placeholder img for that listing.
-    const placeholderMedia = ['./src/assets/logo_full_size.png'];
-
-    img.src = placeholderMedia;
+    // Fallback to placeholder image if no media exists
+    img.src = '../../assets/logo_full_size.png';
+    img.alt = 'Placeholder image';
   }
 
   imgContainer.append(img);
