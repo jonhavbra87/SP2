@@ -5,13 +5,18 @@ import * as listeners from './ui/listeners/index.js';
 import * as templates from './templates/index.js';
 import { listingRender } from './templates/listingRender.js';
 import { searchListings } from './utilities/searchListings.js';
-import { load, save } from './storage/index.js';
+// import { load, save } from './storage/index.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { renderProfile } from './templates/renderProfile.js';
-import { placeBid } from './api/listings/placeBid.js';
-
+// import { placeBid } from './api/fetch/placeBid.js';
+import { submitBid } from './api/fetch/submitBid.js';
+import { placeBid } from './api/fetch/placeBid.js';
 export default function router() {
-  const path = window.location.pathname;
+  const path = location.pathname;
+  console.log('current path', path);
+
+  const urlParams = new URLSearchParams(window.location.search); // For handling query parameters
+  const id = urlParams.get('id'); // For example: to get 'id=12345' from '/listings/?id=12345'
 
   switch (path) {
     case '/':
@@ -25,23 +30,29 @@ export default function router() {
       searchListings();
       navigateToProfileListener();
       break;
+
     case '/listings':
     case '/listings/':
-      console.log('router is working on /listings/');
-      listeners.navbarShowHide();
-      listeners.modalShowHide();
-      listingRender();
-      navigateToProfileListener();
-      placeBid();
+      console.log('Router is working on /listings/ path');
+      if (id) {
+        console.log(`router is working on /listings/ with id ${id}`);
+        listeners.navbarShowHide();
+        listeners.modalShowHide();
+        listingRender(id);
+        navigateToProfileListener();
+        placeBid(id);
+        submitBid();
+      } else {
+        console.error('No listing ID provided.');
+        // Handle case where no ID is provided in the URL (e.g., show all listings or show error)
+      }
       break;
+
     case '/profile':
     case '/profile/':
       logout();
       renderProfile();
-
       listeners.navbarShowHide();
-      // templates.listingsRender();
-      // searchListings();
       break;
 
     default:

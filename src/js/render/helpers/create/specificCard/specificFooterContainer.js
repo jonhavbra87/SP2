@@ -1,3 +1,5 @@
+import { placeBid } from '../../../../api/fetch/placeBid';
+
 export function specificFooterContainer(postData) {
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('d-flex', 'flex-column', 'justify-content-around');
@@ -32,6 +34,7 @@ export function specificFooterContainer(postData) {
   placeBidInput.placeholder = 'Place your bid';
   placeBidInput.id = 'placeBidInput';
   placeBidInput.required = true;
+  // placeBidInput.src = postData.amount;
 
   const placeBidButton = document.createElement('button');
   placeBidButton.classList.add('btn', 'btn-primary', 'mb-2');
@@ -42,11 +45,17 @@ export function specificFooterContainer(postData) {
   placeBidForm.addEventListener('submit', async (event) => {
     event.preventDefault(); // Prevent default form submission
 
-    const bidAmount = placeBidInput.value; // Get the bid amount from the input
+    const bidAmount = parseFloat(placeBidInput.value);
+    console.log('bidAmount:', bidAmount);
+
+    if (!bidAmount || isNaN(bidAmount) || bidAmount <= 0) {
+      alert('Please enter a valid bid amount.');
+      return;
+    }
 
     try {
       // Assuming `postData.id` contains the listing ID
-      await placeBid(postData.id, bidAmount);
+      await placeBid(postData.id, bidAmount); // Call placeBid function with listing ID and bid amount
       alert('Bid placed successfully!');
     } catch (error) {
       console.error('Error placing bid:', error);

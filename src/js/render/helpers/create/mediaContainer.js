@@ -7,8 +7,6 @@ export function mediaContainer(postData) {
   img.src = postData.media[0]?.url;
   img.alt = postData.media[0]?.alt || `Image from ${postData.title}`;
 
-  console.log('img.src:', img.src);
-
   // Check if the media array and URL exist
   if (postData.media && postData.media.length > 0 && postData.media[0].url) {
     img.src = postData.media[0].url;

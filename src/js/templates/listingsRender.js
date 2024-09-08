@@ -1,4 +1,4 @@
-import { getListings } from '../api/listings/getListings.js';
+import { getListings } from '../api/fetch/getListings.js';
 import { listingsAppend } from './listingsAppend.js';
 
 const loader = document.getElementById('loader');
