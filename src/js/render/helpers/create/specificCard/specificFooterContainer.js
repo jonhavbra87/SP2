@@ -1,4 +1,4 @@
-import { placeBid } from '../../../../api/fetch/placeBid';
+import { submitBid } from '../../../../api/fetch/submitBid.js';
 
 export function specificFooterContainer(postData) {
   const footerContainer = document.createElement('div');
@@ -34,7 +34,6 @@ export function specificFooterContainer(postData) {
   placeBidInput.placeholder = 'Place your bid';
   placeBidInput.id = 'placeBidInput';
   placeBidInput.required = true;
-  // placeBidInput.src = postData.amount;
 
   const placeBidButton = document.createElement('button');
   placeBidButton.classList.add('btn', 'btn-primary', 'mb-2');
@@ -43,10 +42,10 @@ export function specificFooterContainer(postData) {
 
   // Add event listener for form submission
   placeBidForm.addEventListener('submit', async (event) => {
-    event.preventDefault(); // Prevent default form submission
+    event.preventDefault(); // Prevent form from refreshing the page
 
-    const bidAmount = parseFloat(placeBidInput.value);
-    console.log('bidAmount:', bidAmount);
+    const bidAmount = parseFloat(placeBidInput.value); // Get bid amount from input field
+    console.log('bidAmount:', bidAmount); // Log the bid amount to see if it's being captured
 
     if (!bidAmount || isNaN(bidAmount) || bidAmount <= 0) {
       alert('Please enter a valid bid amount.');
@@ -54,9 +53,8 @@ export function specificFooterContainer(postData) {
     }
 
     try {
-      // Assuming `postData.id` contains the listing ID
-      await placeBid(postData.id, bidAmount); // Call placeBid function with listing ID and bid amount
-      alert('Bid placed successfully!');
+      // Call submitBid function with the correct listingId and bidAmount
+      await submitBid(postData.id, bidAmount);
     } catch (error) {
       console.error('Error placing bid:', error);
       alert(`Failed to place bid: ${error.message}`);
@@ -64,7 +62,6 @@ export function specificFooterContainer(postData) {
   });
 
   placeBidForm.append(placeBidInput, placeBidButton);
-
   footerContainer.append(cardTitle, cardDescription, cardCreated, cardEndsAt, cardCount, placeBidForm);
 
   return footerContainer;

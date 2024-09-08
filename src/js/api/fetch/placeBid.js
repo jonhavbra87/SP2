@@ -4,11 +4,9 @@ import { authFetch } from './authFetch';
 const action = '/listings';
 
 export async function placeBid(id, bidAmount) {
-  // If id is not passed, try to get it from the URL
-  // if (!id) {
-  //   const urlParams = new URL(window.location.href);
-  //   id = urlParams.searchParams.get('id');
-  // }
+  // Validate input
+  console.log('Listing ID:', id);
+  console.log('Bid Amount:', bidAmount);
 
   // Ensure both id and bidAmount are present
   if (!id || !bidAmount) {

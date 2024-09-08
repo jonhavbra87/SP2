@@ -40,8 +40,7 @@ export default function router() {
         listeners.modalShowHide();
         listingRender(id);
         navigateToProfileListener();
-        placeBid(id);
-        submitBid();
+        // placeBid(id);
       } else {
         console.error('No listing ID provided.');
         // Handle case where no ID is provided in the URL (e.g., show all listings or show error)

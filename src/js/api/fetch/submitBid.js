@@ -1,4 +1,5 @@
-import { placeBid } from './placeBid';
+import { reloadPage } from '../helpers/reloadPage.js';
+import { placeBid } from './placeBid.js';
 
 export async function submitBid(listingId, bidAmount) {
   // Validate input
@@ -11,11 +12,9 @@ export async function submitBid(listingId, bidAmount) {
     const response = await placeBid(listingId, bidAmount);
     console.log('Bid placed successfully:', response);
 
-    // Provide user feedback or redirect
-    alert('Bid placed successfully!');
-
-    // Optionally, redirect the user to a confirmation page
-    // window.location.href = `/confirmation?listingId=${listingId}`;
+    // Provide user feedback and refresh the page
+    reloadPage();
+    // alert('Bid placed successfully!');
   } catch (error) {
     console.error('Error placing bid:', error);
     alert(`Failed to place bid: ${error.message}`);
