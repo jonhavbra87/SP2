@@ -39,10 +39,8 @@ export default function router() {
         listeners.modalShowHide();
         listingRender(id);
         navigateToProfileListener();
-        // placeBid(id);
       } else {
         console.error('No listing ID provided.');
-        // Handle case where no ID is provided in the URL (e.g., show all listings or show error)
       }
       break;
 
@@ -52,7 +50,7 @@ export default function router() {
       renderProfile();
       listeners.navbarShowHide();
       listeners.openAvatarModal();
-      listeners.submitAvatarUrl();
+      // listeners.submitAvatarUrl();
       break;
 
     default:

@@ -1,3 +1,5 @@
+import { submitAvatarUrl } from './submitAvatarUrl';
+
 export function openAvatarModal() {
   const avatarModal = document.getElementById('avatarModal');
 
@@ -5,13 +7,12 @@ export function openAvatarModal() {
 
   const closeModalButton = document.querySelector('.btn-close');
 
-  // Åpne avatar-modal
+  // Open avatar-modal
   openAvatarModalButton.addEventListener('click', () => {
-    console.log('openAvatarModalButton clicked');
+    console.log('Avatar modal opened');
     avatarModal.classList.add('show');
+    submitAvatarUrl();
   });
-
-  //Maybe put this in an own function to save resources.
 
   closeModalButton.addEventListener('click', () => {
     console.log('Modal closed');
