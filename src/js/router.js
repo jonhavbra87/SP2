@@ -24,8 +24,8 @@ export default function router() {
       listeners.modalShowHide();
       listeners.loginListener();
       listeners.registerListener();
-      // templates.listingsRender();
-      templates.limitListingsRender();
+      templates.listingsRender();
+      // templates.limitListingsRender();
       searchListings();
       navigateToProfileListener();
       break;
@@ -50,6 +50,7 @@ export default function router() {
       renderProfile();
       listeners.navbarShowHide();
       listeners.openAvatarModal();
+      listeners.openCreateListingModal();
       break;
 
     default:
