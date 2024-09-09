@@ -1,4 +1,6 @@
+import { handleCreateListingFormSubmit } from '../api/helpers/create/createListingHandler';
 import { openAvatarModal, submitAvatarUrl } from '../ui/listeners';
+import { submitCreateListing } from '../ui/listeners/submitCreateListeing';
 
 export function profileTemplate(profileData, listings, bids) {
   const profileContainer = document.createElement('div');
@@ -73,13 +75,17 @@ export function profileTemplate(profileData, listings, bids) {
   latestBidsList.classList.add('list-unstyled');
 
   // Loop through bids and display them
-  bids.forEach((bid) => {
-    console.log('bid', bid);
-
+  if (bids && bids.length > 0) {
+    bids.forEach((bid) => {
+      const listItem = document.createElement('li');
+      listItem.textContent = `${bid.amount}$ by ${bid.bidder.name} on ${new Date(bid.created).toLocaleDateString()}`;
+      latestBidsList.append(listItem);
+    });
+  } else {
     const listItem = document.createElement('li');
-    listItem.textContent = `${bid.amount}$ by ${bid.bidder.name} on ${new Date(bid.created).toLocaleDateString()}`;
+    listItem.textContent = 'No bids available';
     latestBidsList.append(listItem);
-  });
+  }
 
   latestBidsCol.append(latestBidsTitle, latestBidsList);
 
@@ -95,7 +101,6 @@ export function profileTemplate(profileData, listings, bids) {
   // Loop through active listings
   if (listings.listings && listings.listings.length > 0) {
     listings.listings.forEach((listing) => {
-      log('listing', listing);
       const listItem = document.createElement('li');
       listItem.textContent = `${listing.title}: Ends on ${new Date(listing.endsAt).toLocaleDateString()}`;
       activeListingsList.append(listItem);
@@ -157,6 +162,9 @@ export function profileTemplate(profileData, listings, bids) {
 
   statsRow.append(latestBidsCol, activeListingsCol, winningBidsCol, creditsCol);
 
+  const buttonContainer = document.createElement('div');
+  buttonContainer.classList.add('col-md-3', 'd-flex', 'flex-wrap', 'justify-content-center', 'gap-2', 'mt-3');
+
   // Update Avatar Button
   const updateAvatarButton = document.createElement('button');
   updateAvatarButton.classList.add('btn', 'btn-cb-primary', 'me-2');
@@ -168,14 +176,30 @@ export function profileTemplate(profileData, listings, bids) {
 
   updateAvatarButton.onclick = () => {
     const avatarModal = document.getElementById('avatarModal');
-    console.log('Avatar modal opened');
     avatarModal.classList.add('show');
     submitAvatarUrl();
     document.getElementById('avatarUrl').value = '';
   };
 
+  // Create Listing Button
+  const createListingButton = document.createElement('button');
+  createListingButton.classList.add('btn', 'btn-cb-primary', 'me-2');
+  createListingButton.type = 'button';
+  createListingButton.id = 'createListingModalButton';
+  createListingButton.setAttribute('data-bs-toggle', 'modal');
+  createListingButton.setAttribute('data-bs-target', '#createListingModal');
+  createListingButton.textContent = 'Create Listing';
+
+  createListingButton.onclick = () => {
+    createListingModal.classList.add('show');
+    console.log('Opening Create Listing Modal');
+    submitCreateListing();
+  };
+
+  buttonContainer.append(updateAvatarButton, createListingButton);
+
   // Append all sections to the container
-  profileContainer.append(bannerRow, bioRow, statsRow, updateAvatarButton);
+  profileContainer.append(bannerRow, bioRow, statsRow, buttonContainer);
 
   return profileContainer;
 }

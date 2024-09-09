@@ -7,6 +7,7 @@ export function modalShowHide() {
 
   const closeModalButtons = document.querySelectorAll('.btn-close');
 
+  /* OPEN MODAL */
   openLoginModalButton.addEventListener('click', () => {
     console.log('openLoginModalButton clicked');
 
@@ -19,33 +20,12 @@ export function modalShowHide() {
     registerModal.classList.add('show');
   });
 
-  /* CARD MODAL */
-
-  // document.getElementById('listings').addEventListener('click', (event) => {
-  //   if (event.target && event.target.getAttribute('data-bs-target') === `#modal-${postData.id}`) {
-  //     const cardModal = document.getElementById(modalId);
-
-  //       if (!cardModal) {
-  //         console.error(`Modal with ID ${modalId} not found`);
-  //         return;
-  //       }
-
-  //       console.log('openCardModal clicked');
-  //       console.log(postData.id);
-  //       cardModal.classList.add('show');
-  //       cardModal.style.display = 'block';
-  //       cardModal.setAttribute('aria-modal', 'true');
-  //       cardModal.setAttribute('role', 'dialog');
-  //     }
-  //   });
-
-  //Maybe put this in an own function to save resources.
+  /* HIDE MODAL */
   closeModalButtons.forEach((button) => {
     button.addEventListener('click', () => {
       console.log('Modal closed');
       loginModal.classList.remove('show');
       registerModal.classList.remove('show');
-      // cardModal.classList.remove('show');
     });
   });
 
@@ -56,11 +36,5 @@ export function modalShowHide() {
     if (event.target === registerModal) {
       registerModal.classList.remove('show');
     }
-    // if (event.target === cardModal) {
-    //   cardModal.classList.remove('show');
-    //   cardModal.style.display = 'none';
-    //   cardModal.removeAttribute('aria-modal');
-    //   cardModal.removeAttribute('role');
-    // }
   });
 }

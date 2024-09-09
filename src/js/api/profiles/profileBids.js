@@ -13,10 +13,10 @@ export async function profileBids() {
   }
 
   const url = `${API_BASE}${API_AUCTIONS}${action}/${name}/bids?_listings=true`;
-  console.log(url);
+  // console.log(url);
 
   const response = await authFetch(url, 'GET');
-  console.log('profileBids response:', response);
+  // console.log('profileBids response:', response);
 
   return response;
 }

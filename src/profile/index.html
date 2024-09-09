@@ -97,5 +97,59 @@
         </div>
       </div>
     </div>
+
+    <!-- Create Listing Modal -->
+    <div class="modal fade" id="createListingModal" tabindex="-1" aria-labelledby="createListingModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-body p-5">
+            <h4 id="createListingModalLabel" class="mb-4 fw-bold">Create New Listing</h4>
+            <p class="mb-4">Fill in the details below to create a new listing</p>
+
+            <form id="createListingForm">
+              <div class="form-group mb-3">
+                <label for="listingTitle">Listing Title</label>
+                <input type="text" class="form-control" id="listingTitle" name="title" placeholder="Enter listing title" required />
+                <div class="invalid-feedback">Please enter a valid title.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="listingDescription">Description</label>
+                <textarea
+                  class="form-control"
+                  id="listingDescription"
+                  name="description"
+                  rows="3"
+                  placeholder="Enter a brief description"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Please enter a valid description.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="listingTags">Tags</label>
+                <input type="text" class="form-control" id="listingTags" name="listingTags" placeholder="Enter comma-separated tags" />
+                <div class="invalid-feedback">Please enter valid tags.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="listingMedia">Media URL</label>
+                <input type="url" class="form-control" id="listingMedia" name="mediaUrl" placeholder="Enter image URL" />
+                <div class="invalid-feedback">Please enter a valid URL.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="listingEndsAt">End Date</label>
+                <input type="datetime-local" class="form-control" id="listingEndsAt" name="endsAt" required />
+                <div class="invalid-feedback">Please enter a valid end date.</div>
+              </div>
+
+              <button type="submit" class="btn btn-cb-primary btn-lg">Create Listing</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>
