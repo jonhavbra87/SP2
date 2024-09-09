@@ -8,9 +8,7 @@ import { searchListings } from './utilities/searchListings.js';
 // import { load, save } from './storage/index.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { renderProfile } from './templates/renderProfile.js';
-// import { placeBid } from './api/fetch/placeBid.js';
-import { submitBid } from './api/fetch/submitBid.js';
-import { placeBid } from './api/fetch/placeBid.js';
+
 export default function router() {
   const path = location.pathname;
   console.log('current path', path);
@@ -26,7 +24,8 @@ export default function router() {
       listeners.modalShowHide();
       listeners.loginListener();
       listeners.registerListener();
-      templates.listingsRender();
+      // templates.listingsRender();
+      templates.limitListingsRender();
       searchListings();
       navigateToProfileListener();
       break;
@@ -40,10 +39,8 @@ export default function router() {
         listeners.modalShowHide();
         listingRender(id);
         navigateToProfileListener();
-        // placeBid(id);
       } else {
         console.error('No listing ID provided.');
-        // Handle case where no ID is provided in the URL (e.g., show all listings or show error)
       }
       break;
 
@@ -52,6 +49,8 @@ export default function router() {
       logout();
       renderProfile();
       listeners.navbarShowHide();
+      listeners.openAvatarModal();
+      // listeners.submitAvatarUrl();
       break;
 
     default:

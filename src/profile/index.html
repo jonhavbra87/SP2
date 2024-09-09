@@ -70,10 +70,39 @@
           <div></div>
         </div>
       </section>
+      <section>
+        <!-- Update Avatar Button -->
+        <button type="button" id="AvatarModal" class="btn btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#avatarModal">
+          Update Avatar
+        </button>
+      </section>
     </main>
 
     <footer class="py-3 fixed-bottom bg-dark text-center">
       <p>&copy; 2024 CrownBid</p>
     </footer>
+
+    <!-- Avatar Update Modal -->
+    <div class="modal fade" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-body p-5">
+            <h4 id="avatarModalLabel" class="mb-4 fw-bold">Update Avatar</h4>
+            <p class="mb-4">Paste the URL of your new avatar below</p>
+
+            <form id="avatarForm">
+              <div class="form-group mb-3">
+                <label for="avatarUrl">Avatar URL</label>
+                <input type="url" class="form-control" id="avatarUrl" name="avatarUrl" placeholder="https://example.com/avatar.jpg" required />
+                <div class="invalid-feedback">Please enter a valid image URL.</div>
+              </div>
+
+              <button type="submit" class="btn btn-cb-primary btn-lg">Update Avatar</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
   </body>
 </html>

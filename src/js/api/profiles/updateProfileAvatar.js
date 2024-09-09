@@ -3,7 +3,7 @@ import { authFetch } from '../fetch/authFetch';
 
 const action = '/profiles';
 
-export async function getProfile(profileName) {
+export async function updateProfileAvatar(profileName, avatarData) {
   const url = `${API_BASE}${API_AUCTIONS}${action}/${profileName}`;
-  return await authFetch(url, 'GET');
+  return await authFetch(url, 'PUT', avatarData);
 }

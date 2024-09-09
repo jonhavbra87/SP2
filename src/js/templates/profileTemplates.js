@@ -4,15 +4,15 @@ export function profileTemplate(profileData) {
 
   const profileTitle = document.createElement('h1');
   profileTitle.classList.add('text-center', 'mb-3', 'text-uppercase');
-  profileTitle.textContent = profileData.name;
+  profileTitle.textContent = profileData.name || 'Unknown User'; //fallback name
 
   const profileBio = document.createElement('p');
   profileBio.classList.add('text-center', 'mb-3');
-  profileBio.textContent = profileData.bio;
+  profileBio.textContent = profileData.bio || 'No bio available'; // Ensure a fallback bio
 
   const profileCredits = document.createElement('p');
   profileCredits.classList.add('text-center', 'mb-3');
-  profileCredits.textContent = `Credits: ${profileData.credits}`;
+  profileCredits.textContent = `Credits: ${profileData.credits || 0}`;
 
   const avatarWidth = document.createElement('div');
   avatarWidth.classList.add('row');
@@ -28,7 +28,7 @@ export function profileTemplate(profileData) {
   if (avatar.src === 'https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=80&h=400&w=400') {
     avatar.src = '../../assets/avatarPlaceholder.webp';
   } else {
-    return;
+    avatar.src = profileData.avatar.url;
   }
 
   // maybe have a grid with the name and the avatar
@@ -47,25 +47,21 @@ export function profileTemplate(profileData) {
   if (banner.src === 'https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=80&h=500&w=1500') {
     banner.src = '../../assets/profileBannerPlaceholder.png';
   } else {
-    return;
+    banner.src = profileData.banner.url;
   }
-
-  const updateAvatar = document.createElement('button');
-  updateAvatar.classList.add('btn', 'btn-cb-primary', 'text-uppercase', 'fw-bold', 'm-2');
-  updateAvatar.textContent = 'Update avatar';
 
   const profileListings = document.createElement('p');
   profileListings.classList.add('text-center', 'm-2');
-  profileListings.textContent = `Listings: ${profileData._count.listings}`;
+  profileListings.textContent = `Listings: ${profileData._count.listings || 0}`;
 
   const profileWins = document.createElement('p');
   profileWins.classList.add('text-center', 'mb-2');
-  profileWins.textContent = `Wins: ${profileData._count.wins}`;
+  profileWins.textContent = `Wins: ${profileData._count.wins || 0}`;
 
   avatarWidth.append(profileAvatar);
   profileAvatar.append(avatar);
   profileBanner.append(banner);
-  profileContainer.append(profileTitle, profileBio, profileCredits, profileBanner, profileAvatar, updateAvatar, profileListings, profileWins);
+  profileContainer.append(profileTitle, profileBio, profileCredits, profileBanner, profileAvatar, profileListings, profileWins);
 
   return profileContainer;
 }
