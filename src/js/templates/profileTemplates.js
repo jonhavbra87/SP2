@@ -50,9 +50,17 @@ export function profileTemplate(profileData) {
     return;
   }
 
-  const updateAvatar = document.createElement('button');
-  updateAvatar.classList.add('btn', 'btn-cb-primary', 'text-uppercase', 'fw-bold', 'm-2');
-  updateAvatar.textContent = 'Update avatar';
+  // const updateAvatar = document.createElement('button');
+  // updateAvatar.classList.add('btn', 'btn-cb-primary', 'text-uppercase', 'fw-bold', 'm-2');
+  // updateAvatar.setAttribute('data-bs-toggle', 'modal');
+  // updateAvatar.setAttribute('data-bs-target', '#avatarModal');
+  // updateAvatar.textContent = 'Update avatar';
+
+  // updateAvatar.addEventListener('click', () => {
+  //   const avatarModal = document.getElementById('avatarModal');
+  //   avatarModal.classList.add('show');
+  //   avatarModal.style.display = 'block';
+  // });
 
   const profileListings = document.createElement('p');
   profileListings.classList.add('text-center', 'm-2');
@@ -65,7 +73,7 @@ export function profileTemplate(profileData) {
   avatarWidth.append(profileAvatar);
   profileAvatar.append(avatar);
   profileBanner.append(banner);
-  profileContainer.append(profileTitle, profileBio, profileCredits, profileBanner, profileAvatar, updateAvatar, profileListings, profileWins);
+  profileContainer.append(profileTitle, profileBio, profileCredits, profileBanner, profileAvatar, profileListings, profileWins);
 
   return profileContainer;
 }
