@@ -1,11 +1,11 @@
 import { getListings } from '../api/fetch/getListings.js';
-import { listingsAppend } from './listingsAppend.js';
+import { listingsTemplate } from './listingsTemplate.js';
 
 const loader = document.getElementById('loader');
 
 export async function listingsRender() {
   loader.innerHTML = '';
-  loader.classList.add('d-none');
+  // loader.classList.add('d-none');
 
   const container = document.getElementById('listings');
   container.innerHTML = '';
@@ -13,11 +13,11 @@ export async function listingsRender() {
   try {
     const listings = await getListings();
 
-    if (!listings || !listings.length) {
-      console.warn('No listings found or listings array is empty.');
-      return;
-    }
-    listingsAppend(listings, container);
+    listings.forEach((postData) => {
+      const cardContent = listingsTemplate(postData);
+
+      container.append(cardContent);
+    });
   } catch (error) {
     console.error('Failed to render listings:', error);
   }
