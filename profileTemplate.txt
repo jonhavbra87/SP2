@@ -65,3 +65,14 @@ export function profileTemplate(profileData) {
 
   return profileContainer;
 }
+
+
+
+  // Update Avatar Button
+  //   const updateAvatarButton = document.createElement('button');
+  //   updateAvatarButton.classList.add('btn', 'btn-cb-primary', 'me-2');
+  //   updateAvatarButton.type = 'button';
+  //   updateAvatarButton.id = 'AvatarModal';
+  //   updateAvatarButton.setAttribute('data-bs-toggle', 'modal');
+  //   updateAvatarButton.setAttribute('data-bs-target', '#avatarModal');
+  //   updateAvatarButton.textContent = 'Update Avatar';

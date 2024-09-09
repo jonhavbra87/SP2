@@ -26,6 +26,10 @@ export function FooterContainer(postData) {
   cardButton.classList.add('btn', 'btn-cb-primary', 'text-uppercase', 'fw-bold', 'mb-2', 'make-offer-btn');
   cardButton.textContent = 'Make offer';
 
+  cardButton.onclick = () => {
+    window.location.href = `/listings/?id=${postData.id}`;
+  };
+
   // cardButton.addEventListener('click', () => {
   // cardButton.setAttribute('data-bs-toggle', 'modal');
   // cardButton.setAttribute('data-bs-target', `#modal-${postData.id}`);

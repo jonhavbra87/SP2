@@ -3,7 +3,6 @@ import { load } from '../../storage';
 
 export function submitAvatarUrl() {
   const form = document.getElementById('avatarForm');
-  console.log('Avatar form:', form);
 
   // Add the event listener for form submission
   form.addEventListener('submit', async (event) => {
