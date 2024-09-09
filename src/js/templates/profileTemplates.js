@@ -78,7 +78,7 @@ export function profileTemplate(profileData, listings, bids) {
 
     const listItem = document.createElement('li');
     listItem.textContent = `${bid.amount}$ by ${bid.bidder.name} on ${new Date(bid.created).toLocaleDateString()}`;
-    latestBidsList.appendChild(listItem);
+    latestBidsList.append(listItem);
   });
 
   latestBidsCol.append(latestBidsTitle, latestBidsList);
@@ -93,13 +93,17 @@ export function profileTemplate(profileData, listings, bids) {
   activeListingsList.classList.add('list-unstyled');
 
   // Loop through active listings
-  if (listings.listings) {
+  if (listings.listings && listings.listings.length > 0) {
     listings.listings.forEach((listing) => {
       log('listing', listing);
       const listItem = document.createElement('li');
       listItem.textContent = `${listing.title}: Ends on ${new Date(listing.endsAt).toLocaleDateString()}`;
-      activeListingsList.appendChild(listItem);
+      activeListingsList.append(listItem);
     });
+  } else {
+    const listItem = document.createElement('li');
+    listItem.textContent = 'No active listings';
+    activeListingsList.append(listItem);
   }
 
   activeListingsCol.append(activeListingsTitle, activeListingsList);
@@ -114,16 +118,31 @@ export function profileTemplate(profileData, listings, bids) {
   winningBidsList.classList.add('list-unstyled');
 
   // Assuming you have a way to determine winning bids
-  if (listings.wins) {
+  if (listings.wins && listings.wins.length > 0) {
+    let hasWinningBids = false;
+
     listings.wins.forEach((listing) => {
-      const highestBid = listing.bids && listing.bids[0]; // Assuming the first bid is the highest
+      const highestBid = listing.bids && listing.bids[0];
       if (highestBid?.bidder.name === profileData.name) {
         const listItem = document.createElement('li');
         listItem.textContent = `${listing.title}: ${highestBid.amount}$`;
-        winningBidsList.appendChild(listItem);
+        winningBidsList.append(listItem);
+        hasWinningBids = true; // Indikerer at det er minst ett vinnende bud
       }
     });
+
+    // Hvis ingen vinnende bud ble funnet, vis meldingen "No winning bids"
+    if (!hasWinningBids) {
+      const listItem = document.createElement('li');
+      listItem.textContent = 'No winning bids';
+      winningBidsList.append(listItem);
+    }
+  } else {
+    const listItem = document.createElement('li');
+    listItem.textContent = 'No listings won, yet';
+    winningBidsList.append(listItem);
   }
+
   winningBidsCol.append(winningBidsTitle, winningBidsList);
 
   // Credits and Avatar Update Button
