@@ -9,7 +9,6 @@ export async function headers() {
       throw new Error('No access token available. Please log in.');
     }
 
-    // Return headers object if token exists
     return {
       'Content-Type': 'application/json',
       Authorization: `Bearer ${token}`,
