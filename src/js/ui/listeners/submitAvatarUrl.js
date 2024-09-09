@@ -35,7 +35,9 @@ export function submitAvatarUrl() {
       // Update the profile avatar with the provided URL
       const response = await updateProfileAvatar(profileName, avatarData);
       console.log('Profile avatar updated:', response);
+
       location.reload();
+
       // Optionally, close the modal after a successful update
       //   const avatarModal = document.getElementById('avatarModal');
       //   avatarModal.classList.remove('show');

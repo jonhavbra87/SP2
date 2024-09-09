@@ -28,9 +28,10 @@ export function profileTemplate(profileData) {
   // Avatar (Overlapping the Banner)
   const avatarCol = document.createElement('div');
   avatarCol.classList.add('col-12', 'd-flex', 'justify-content-center', 'position-absolute');
-  avatarCol.style.top = '250px'; // Adjust avatar position
+  avatarCol.style.top = '150px'; // Adjust avatar position
+
   const avatar = document.createElement('img');
-  avatar.classList.add('rounded', 'border', 'border-3', 'border-light');
+  avatar.classList.add('img-fluid', 'rounded', 'object-fit-cover', 'border', 'border-3', 'border-light');
   avatar.style.width = '300px'; // Adjust avatar size if needed
   avatar.style.height = '200px';
   avatar.src = profileData.avatar.url || '../../assets/avatarPlaceholder.webp'; // Use placeholder if no avatar available
@@ -115,10 +116,17 @@ export function profileTemplate(profileData) {
   creditsTitle.textContent = 'Credits';
   const creditsValue = document.createElement('p');
   creditsValue.textContent = `${profileData.credits || 0}`;
-  const updateAvatarButton = document.createElement('button');
-  updateAvatarButton.classList.add('btn', 'btn-warning', 'text-dark', 'fw-bold');
-  updateAvatarButton.textContent = 'Update Avatar';
-  creditsCol.append(creditsTitle, creditsValue, updateAvatarButton);
+
+  // Update Avatar Button
+  //   const updateAvatarButton = document.createElement('button');
+  //   updateAvatarButton.classList.add('btn', 'btn-cb-primary', 'me-2');
+  //   updateAvatarButton.type = 'button';
+  //   updateAvatarButton.id = 'AvatarModal';
+  //   updateAvatarButton.setAttribute('data-bs-toggle', 'modal');
+  //   updateAvatarButton.setAttribute('data-bs-target', '#avatarModal');
+  //   updateAvatarButton.textContent = 'Update Avatar';
+
+  creditsCol.append(creditsTitle, creditsValue);
 
   statsRow.append(latestBidsCol, activeListingsCol, winningBidsCol, creditsCol);
 
