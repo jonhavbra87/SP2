@@ -7,19 +7,19 @@ export function FooterContainer(postData) {
   cardTitle.textContent = postData.title;
 
   const cardDescription = document.createElement('p');
-  cardDescription.classList.add('card-text', 'text-center', 'mt-2', 'mb-4');
+  cardDescription.classList.add('card-text', 'text-center', 'mt-2', 'mb-4', 'text-wrap');
   cardDescription.textContent = postData.description;
 
   const cardCreated = document.createElement('p');
-  cardCreated.classList.add('card-text', 'text-center', 'mb-3');
+  cardCreated.classList.add('card-text', 'text-center', 'mb-3', 'text-wrap');
   cardCreated.textContent = `Created: ${postData.created}`;
 
   const cardEndsAt = document.createElement('p');
-  cardEndsAt.classList.add('card-text', 'text-center', 'mb-3');
+  cardEndsAt.classList.add('card-text', 'text-center', 'mb-3', 'text-wrap');
   cardEndsAt.textContent = `Ends at: ${postData.endsAt}`;
 
   const cardCount = document.createElement('p');
-  cardCount.classList.add('card-text', 'text-end', 'mb-1');
+  cardCount.classList.add('card-text', 'text-end', 'mb-1', 'text-wrap');
   cardCount.textContent = `Offers: ${postData._count.bids}`;
 
   const cardButton = document.createElement('button');
