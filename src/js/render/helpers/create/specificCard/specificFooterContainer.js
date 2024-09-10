@@ -12,18 +12,35 @@ export function specificFooterContainer(postData) {
 
   const cardCreated = document.createElement('p');
   cardCreated.classList.add('card-text', 'text-start', 'mb-2');
-  cardCreated.textContent = `Created: ${new Date(postData.created).toLocaleDateString()}`;
+
+  const createdText = document.createElement('span');
+  createdText.classList.add('fw-bold');
+  createdText.textContent = 'Created:';
+
+  const createdDateText = document.createElement('span');
+  createdDateText.textContent = ` ${new Date(postData.created).toLocaleDateString()}`;
+
+  cardCreated.append(createdText, createdDateText);
 
   const cardEndsAt = document.createElement('p');
   cardEndsAt.classList.add('card-text', 'text-start', 'mb-3');
-  cardEndsAt.textContent = `Ends at: ${new Date(postData.endsAt).toLocaleDateString()}`;
+
+  const endsAtText = document.createElement('span');
+  cardEndsAt.classList.add('fw-bold');
+  endsAtText.textContent = 'Ends at:';
+
+  const dateText = document.createElement('span');
+  dateText.classList.add('fw-light');
+  dateText.textContent = ` ${new Date(postData.endsAt).toLocaleDateString()}`;
+
+  cardEndsAt.append(endsAtText, dateText);
 
   // Bids section
   const bidsTitle = document.createElement('h5', 'card-title');
   bidsTitle.textContent = 'Latest bids:';
 
   const bidsContainer = document.createElement('ul');
-  bidsContainer.classList.add('list-group', 'list-group-flush', 'mb-3');
+  bidsContainer.classList.add('list-group', 'mb-3');
 
   let limit = 4;
   // Loop through bids and add them to the container
