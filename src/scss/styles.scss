@@ -50,8 +50,12 @@ article {
   container-type: inline-size;
 }
 
-main {
-  padding-bottom: calc(3.5rem + 1.5rem);
+// main {
+//   padding-bottom: calc(3.5rem + 1.5rem);
+//   overflow: hidden;
+// }
+section#specific-post {
+  height: calc(100vh - 75px); /* 100vh minus høyden på headeren */
 }
 
 .btn-cb-primary {
@@ -82,9 +86,26 @@ main {
 .carousel-icons {
   color: #121212;
 }
+/* CARD STYLING */
 .card {
   color: #f5f5f5;
 }
+.card-background {
+  border: 2px solid $cb-gold-color-hsl;
+  border-radius: 5px;
+  background: linear-gradient(180deg, #a68629 0%, #f0d290 100%);
+  // backdrop-filter: blur(10px);
+}
+
+.border-gold {
+  border: 2px solid $cb-gold-color-hsl;
+  border-radius: 5px;
+}
+
+#specific-post {
+  min-height: 100vh;
+}
+
 /* Navbar show/close */
 
 .collapse {
@@ -93,13 +114,6 @@ main {
 
 .collapse.show {
   display: block;
-}
-
-.card-background {
-  border: 2px solid $cb-gold-color-hsl;
-  border-radius: 5px;
-  background: linear-gradient(180deg, #a68629 0%, #f0d290 100%);
-  // backdrop-filter: blur(10px);
 }
 
 .transparent {
@@ -206,6 +220,7 @@ main {
   translate: -50%;
   z-index: 9998;
 }
+
 .lds-default div {
   position: absolute;
   width: 6.4px;
