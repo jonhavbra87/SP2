@@ -1,8 +1,8 @@
-import * as create from '../render/helpers/create/index.js';
+import * as create from '../render/helpers/create/listingsCard/index.js';
 
 export function listingsTemplate(postData) {
   const card = create.CardContainer();
-  const cardBody = create.CardBodyContainer(postData);
+  const cardBody = create.bodyContainer(postData);
   const media = create.mediaContainer(postData);
   const footerContainer = create.FooterContainer(postData);
   const viewButtonContainer = create.viewButtonContainer(postData);

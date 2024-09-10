@@ -1,9 +1,11 @@
 import { getListing } from '../api/fetch/getListing.js';
-import { listingAppend } from './listingAppend.js';
+
+import { listingTemplate } from './listingTemplate.js';
 
 const loader = document.getElementById('loader');
 
 export async function listingRender() {
+  loader.innerHTML = '';
   try {
     const url = new URL(window.location.href);
     let id = url.searchParams.get('id');
@@ -14,11 +16,10 @@ export async function listingRender() {
 
     if (listingData) {
       const container = document.getElementById('specific-post');
+      container.innerHTML = '';
 
-      loader.innerHTML = '';
-      loader.classList.add('d-none');
-
-      listingAppend(listingData, container);
+      const card = listingTemplate(listingData);
+      container.append(card);
     }
   } catch (error) {
     throw new Error(`Error rendering post: ${error.message}`);
