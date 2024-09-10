@@ -1,18 +1,17 @@
 import { getListings } from '../api/fetch/getListings.js';
+import { hideLoader } from '../ui/helpers/hideLoader.js';
+import { showLoader } from '../ui/helpers/showLoader.js';
 import { listingsTemplate } from './listingsTemplate.js';
 
-const loader = document.getElementById('loader');
-
 export async function listingsRender() {
-  loader.innerHTML = '';
-  // loader.classList.add('d-none');
+  showLoader();
 
   const container = document.getElementById('listings');
   container.innerHTML = '';
 
   try {
     const listings = await getListings();
-
+    hideLoader();
     listings.forEach((postData) => {
       const cardContent = listingsTemplate(postData);
 

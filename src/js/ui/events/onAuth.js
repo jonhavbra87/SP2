@@ -26,9 +26,8 @@ export async function onAuth(event) {
       // };
 
       await register(name, email, password);
-      await login(email, password); //This line automaticly login after registration!
+      await login(email, password); //This line automatically login after registration!
     }
-    twoSecDelay();
   } catch (error) {
     console.error('Authentication error:', error);
   }

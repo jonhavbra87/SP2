@@ -1,11 +1,11 @@
 import { onAuth } from '../events/onAuth.js';
-
-const loader = document.getElementById('loader');
+import { hideLoader } from '../helpers/hideLoader.js';
+import { showLoader } from '../helpers/showLoader.js';
 
 export function loginListener() {
   document.getElementById('loginModal').addEventListener('submit', async (event) => {
-    onAuth(event);
-    loader.classList.remove('d-none');
-    loader.innerHTML = '';
+    showLoader();
+    await onAuth(event);
+    hideLoader();
   });
 }

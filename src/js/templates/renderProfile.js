@@ -2,9 +2,12 @@ import { getProfile } from '../api/profiles/getProfile.js';
 import { profileBids } from '../api/profiles/profileBids.js';
 import { profileListings } from '../api/profiles/profileListings.js';
 import { load } from '../storage/index.js';
+import { hideLoader } from '../ui/helpers/hideLoader.js';
+import { showLoader } from '../ui/helpers/showLoader.js';
 import { profileTemplate } from './profileTemplates.js';
 
 export async function renderProfile() {
+  showLoader();
   try {
     const url = new URL(location.href);
     let name = load('profile').name || url.searchParams.get('name');
@@ -18,6 +21,7 @@ export async function renderProfile() {
 
     const bids = await profileBids();
     // console.log(bids);
+    hideLoader();
 
     if (profileData) {
       const container = document.querySelector('#profile-container');
