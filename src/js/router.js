@@ -7,7 +7,6 @@ import { listingRender } from './templates/listingRender.js';
 import { searchListings } from './utilities/searchListings.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { renderProfile } from './templates/renderProfile.js';
-import { profileListings } from './api/profiles/profileListings.js';
 
 export default function router() {
   const path = location.pathname;
