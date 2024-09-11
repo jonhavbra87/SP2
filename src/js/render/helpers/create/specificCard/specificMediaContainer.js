@@ -3,7 +3,7 @@ export function specificMediaContainer(postData) {
   mediaContainer.classList.add('col-12', 'col-lg-6', 'mb-3', 'mb-lg-0'); // mb-3 for space on mobile, no space on larger screens
 
   const img = document.createElement('img');
-  img.classList.add('img-fluid', 'rounded', 'object-fit-cover');
+  img.classList.add('img-fluid', 'object-fit-cover', 'w-100');
   // Check if the media array and URL exist
   if (postData.media && postData.media.length > 0 && postData.media[0].url) {
     img.src = postData.media[0].url;

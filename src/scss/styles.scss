@@ -5,12 +5,14 @@
 // Import Bootstrap SCSS
 @import '../../node_modules/bootstrap/scss/bootstrap';
 // @import 'bootstrap/scss/bootstrap';
+@import '../../node_modules/bootstrap-icons/font/bootstrap-icons.css';
 
 // Custom styles (overrides Bootstrap's default styles)
 body {
   background-color: $body-bg;
   color: $text-color;
-  background: radial-gradient(ellipse 100% 70% at center, rgba(212, 175, 55, 0.5) 0%, rgba(18, 18, 18, 1) 60%);
+  background: radial-gradient(ellipse 100% 70% at center, rgba(112, 93, 31, 0.603) 0%, rgba(18, 18, 18, 1) 60%);
+  backdrop-filter: blur(250px);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
@@ -50,13 +52,35 @@ article {
   container-type: inline-size;
 }
 
+// header {
+//   position: sticky;
+//   top: 0;
+//   width: 100%;
+//   height: 75px;
+//   color: $cb-light-color;
+//   z-index: 9999;
+//   margin: 0 0 75px 0;
+// }
+
+footer {
+  position: static;
+  bottom: 0;
+  width: 100%;
+  height: 75px;
+  background-color: $cb-dark-color;
+  color: $cb-light-color;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
 // main {
 //   padding-bottom: calc(3.5rem + 1.5rem);
 //   overflow: hidden;
 // }
-section#specific-post {
-  height: calc(100vh - 75px); /* 100vh minus høyden på headeren */
-}
+// section#specific-post {
+//   height: calc(100vh - 75px); /* 100vh minus høyden på headeren */
+// }
 
 .btn-cb-primary {
   background-color: $cb-dark-color;
@@ -87,9 +111,57 @@ section#specific-post {
   color: #121212;
 }
 /* CARD STYLING */
-.card {
-  color: #f5f5f5;
+// .card {
+//   color: #f5f5f5;
+//   border: 1px solid #C0C0C0;
+//   border-radius: 12px;
+// }
+
+.card-custom {
+  background-color: $cb-dark-color;
+  color: $cb-light-color;
+  border: 1px solid $cb-silver-color-hsl;
+  border-radius: 2px;
+  box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+
+  .card-body {
+    // backdrop-filter: blur(76px);
+    box-shadow:
+      75.833px -75.833px 75.833px 0px rgba(165, 165, 165, 0.1) inset,
+      -75.833px 75.833px 75.833px 0px rgba(255, 255, 255, 0.1) inset;
+    backdrop-filter: blur(75.83333587646484px);
+  }
+
+  // Tittelstiler
+  .card-title {
+    color: var(--Primary-Gold, #d4af37);
+    font-family: 'Playfair Display';
+    font-size: 28px;
+    font-style: normal;
+    font-weight: 800;
+    line-height: normal;
+    text-transform: uppercase;
+  }
+
+  // Tekststiler
+  .card-text {
+    line-height: 28px;
+  }
+
+  img {
+    border-radius: 2px;
+  }
+
+  &:hover {
+    box-shadow: 0 6px 12px rgba(0, 0, 0, 0.5);
+  }
+
+  // // Kortbody-stil
+  // .card-body {
+  //   padding: var(--bs-card-spacer-y) var(--bs-card-spacer-x);
+  // }
 }
+
 .card-background {
   border: 2px solid $cb-gold-color-hsl;
   border-radius: 5px;
@@ -102,9 +174,9 @@ section#specific-post {
   border-radius: 5px;
 }
 
-#specific-post {
-  min-height: 100vh;
-}
+// #specific-post {
+//   min-height: calc(100vh - 60px);
+// }
 
 /* Navbar show/close */
 
@@ -134,6 +206,11 @@ section#specific-post {
   font-size: 14px;
   font-weight: 500;
 
+  &:hover {
+    border-color: $cb-gold-color-hsl-darker;
+    box-shadow: 0 0 5px rgba(240, 209, 143, 0.5);
+  }
+
   &:focus {
     border-color: $cb-gold-color-hsl-lightest;
     box-shadow: 0 0 5px rgba(240, 209, 143, 0.5);
@@ -156,6 +233,25 @@ section#specific-post {
   &[readonly] {
     background-color: #ecf0f1;
     color: #bdc3c7;
+  }
+}
+
+.input-group-text {
+  background-color: $body-bg;
+  border-left: none;
+  color: #f5f5f5;
+
+  .bi-search {
+    color: inherit;
+  }
+  .form-control:hover + & {
+    border-color: $cb-gold-color-hsl-darker;
+    box-shadow: 0 0 5px rgba(240, 209, 143, 0.5);
+  }
+  .form-control:focus + &,
+  .form-control:active + & {
+    border-color: $cb-gold-color-hsl-lightest;
+    box-shadow: 0 0 5px rgba(240, 209, 143, 0.5);
   }
 }
 
@@ -205,6 +301,7 @@ section#specific-post {
 }
 
 /*----------------- Loader ----------------- */
+
 .lds-default,
 .lds-default div {
   box-sizing: border-box;

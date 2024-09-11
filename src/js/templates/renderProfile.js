@@ -10,8 +10,7 @@ export async function renderProfile() {
   showLoader();
   try {
     const url = new URL(location.href);
-    let name = load('profile').name || url.searchParams.get('name');
-    // let name = url.searchParams.get('name');
+    let name = load('profile').name;
     // console.log(name);
 
     const profileData = await getProfile(name);

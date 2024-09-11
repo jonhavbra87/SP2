@@ -1,35 +1,13 @@
+// Variables for the theme
+
 // Colors
-
-// $primary: #d4af37;
-// $secondary: #c0c0c0;
-// //$tertiary: #ffd700;
-// $fourth: #006466;
-// $primary-color-blue: #0a3d62;
-
-//$background-color: #121212;
-
-// Definerer gradienten som en variabel
-$btn-border-gradient: linear-gradient(180deg, #a68629 0%, #f0d290 100%);
-
-//Text color
-$text-color: #f5f5f5;
-
-//Background color
-$body-bg: #121212;
-//$bg-light: #272640;
-$gray-900: #121212;
-
-//Buttons
-$btn-close-color: #f5f5f5;
-
-// Define primary color
-$cb-gold-color-rgb: rgb(166, 134, 41);
-$cb-gold-color-hsl: hsl(45, 60%, 41%);
+$cb-gold-color-rgb: #d4af37;
+$cb-gold-color-hsl: hsl(46, 65%, 52%);
 $cb-gold-color-hsl-transparent: hsl(45, 20%, 46%);
-$cb-gold-color-hsl-lighter: hsl(45, 60%, 51%);
-$cb-gold-color-hsl-lightest: hsl(41, 76%, 75%);
-$cb-gold-color-hsl-darker: hsl(45, 60%, 31%);
-$cb-gold-color-hsl-darkest: hsl(45, 60%, 21%);
+$cb-gold-color-hsl-lighter: hsl(46, 65%, 51%);
+$cb-gold-color-hsl-lightest: hsl(46, 65%, 75%);
+$cb-gold-color-hsl-darker: hsl(46, 65%, 31%);
+$cb-gold-color-hsl-darkest: hsl(46, 65%, 21%);
 
 $cb-silver-color-rgb: rgb(192, 192, 192);
 $cb-silver-color-hsl: hsl(0, 0%, 75%);
@@ -39,6 +17,20 @@ $cb-silver-color-hsl-darkest: hsl(0, 0%, 55%);
 $cb-dark-color: #121212;
 $cb-light-color: #f5f5f5;
 $cb-light-grey: #737373;
+
+//Background color
+$body-bg: #121212;
+// $bg-light: #272640;
+$gray-900: #121212;
+
+//Text color
+$text-color: #f5f5f5;
+
+//Buttons
+$btn-close-color: #f5f5f5;
+
+// Gradient colors for buttons
+$btn-border-gradient: linear-gradient(180deg, #a68629 0%, #f0d290 100%);
 
 // Font
 $font-family-base: 'playfair display', serif;

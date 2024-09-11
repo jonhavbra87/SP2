@@ -1,9 +1,9 @@
 export function specificFooterContainer(postData) {
   const footerContainer = document.createElement('div');
-  footerContainer.classList.add('col-12', 'col-lg-6', 'd-flex', 'flex-column', 'justify-content-center');
+  footerContainer.classList.add('col-12', 'col-lg-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
 
-  const cardTitle = document.createElement('h4');
-  cardTitle.classList.add('card-title', 'fw-bold', 'text-capitalize', 'text-center');
+  const cardTitle = document.createElement('p');
+  cardTitle.classList.add('card-title', 'fw-bold', 'text-capitalize', 'text-center', 'text-uppercase');
   cardTitle.textContent = postData.title;
 
   const cardDescription = document.createElement('p');
