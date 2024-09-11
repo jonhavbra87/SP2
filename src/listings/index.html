@@ -12,8 +12,8 @@
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet" />
   </head>
 
-  <body>
-    <header>
+  <body class="d-flex flex-column min-vh-100">
+    <header class="z-3">
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" data-bs-theme="dark">
         <div class="container d-flex justify-content-between">
           <!-- Logo -->
@@ -75,8 +75,8 @@
         </div>
       </nav>
     </header>
-    <main>
-      <section class="d-flex justify-content-center align-items-center" id="specific-post">
+    <main class="flex-grow-1 h-lg-100 d-flex justify-content-center align-items-center">
+      <section id="specific-post">
         <div id="loader" class="lds-default">
           <div></div>
           <div></div>
@@ -93,7 +93,7 @@
         </div>
       </section>
     </main>
-    <footer>
+    <footer class="sticky-bottom p-4 text-center z-4 bg-body">
       <p>&copy; 2024 CrownBid</p>
     </footer>
     <!-- Login Modal -->

@@ -3,14 +3,14 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap 2/vite</title>
+    <title>Bootstrap 2/vite</title>
     <link rel="shortcut icon" href="/assets/logo_full_size-F1PDOA8G.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/main-PpzYKJIz.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-hik1_F9X.css">
+    <script type="module" crossorigin src="/assets/main-DhUV-830.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-B1f3k_xY.css">
   </head>
 
   <body>
@@ -42,8 +42,19 @@
             <!-- Search input field -->
             <div class="d-flex flex-grow-1 justify-content-center">
               <form class="d-flex" role="search" id="searchForm">
-                <input class="form-control me-2" type="search" placeholder="Search" aria-label="Search" id="searchInput" />
-                <button class="btn btn-outline-light" type="submit">Search</button>
+                <div class="input-group">
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Search"
+                    aria-label="Search"
+                    id="searchInput"
+                    aria-describedby="basic-addon1"
+                  />
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="bi bi-search"></i>
+                  </span>
+                </div>
               </form>
             </div>
 
@@ -67,7 +78,7 @@
     </header>
 
     <main>
-      <section class="d-flex flex-wrap gap-3 justify-content-center" id="listings">
+      <section class="row justify-content-center gap-3" id="listings">
         <div id="loader" class="lds-default">
           <div></div>
           <div></div>
@@ -85,7 +96,7 @@
       </section>
     </main>
 
-    <footer class="text-center py-4 fixed-bottom bg-dark">
+    <footer class="text-center py-4">
       <p>&copy; 2024 CrownBid</p>
     </footer>
 

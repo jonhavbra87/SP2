@@ -7,5 +7,6 @@ export function loginListener() {
     showLoader();
     await onAuth(event);
     hideLoader();
+    window.location.reload();
   });
 }

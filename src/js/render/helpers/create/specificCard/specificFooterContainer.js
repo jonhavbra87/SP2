@@ -3,7 +3,7 @@ export function specificFooterContainer(postData) {
   footerContainer.classList.add('col-12', 'col-lg-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
 
   const cardTitle = document.createElement('p');
-  cardTitle.classList.add('card-title', 'fw-bold', 'text-capitalize', 'text-center', 'text-uppercase');
+  cardTitle.classList.add('card-title', 'text-center');
   cardTitle.textContent = postData.title;
 
   const cardDescription = document.createElement('p');
@@ -56,21 +56,22 @@ export function specificFooterContainer(postData) {
     noBidsItem.textContent = 'No bids yet.';
     bidsContainer.append(noBidsItem);
   }
-
+  const placeBidContainer = document.createElement('div');
+  // placeBidContainer.classList.add('col-12', 'col-lg-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
   // Place bid form
   const placeBidForm = document.createElement('form');
   placeBidForm.classList.add('d-flex', 'flex-column', 'align-items-start', 'mt-3');
   placeBidForm.id = 'placeBidForm';
 
   const placeBidInput = document.createElement('input');
-  placeBidInput.classList.add('form-control', 'mb-2');
+  placeBidInput.classList.add('form-control', 'mb-5');
   placeBidInput.type = 'number';
   placeBidInput.placeholder = 'Place your bid';
   placeBidInput.id = 'placeBidInput';
   placeBidInput.required = true;
 
   const placeBidButton = document.createElement('button');
-  placeBidButton.classList.add('btn', 'btn-primary', 'mb-2');
+  placeBidButton.classList.add('btn', 'btn-cb-primary', 'mb-2');
   placeBidButton.type = 'submit';
   placeBidButton.textContent = 'Place Bid';
 
@@ -93,7 +94,10 @@ export function specificFooterContainer(postData) {
   });
 
   placeBidForm.append(placeBidInput, placeBidButton);
-  footerContainer.append(cardTitle, cardDescription, cardCreated, cardEndsAt, bidsTitle, bidsContainer, placeBidForm);
+
+  placeBidContainer.append(placeBidForm);
+
+  footerContainer.append(cardTitle, cardDescription, cardCreated, cardEndsAt, bidsTitle, bidsContainer, placeBidContainer);
 
   return footerContainer;
 }
