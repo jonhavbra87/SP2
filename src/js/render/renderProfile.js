@@ -4,14 +4,12 @@ import { profileListings } from '../api/profiles/profileListings.js';
 import { load } from '../storage/index.js';
 import { hideLoader } from '../ui/helpers/hideLoader.js';
 import { showLoader } from '../ui/helpers/showLoader.js';
-import { profileTemplate } from './profileTemplates.js';
+import { profileTemplate } from '../templates/profileTemplates.js';
 
 export async function renderProfile() {
   showLoader();
   try {
-    const url = new URL(location.href);
     let name = load('profile').name;
-    // console.log(name);
 
     const profileData = await getProfile(name);
     // console.log(profileData);
@@ -19,21 +17,23 @@ export async function renderProfile() {
     const listings = await profileListings();
 
     const bids = await profileBids();
-    // console.log(bids);
+
     hideLoader();
 
     if (profileData) {
       const container = document.querySelector('#profile-container');
-
       container.innerHTML = '';
-      // console.log('lisiting:', listings, 'bids:', bids);
+
       const profileCard = profileTemplate(profileData, listings, bids);
 
       container.append(profileCard);
     } else {
       alert(`No profile with the name ${name}. Please try again.`);
+      //Legg inn brukerinfo her. en melding på skjermen som viser hva som er feil.
     }
   } catch (error) {
     throw new Error(`Failed to render profile: ${error.message}`);
+  } finally {
+    hideLoader();
   }
 }

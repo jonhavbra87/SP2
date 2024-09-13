@@ -2,11 +2,10 @@
 
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
-import * as templates from './templates/index.js';
-import { listingRender } from './templates/listingRender.js';
+import * as render from './render/index.js';
 import { searchListings } from './utilities/searchListings.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
-import { renderProfile } from './templates/renderProfile.js';
+import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
 
 export default function router() {
   const path = location.pathname;
@@ -19,14 +18,16 @@ export default function router() {
     case '/':
       console.log('router is working on /');
       logout();
+      checkIfUserLoggedIn();
       listeners.navbarShowHide();
       listeners.modalShowHide();
       listeners.loginListener();
       listeners.registerListener();
-      templates.listingsRender();
+      render.listingsRender();
       // templates.limitListingsRender();
       searchListings();
       navigateToProfileListener();
+      listeners.openCreateListingModal();
       break;
 
     case '/listings':
@@ -34,10 +35,12 @@ export default function router() {
       console.log('Router is working on /listings/ path');
       if (id) {
         console.log(`router is working on /listings/ with id ${id}`);
+        checkIfUserLoggedIn();
         listeners.navbarShowHide();
         listeners.modalShowHide();
-        listingRender(id);
+        render.listingRender(id);
         navigateToProfileListener();
+        listeners.openCreateListingModal();
       } else {
         console.error('No listing ID provided.');
       }
@@ -45,8 +48,9 @@ export default function router() {
 
     case '/profile':
     case '/profile/':
+      checkIfUserLoggedIn();
       logout();
-      renderProfile();
+      render.renderProfile();
       listeners.navbarShowHide();
       listeners.openAvatarModal();
       listeners.openCreateListingModal();

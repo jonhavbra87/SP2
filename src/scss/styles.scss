@@ -28,7 +28,8 @@ h2,
 h3,
 h4,
 h5,
-h6 {
+h6,
+.nav-link {
   font-family: 'Playfair Display', serif;
   text-wrap: balance;
 }
@@ -51,36 +52,15 @@ article {
   container-type: inline-size;
 }
 
-// header {
-//   position: sticky;
-//   top: 0;
-//   width: 100%;
-//   height: 75px;
-//   color: $cb-light-color;
-//   z-index: 9999;
-//   margin: 0 0 75px 0;
-// }
+.nav-link,
+#logoutButton {
+  display: none;
+  font-size: 1rem;
+  text-transform: uppercase;
+  color: $cb-light-color;
+}
 
-// footer {
-//   position: sticky;
-//   bottom: 0;
-//   width: 100%;
-//   height: 75px;
-//   background-color: $cb-dark-color;
-//   color: $cb-light-color;
-//   display: flex;
-//   justify-content: center;
-//   align-items: center;
-// }
-
-// main {
-//   padding-bottom: calc(3.5rem + 1.5rem);
-//   overflow: hidden;
-// }
-// section#specific-post {
-//   height: calc(100vh - 75px); /* 100vh minus høyden på headeren */
-// }
-
+/* BUTTON STYLING */
 .btn-cb-primary {
   background-color: $cb-dark-color;
   color: $cb-light-color;
@@ -254,7 +234,7 @@ article {
     box-shadow: 0 0 5px rgba(240, 209, 143, 0.5);
   }
 }
-
+/* MODAL STYLING */
 .modal {
   display: none;
   position: fixed;

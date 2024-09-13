@@ -1,10 +1,19 @@
 import { remove } from '../../storage/index.js';
+import { hideLoader } from '../../ui/helpers/hideLoader.js';
+import { showLoader } from '../../ui/helpers/showLoader.js';
 
-export function logout() {
+export async function logout() {
   const logOutBtn = document.querySelector('[data-auth="logout"]');
 
   logOutBtn.addEventListener('click', () => {
-    remove('accessToken');
-    remove('profile');
+    try {
+      remove('token');
+      remove('profile');
+
+      window.location.href = '/';
+    } catch (error) {
+      console.error('Error during logout:', error);
+      // alert('Logout failed. Please try again.');
+    }
   });
 }

@@ -1,7 +1,7 @@
 import { getListings } from '../api/fetch/getListings.js';
+import { listingsTemplate } from '../templates/listingsTemplate.js';
 import { hideLoader } from '../ui/helpers/hideLoader.js';
 import { showLoader } from '../ui/helpers/showLoader.js';
-import { listingsTemplate } from './listingsTemplate.js';
 
 export async function listingsRender() {
   showLoader();
@@ -12,6 +12,7 @@ export async function listingsRender() {
   try {
     const listings = await getListings();
     hideLoader();
+
     listings.forEach((postData) => {
       const cardContent = listingsTemplate(postData);
 
@@ -19,5 +20,7 @@ export async function listingsRender() {
     });
   } catch (error) {
     console.error('Failed to render listings:', error);
+  } finally {
+    hideLoader();
   }
 }

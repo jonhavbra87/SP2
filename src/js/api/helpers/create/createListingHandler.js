@@ -15,7 +15,7 @@ export async function handleCreateListingFormSubmit(event) {
     endsAt,
   };
 
-  console.log('Listing data:', listingData.title, listingData.description, listingData.media, listingData.endsAt);
+  console.log('Listing data:', listingData);
 
   if (listingData) {
     try {
@@ -26,6 +26,7 @@ export async function handleCreateListingFormSubmit(event) {
         throw new Error('Response is not ok!');
       }
       console.log('Listing created:', response);
+      window.location.reload();
     } catch (error) {
       console.error('Error creating listing:', error);
       //   alert('Failed to create listing. Please check your input and try again.');

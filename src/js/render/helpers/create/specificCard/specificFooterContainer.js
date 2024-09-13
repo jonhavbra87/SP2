@@ -53,6 +53,7 @@ export function specificFooterContainer(postData) {
     });
   } else {
     const noBidsItem = document.createElement('li');
+    noBidsItem.classList.add('list-unstyled');
     noBidsItem.textContent = 'No bids yet.';
     bidsContainer.append(noBidsItem);
   }

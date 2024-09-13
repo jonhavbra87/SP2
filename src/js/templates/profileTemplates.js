@@ -1,4 +1,3 @@
-import { handleCreateListingFormSubmit } from '../api/helpers/create/createListingHandler';
 import { openAvatarModal, submitAvatarUrl } from '../ui/listeners';
 import { submitCreateListing } from '../ui/listeners/submitCreateListeing';
 
@@ -163,7 +162,7 @@ export function profileTemplate(profileData, listings, bids) {
   statsRow.append(latestBidsCol, activeListingsCol, winningBidsCol, creditsCol);
 
   const buttonContainer = document.createElement('div');
-  buttonContainer.classList.add('col-md-3', 'd-flex', 'flex-wrap', 'justify-content-center', 'gap-2', 'mt-3');
+  buttonContainer.classList.add('d-flex', 'flex-wrap', 'justify-content-center', 'justify-content-lg-end', 'gap-2', 'mt-3');
 
   // Update Avatar Button
   const updateAvatarButton = document.createElement('button');

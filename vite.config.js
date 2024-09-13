@@ -8,12 +8,14 @@ export default defineConfig({
     rollupOptions: {
       input: {
         main: resolve(__dirname, 'src/index.html'),
+        listings: resolve(__dirname, 'src/listings/index.html'),
+        profile: resolve(__dirname, 'src/profile/index.html'),
       },
     },
   },
   server: {
-    historyApiFallback: true, // Sørg for at SPA-routing fungerer
-    open: true, // Åpner prosjektet i nettleseren automatisk
+    historyApiFallback: true,
+    open: true,
   },
   resolve: {
     alias: {

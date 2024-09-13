@@ -1,5 +1,5 @@
 import { getListings } from '../api/fetch/getListings.js';
-import { listingsTemplate } from './listingsTemplate.js';
+import { listingsTemplate } from '../templates/listingsTemplate.js';
 
 const limit = 6;
 
