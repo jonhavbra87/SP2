@@ -86,15 +86,123 @@ article {
   }
 }
 
-.carousel-icons {
-  color: #121212;
+/* CAROUSEL STYLING */
+/* ----------------- Slider Styling ----------------- */
+.slider {
+  max-width: 65rem;
+  width: 100%; /* Full bredde */
+  height: 40rem;
+  margin: 0 auto;
+  position: relative;
+  border-radius: 2px;
+  overflow: hidden;
 }
-/* CARD STYLING */
-// .card {
-//   color: #f5f5f5;
-//   border: 1px solid #C0C0C0;
-//   border-radius: 12px;
-// }
+
+.slide {
+  position: absolute;
+  top: 0;
+  width: 100%;
+  height: 100%;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  transition: transform 1s;
+}
+/* ----------------- Content Styling ----------------- */
+.inner-container {
+  position: relative;
+  width: 100%;
+  height: 100%;
+}
+
+.carousel-image {
+  width: 100%;
+  height: 100%;
+  object-fit: cover;
+  object-position: center;
+  bottom: 0;
+  border: solid 2px #121212;
+}
+
+.carousel-text-container {
+  background-color: rgba(0, 0, 0, 0.5);
+  backdrop-filter: blur(5px);
+  height: auto;
+  z-index: 5;
+  width: 100%;
+  position: absolute;
+  bottom: 0;
+  display: flex;
+  flex-wrap: wrap;
+  flex-direction: column;
+  justify-content: center;
+  align-content: center;
+  text-align: center;
+  margin: 0 auto;
+  border-radius: 0 0 30px 30px;
+  font-weight: 600;
+}
+
+.carousel-button {
+  max-width: 80%;
+  color: $cb-light-color;
+  background-color: $cb-dark-color;
+  border: solid;
+  border-radius: 10px;
+  font-size: 1.6rem;
+  padding: 0.7rem 1.5rem;
+  margin: 5px auto;
+  align-self: center;
+}
+
+/* ----------------- Navigation Buttons and Dots Styling ----------------- */
+.slider__btn {
+  font-size: 2rem; /* Juster størrelsen på pilene */
+  cursor: pointer;
+  padding: 0.5rem;
+  background-color: transparent;
+  border: none;
+}
+
+.slider__btn:hover {
+  opacity: 0.8;
+}
+
+.dots {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+  padding: 1rem 0;
+}
+
+.dots__dot {
+  border: none;
+  background-color: $cb-dark-color;
+  opacity: 0.7;
+  height: 1rem;
+  width: 1rem;
+  border-radius: 50%;
+  margin-right: 1.5rem;
+  cursor: pointer;
+  transition: all 0.5s;
+}
+
+.dots__dot:hover,
+.dots__dot:focus {
+  opacity: 1;
+}
+
+.dots__dot:last-child {
+  margin-right: 0;
+}
+
+.dots__dot--active {
+  background-color: #fff;
+  opacity: 1;
+}
 
 .card-custom {
   background-color: $cb-dark-color;
@@ -374,6 +482,12 @@ article {
   }
   50% {
     transform: scale(1.5);
+  }
+}
+
+@media screen and (max-width: 768px) {
+  .slider__btn {
+    display: none;
   }
 }
 

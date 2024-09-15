@@ -6,6 +6,7 @@ import * as render from './render/index.js';
 import { searchListings } from './utilities/searchListings.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
+import { renderCarousel } from './render/renderCarousel.js';
 
 export default function router() {
   const path = location.pathname;
@@ -28,6 +29,7 @@ export default function router() {
       searchListings();
       navigateToProfileListener();
       listeners.openCreateListingModal();
+      renderCarousel();
       break;
 
     case '/listings':
