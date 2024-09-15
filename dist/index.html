@@ -3,25 +3,42 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap 2/vite</title>
+    <title>Bootstrap 2/vite</title>
     <link rel="shortcut icon" href="/assets/logo_full_size-F1PDOA8G.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/main-BDqoHVZH.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-DD1OhobM.css">
+    <script type="module" crossorigin src="/assets/main-DhxYoIz5.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-BJ7_laPZ.css">
   </head>
 
   <body>
     <header>
       <nav class="navbar navbar-expand-lg navbar-dark bg-dark sticky-top" data-bs-theme="dark">
-        <div class="container d-flex justify-content-between">
+        <div class="container d-flex">
           <!-- Logo -->
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand flex-grow-1" href="/">
             <img src="/assets/logo-D-ERvxh9.png" alt="Logo of CrownBid" />
           </a>
-
+          <!-- Search input field -->
+          <div class="d-flex flex-grow-1">
+            <form class="d-flex" role="search" id="searchForm">
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Type & magic happens..."
+                  aria-label="Search"
+                  id="searchInput"
+                  aria-describedby="basic-addon1"
+                />
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="bi bi-search"></i>
+                </span>
+              </div>
+            </form>
+          </div>
           <!-- Navbar Toggler for small screens -->
           <button
             class="navbar-toggler"
@@ -39,38 +56,27 @@
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left aligned navbar items (optional) -->
 
-            <!-- Search input field -->
-            <div class="d-flex flex-grow-1 justify-content-center">
-              <form class="d-flex" role="search" id="searchForm">
-                <div class="input-group">
-                  <input
-                    class="form-control"
-                    type="search"
-                    placeholder="Search"
-                    aria-label="Search"
-                    id="searchInput"
-                    aria-describedby="basic-addon1"
-                  />
-                  <span class="input-group-text" id="basic-addon1">
-                    <i class="bi bi-search"></i>
-                  </span>
-                </div>
-              </form>
-            </div>
-
             <!-- Right aligned navbar items -->
             <div class="navbar-nav ml-auto">
-              <!-- Profile button -->
-              <a class="nav-link me-2" id="profileLink" href="#">Profile</a>
-              <!-- Login Button -->
-              <button type="button" id="openLoginModal" class="btn btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
+              <!-- Elements shown when logged out -->
+              <button type="button" id="openLoginModal" class="btn btn-lg btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
                 Login
               </button>
-              <!-- Register Button -->
-              <button type="button" id="openRegisterModal" class="btn btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#registrationModal">
+              <button
+                type="button"
+                id="openRegisterModal"
+                class="btn btn-lg btn-cb-primary me-2"
+                data-bs-toggle="modal"
+                data-bs-target="#registrationModal"
+              >
                 Register
               </button>
-              <button class="btn btn-secondary btn-lg" type="button" aria-label="Logout button" data-auth="logout">Logout</button>
+
+              <!-- Elements shown when logged in -->
+              <a class="nav-link me-2" id="newListingLink" href="#" data-bs-toggle="modal" data-bs-target="#newListingModal">New Listing</a>
+              <a class="nav-link me-2" id="listingsLink" href="#">Listings</a>
+              <a class="nav-link me-2" id="profileLink" href="#">Profile</a>
+              <button class="btn btn-cb-primary" id="logoutButton" type="button" data-auth="logout">Logout</button>
             </div>
           </div>
         </div>
@@ -78,7 +84,9 @@
     </header>
 
     <main>
-      <section class="d-flex flex-wrap justify-content-center gap-3" id="listings">
+      <!-- Slider -->
+      <div class="carousel-inner slider col-12">
+        <!-- Dynamisk innhold vil bli lagt til her -->
         <div id="loader" class="lds-default">
           <div></div>
           <div></div>
@@ -91,12 +99,32 @@
           <div></div>
           <div></div>
           <div></div>
-          <div></div>
         </div>
+      </div>
+
+      <!-- Pilene og dots for manuell navigasjon -->
+      <div class="d-flex mx-auto">
+        <div class="col-12 d-flex justify-content-center align-items-center">
+          <!-- Left arrow -->
+          <button class="btn btn-cb-secondary me-2">
+            <i class="bi bi-caret-left-fill" id="slider__btn--left"></i>
+          </button>
+          <!-- Dots -->
+          <div class="dots d-flex justify-content-center align-items-center"></div>
+
+          <!-- Right arrow -->
+          <button class="btn btn-cb-secondary ms-2">
+            <i class="bi bi-caret-right-fill" id="slider__btn--right"></i>
+          </button>
+        </div>
+      </div>
+
+      <section class="d-flex flex-wrap justify-content-center gap-3" id="listings">
+        <!-- All listings will be put here -->
       </section>
     </main>
 
-    <footer class="text-center py-4">
+    <footer class="sticky-bottom p-4 text-center z-4 bg-body">
       <p>&copy; 2024 CrownBid</p>
     </footer>
 
@@ -236,7 +264,59 @@
         </div>
       </div>
     </div>
+    <!-- Create Listing Modal -->
+    <div class="modal fade" id="createListingModal" tabindex="-1" aria-labelledby="createListingModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content">
+          <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
+          <div class="modal-body p-5">
+            <h4 id="createListingModalLabel" class="mb-4 fw-bold">Create New Listing</h4>
+            <p class="mb-4">Fill in the details below to create a new listing</p>
 
+            <form id="createListingForm">
+              <div class="form-group mb-3">
+                <label for="listingTitle">Listing Title</label>
+                <input type="text" class="form-control" id="listingTitle" name="title" placeholder="Enter listing title" required />
+                <div class="invalid-feedback">Please enter a valid title.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="listingDescription">Description</label>
+                <textarea
+                  class="form-control"
+                  id="listingDescription"
+                  name="description"
+                  rows="3"
+                  placeholder="Enter a brief description"
+                  required
+                ></textarea>
+                <div class="invalid-feedback">Please enter a valid description.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="listingTags">Tags</label>
+                <input type="text" class="form-control" id="listingTags" name="listingTags" placeholder="Enter comma-separated tags" />
+                <div class="invalid-feedback">Please enter valid tags.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="listingMedia">Media URL</label>
+                <input type="url" class="form-control" id="listingMedia" name="mediaUrl" placeholder="Enter image URL" />
+                <div class="invalid-feedback">Please enter a valid URL.</div>
+              </div>
+
+              <div class="form-group mb-3">
+                <label for="listingEndsAt">End Date</label>
+                <input type="datetime-local" class="form-control" id="listingEndsAt" name="endsAt" required />
+                <div class="invalid-feedback">Please enter a valid end date.</div>
+              </div>
+
+              <button type="submit" class="btn btn-cb-primary btn-lg">Create Listing</button>
+            </form>
+          </div>
+        </div>
+      </div>
+    </div>
     <!-- Card Modal -->
     <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
