@@ -105,32 +105,22 @@
       <!-- Pilene og dots for manuell navigasjon -->
       <div class="d-flex mx-auto">
         <div class="col-12 d-flex justify-content-center align-items-center">
-          <!-- Venstre Pil -->
-          <i class="bi bi-arrow-left slider__btn me-3" id="slider__btn--left"></i>
-
-          <!-- Dots for å bytte mellom slides -->
+          <!-- Left arrow -->
+          <button class="btn btn-cb-secondary me-2">
+            <i class="bi bi-caret-left-fill" id="slider__btn--left"></i>
+          </button>
+          <!-- Dots -->
           <div class="dots d-flex justify-content-center align-items-center"></div>
 
-          <!-- Høyre Pil -->
-          <i class="bi bi-arrow-right slider__btn ms-3" id="slider__btn--right"></i>
+          <!-- Right arrow -->
+          <button class="btn btn-cb-secondary ms-2">
+            <i class="bi bi-caret-right-fill" id="slider__btn--right"></i>
+          </button>
         </div>
       </div>
 
       <section class="d-flex flex-wrap justify-content-center gap-3" id="listings">
-        <div id="loader" class="lds-default">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <!-- All listings will be put here -->
       </section>
     </main>
 

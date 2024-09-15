@@ -61,7 +61,8 @@ article {
 }
 
 /* BUTTON STYLING */
-.btn-cb-primary {
+.btn-cb-primary,
+.btn-cb-secondary {
   background-color: $cb-dark-color;
   color: $cb-light-color;
   border-color: $cb-gold-color-hsl;
@@ -86,6 +87,16 @@ article {
   }
 }
 
+.btn-cb-secondary {
+  border-color: $cb-silver-color-hsl;
+  &:hover {
+    background: linear-gradient(97deg, $cb-silver-color-hsl-darker 0%, $cb-silver-color-hsl 100%);
+  }
+  &:active {
+    background-color: $cb-silver-color-hsl-darkest;
+    border-color: $cb-silver-color-hsl-darkest;
+  }
+}
 /* CAROUSEL STYLING */
 /* ----------------- Slider Styling ----------------- */
 .slider {
@@ -125,6 +136,7 @@ article {
   object-position: center;
   bottom: 0;
   border: solid 2px #121212;
+  border-radius: 5px;
 }
 
 .carousel-text-container {
@@ -142,8 +154,8 @@ article {
   align-content: center;
   text-align: center;
   margin: 0 auto;
-  border-radius: 0 0 30px 30px;
-  font-weight: 600;
+  border-radius: 0 0 5px 5px;
+  font-weight: 800;
 }
 
 .carousel-button {
