@@ -15,6 +15,7 @@ export function openCreateListingModal() {
   createListingButton.style.top = `${scrollY}px`;
 
   createListingButton.addEventListener('click', () => {
+    createListingModal.style.top = `${window.scrollY}px`;
     createListingModal.classList.add('show');
     document.body.classList.add('overflow-hidden');
     createListingModal.setAttribute('aria-modal', 'true');

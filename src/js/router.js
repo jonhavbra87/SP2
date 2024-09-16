@@ -7,6 +7,7 @@ import { searchListings } from './utilities/searchListings.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
 import { renderCarousel } from './render/renderCarousel.js';
+import { setupResponsiveImages } from './ui/listeners/renderResponsiveImage.js';
 
 export default function router() {
   const path = location.pathname;
@@ -30,6 +31,7 @@ export default function router() {
       navigateToProfileListener();
       listeners.openCreateListingModal();
       renderCarousel();
+      setupResponsiveImages();
       break;
 
     case '/listings':
@@ -38,11 +40,13 @@ export default function router() {
       if (id) {
         console.log(`router is working on /listings/ with id ${id}`);
         checkIfUserLoggedIn();
+        logout();
         listeners.navbarShowHide();
         listeners.modalShowHide();
         render.listingRender(id);
         navigateToProfileListener();
         listeners.openCreateListingModal();
+        setupResponsiveImages();
       } else {
         console.error('No listing ID provided.');
       }
@@ -56,6 +60,7 @@ export default function router() {
       listeners.navbarShowHide();
       listeners.openAvatarModal();
       listeners.openCreateListingModal();
+      setupResponsiveImages();
       break;
 
     default:

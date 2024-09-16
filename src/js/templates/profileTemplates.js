@@ -4,11 +4,11 @@ import { submitCreateListing } from '../ui/listeners/submitCreateListeing';
 
 export function profileTemplate(profileData, listings, bids) {
   const profileContainer = document.createElement('div');
-  profileContainer.classList.add('container-fluid', 'bg-dark');
+  profileContainer.classList.add('container-fluid', 'bg-dark', 'position-relative');
 
   /* Banner and Profile Section */
   const bannerRow = document.createElement('div');
-  bannerRow.classList.add('row', 'position-relative');
+  bannerRow.classList.add('row');
 
   // Banner Image
   const bannerCol = document.createElement('div');
@@ -179,12 +179,12 @@ export function profileTemplate(profileData, listings, bids) {
 
   updateAvatarButton.onclick = () => {
     const avatarModal = document.getElementById('avatarModal');
-    avatarModal.classList.add('show');
+    avatarModal.classList.add('show', 'overflow-y-auto');
     document.body.classList.add('overflow-hidden');
     submitAvatarUrl();
     document.getElementById('avatarUrl').value = '';
   };
-
+  const createListingModal = document.getElementById('createListingModal');
   // Create Listing Button
   const createListingButton = document.createElement('button');
   createListingButton.classList.add('btn', 'btn-cb-primary', 'me-2');
@@ -195,6 +195,7 @@ export function profileTemplate(profileData, listings, bids) {
   createListingButton.textContent = 'Create Listing';
 
   createListingButton.onclick = () => {
+    createListingModal.style.top = `${window.scrollY}px`;
     createListingModal.classList.add('show');
     document.body.classList.add('overflow-hidden');
     console.log('Opening Create Listing Modal');

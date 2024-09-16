@@ -356,7 +356,8 @@ article {
   }
 }
 /* MODAL STYLING */
-.modal {
+.modal,
+.modalTwo {
   display: none;
   position: fixed;
   top: 0;
@@ -364,12 +365,14 @@ article {
   width: 100%;
   height: 100%;
   background: rgba(0, 0, 0, 0.1);
+  // background: #121212;
   z-index: 9997;
-  overflow: hidden;
   backdrop-filter: blur(8px);
+  overflow-y: auto;
+  // margin: auto;
 }
 
-.modal.show {
+.modalTwo.show {
   display: block;
 }
 
@@ -379,6 +382,8 @@ article {
   max-width: 1198px;
   background: transparent;
   border-radius: 5px;
+  top: 50%;
+  transform: translateY(-50%);
 }
 
 .modal-header,

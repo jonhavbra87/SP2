@@ -1,3 +1,5 @@
+import { avatarPlaceholder } from '../../images';
+
 export function specificMediaContainer(postData) {
   const mediaContainer = document.createElement('div');
   mediaContainer.classList.add('col-12', 'col-lg-6', 'mb-3', 'mb-lg-0'); // mb-3 for space on mobile, no space on larger screens
@@ -10,7 +12,7 @@ export function specificMediaContainer(postData) {
     img.alt = postData.media[0].alt || `Image from ${postData.title}`;
   } else {
     // Fallback to placeholder image if no media exists
-    img.src = './assets/logo_full_size.png';
+    img.src = avatarPlaceholder;
     img.alt = 'Placeholder image';
   }
 
