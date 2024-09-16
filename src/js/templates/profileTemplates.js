@@ -1,4 +1,5 @@
-import { openAvatarModal, submitAvatarUrl } from '../ui/listeners';
+import { avatarPlaceholder, profileBannerPlaceholder } from '../render/helpers/images';
+import { submitAvatarUrl } from '../ui/listeners';
 import { submitCreateListing } from '../ui/listeners/submitCreateListeing';
 
 export function profileTemplate(profileData, listings, bids) {
@@ -15,11 +16,11 @@ export function profileTemplate(profileData, listings, bids) {
   const banner = document.createElement('img');
   banner.classList.add('img-fluid', 'w-100', 'object-fit-cover');
   banner.style.height = '312px';
-  banner.src = profileData.banner.url || '../../assets/profileBannerPlaceholder.png'; // Use placeholder if no banner available
+  banner.src = profileData.banner.url || profileBannerPlaceholder;
   banner.alt = profileData.banner.alt || 'Profile banner';
 
   if (banner.src === 'https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=80&h=500&w=1500') {
-    banner.src = '../../assets/profileBannerPlaceholder.png';
+    banner.src = profileBannerPlaceholder;
   } else {
     banner.src = profileData.banner.url;
   }
@@ -35,11 +36,11 @@ export function profileTemplate(profileData, listings, bids) {
   avatar.classList.add('img-fluid', 'rounded', 'object-fit-cover', 'border', 'border-3', 'border-light');
   avatar.style.width = '300px';
   avatar.style.height = '200px';
-  avatar.src = profileData.avatar?.url || '../../assets/avatarPlaceholder.webp';
+  avatar.src = profileData.avatar?.url || avatarPlaceholder;
   avatar.alt = profileData.avatar?.alt || 'Profile avatar';
 
   if (avatar.src === 'https://images.unsplash.com/photo-1579547945413-497e1b99dac0?crop=entropy&cs=tinysrgb&fit=crop&fm=jpg&q=80&h=400&w=400') {
-    avatar.src = '../../assets/avatarPlaceholder.webp';
+    avatar.src = avatarPlaceholder;
   } else {
     avatar.src = profileData.avatar.url;
   }
@@ -176,6 +177,7 @@ export function profileTemplate(profileData, listings, bids) {
   updateAvatarButton.onclick = () => {
     const avatarModal = document.getElementById('avatarModal');
     avatarModal.classList.add('show');
+    document.body.classList.add('overflow-hidden');
     submitAvatarUrl();
     document.getElementById('avatarUrl').value = '';
   };
@@ -191,6 +193,7 @@ export function profileTemplate(profileData, listings, bids) {
 
   createListingButton.onclick = () => {
     createListingModal.classList.add('show');
+    document.body.classList.add('overflow-hidden');
     console.log('Opening Create Listing Modal');
     submitCreateListing();
   };

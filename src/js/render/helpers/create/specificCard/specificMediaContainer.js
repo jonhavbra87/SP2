@@ -10,7 +10,7 @@ export function specificMediaContainer(postData) {
     img.alt = postData.media[0].alt || `Image from ${postData.title}`;
   } else {
     // Fallback to placeholder image if no media exists
-    img.src = '../../assets/logo_full_size.png';
+    img.src = './assets/logo_full_size.png';
     img.alt = 'Placeholder image';
   }
 

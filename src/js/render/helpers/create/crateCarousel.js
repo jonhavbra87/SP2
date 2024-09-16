@@ -1,3 +1,5 @@
+import { avatarPlaceholder } from '../images';
+
 export function createCarousel(postData) {
   const blogContainer = document.querySelector('.slider');
   blogContainer.classList.add('slider');
@@ -9,10 +11,15 @@ export function createCarousel(postData) {
   const postContainer = document.createElement('div');
   postContainer.classList.add('slide');
 
+  const imgContainer = document.createElement('div');
+  imgContainer.classList.add('ratio', 'ratio-1x1', 'object-fit-fill');
+
   const img = document.createElement('img');
-  img.classList.add('carousel-image');
-  img.src = postData.media[0]?.url || '../../../assets/logo_full_size.png';
+  img.classList.add('img-fluid');
+  img.src = postData.media[0]?.url || avatarPlaceholder;
   img.alt = postData.media[0]?.alt || `Image from ${postData.title}`;
+
+  imgContainer.append(img);
 
   const textContainer = document.createElement('div');
   textContainer.classList.add('carousel-text-container');
@@ -28,7 +35,7 @@ export function createCarousel(postData) {
 
   textContainer.append(title, readMoreButton);
 
-  postContainer.append(img, textContainer);
+  postContainer.append(imgContainer, textContainer);
 
   blogContainer.appendChild(postContainer);
 }

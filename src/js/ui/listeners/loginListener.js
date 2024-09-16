@@ -10,6 +10,7 @@ export function loginListener() {
     setTimeout(() => {
       updateNavbarAuthUser();
       window.location.reload();
+      window.body.classList.remove('overflow-hidden');
     }, 500);
     hideLoader();
   });

@@ -3,20 +3,24 @@ import { submitCreateListing } from './submitCreateListeing';
 export function openCreateListingModal() {
   const createListingModal = document.getElementById('createListingModal');
   const createListingButton = document.getElementById('newListingLink');
-  console.log('newListingLink:', createListingButton);
+
+  const scrollY = window.scrollY || document.documentElement.scrollTop;
 
   if (!createListingModal || !createListingButton) {
     console.error('Modal or button not found');
     return;
   }
 
+  createListingModal.style.top = `${scrollY}px`;
+  createListingButton.style.top = `${scrollY}px`;
+
   createListingButton.addEventListener('click', () => {
     createListingModal.classList.add('show');
-    createListingModal.style.display = 'block';
+    document.body.classList.add('overflow-hidden');
     createListingModal.setAttribute('aria-modal', 'true');
     createListingModal.setAttribute('role', 'dialog');
-
     submitCreateListing();
+
     // window.location.reload();
   });
 
@@ -25,10 +29,10 @@ export function openCreateListingModal() {
 
   function closeModal() {
     createListingModal.classList.remove('show');
-    createListingModal.style.display = 'none';
     createListingModal.removeAttribute('aria-modal');
     createListingModal.removeAttribute('role');
     listingForm.reset();
+    document.body.classList.remove('overflow-hidden');
   }
 
   closeModalButton.addEventListener('click', () => {
