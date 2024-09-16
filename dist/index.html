@@ -9,8 +9,8 @@
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/main-BeS1sh3n.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-BjJpP0RV.css">
+    <script type="module" crossorigin src="/assets/main-Dbuu_5Za.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-BdiF_r33.css">
   </head>
 
   <body>
@@ -19,26 +19,9 @@
         <div class="container d-flex">
           <!-- Logo -->
           <a class="navbar-brand flex-grow-1" href="/">
-            <img src="/assets/logo-BGj3RQag.png" alt="Logo of CrownBid" />
+            <div id="image-container"></div>
           </a>
-          <!-- Search input field -->
-          <div class="d-flex flex-grow-1">
-            <form class="d-flex" role="search" id="searchForm">
-              <div class="input-group">
-                <input
-                  class="form-control"
-                  type="search"
-                  placeholder="Type & magic happens..."
-                  aria-label="Search"
-                  id="searchInput"
-                  aria-describedby="basic-addon1"
-                />
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="bi bi-search"></i>
-                </span>
-              </div>
-            </form>
-          </div>
+
           <!-- Navbar Toggler for small screens -->
           <button
             class="navbar-toggler"
@@ -55,7 +38,24 @@
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
             <!-- Left aligned navbar items (optional) -->
-
+            <!-- Search input field -->
+            <div class="d-flex flex-grow-1">
+              <form class="d-flex" role="search" id="searchForm">
+                <div class="input-group">
+                  <input
+                    class="form-control"
+                    type="search"
+                    placeholder="Type & magic happens..."
+                    aria-label="Search"
+                    id="searchInput"
+                    aria-describedby="basic-addon1"
+                  />
+                  <span class="input-group-text" id="basic-addon1">
+                    <i class="bi bi-search"></i>
+                  </span>
+                </div>
+              </form>
+            </div>
             <!-- Right aligned navbar items -->
             <div class="navbar-nav ml-auto">
               <!-- Elements shown when logged out -->
@@ -76,6 +76,7 @@
               <a class="nav-link me-2" id="newListingLink" href="#" data-bs-toggle="modal" data-bs-target="#newListingModal">New Listing</a>
               <a class="nav-link me-2" id="listingsLink" href="#">Listings</a>
               <a class="nav-link me-2" id="profileLink" href="#">Profile</a>
+
               <button class="btn btn-cb-primary" id="logoutButton" type="button" data-auth="logout">Logout</button>
             </div>
           </div>
@@ -129,8 +130,8 @@
     </footer>
 
     <!-- Login Modal -->
-    <div class="modal fade overflow-y-auto" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modalTwo fade overflow-y-auto" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
         <div class="modal-content">
           <button type="button" class="btn-close" id="closeLoginModal" aria-label="Close"></button>
           <div class="modal-body p-5 d-flex flex-column flex-lg-row">
@@ -186,8 +187,8 @@
     </div>
 
     <!-- Registration Modal -->
-    <div class="modal fade overflow-y-auto" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
+    <div class="modalTwo fade overflow-y-auto" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
         <div class="modal-content">
           <button type="button" class="btn-close" id="closeRegistrationModal" aria-label="Close"></button>
           <div class="modal-body p-5 d-flex flex-column flex-lg-row">
