@@ -1,6 +1,8 @@
 //Font families goes here!
 
 @import './variables';
+// @import './fonts';
+// @import './breakpoints';
 
 // Import Bootstrap SCSS
 @import '../../node_modules/bootstrap/scss/bootstrap';
@@ -11,16 +13,28 @@
 body {
   background-color: $body-bg;
   color: $text-color;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
   background: radial-gradient(ellipse 100% 70% at center, rgba(112, 93, 31, 0.603) 0%, rgba(18, 18, 18, 1) 60%);
   backdrop-filter: blur(250px);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   height: 100vh;
-}
 
-p {
-  color: #f5f5f5;
+  // Responsive font sizes using Bootstrap's breakpoint mixins
+  @include media-breakpoint-up(md) {
+    font-size: 0.875rem; // Example of scaling down on smaller screens
+  }
+
+  @include media-breakpoint-up(lg) {
+    font-size: 1rem; // Default base font size on larger screens
+  }
+
+  @include media-breakpoint-up(xl) {
+    font-size: 1.125rem; // Larger font size on extra large screens
+  }
 }
 
 h1,
@@ -30,19 +44,54 @@ h4,
 h5,
 h6,
 .nav-link {
-  font-family: 'Playfair Display', serif;
+  font-family: $font-family-headings;
+  line-height: $line-height-heading;
   text-wrap: balance;
+}
+
+h1 {
+  font-size: $font-size-h1;
+  @include media-breakpoint-up(md) {
+    font-size: 2rem;
+  } // Adjust as needed
+  @include media-breakpoint-up(lg) {
+    font-size: 2.5rem;
+  }
+}
+
+h2 {
+  font-size: $font-size-h2;
+}
+h3 {
+  font-size: $font-size-h3;
+}
+h4 {
+  font-size: $font-size-h4;
+}
+h5 {
+  font-size: $font-size-h5;
+}
+h6 {
+  font-size: $font-size-h6;
 }
 
 a,
 p,
 li {
-  font-family: 'Merriwether', serif;
+  font-family: $font-family-base;
   font-optical-sizing: auto;
   font-weight: 400;
   font-style: normal;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
   text-wrap: pretty; //not supported in all browsers yet, but it's a good idea to use it (ref. Kevin Powell)
   // max-width: 65ch;
+  @include media-breakpoint-up(md) {
+    font-size: 1.25rem;
+  } // Adjust as needed
+  @include media-breakpoint-up(lg) {
+    font-size: 1.5rem;
+  }
 }
 
 // header,
