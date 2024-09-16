@@ -10,7 +10,7 @@ export function FooterContainer(postData) {
 
   const cardEndsAt = document.createElement('p');
   cardEndsAt.classList.add('card-text', 'text-center', 'mb-3', 'text-wrap');
-  cardEndsAt.textContent = `Ends at: ${postData.endsAt}`;
+  cardEndsAt.textContent = `Ends at: ${new Date(postData.endsAt).toLocaleString('en-GB', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'Europe/Oslo' })}`;
 
   const cardCount = document.createElement('p');
   cardCount.classList.add('card-text', 'text-end', 'mb-1', 'text-wrap');

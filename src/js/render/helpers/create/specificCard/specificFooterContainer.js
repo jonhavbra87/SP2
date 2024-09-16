@@ -33,7 +33,7 @@ export function specificFooterContainer(postData) {
 
   const dateText = document.createElement('span');
   dateText.classList.add('fw-light');
-  dateText.textContent = ` ${new Date(postData.endsAt).toLocaleDateString()}`;
+  dateText.textContent = `${new Date(postData.endsAt).toLocaleString('en-GB', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'Europe/Oslo' })}`;
 
   cardEndsAt.append(endsAtText, dateText);
 
