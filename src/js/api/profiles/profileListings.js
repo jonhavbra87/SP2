@@ -13,10 +13,8 @@ export async function profileListings() {
   }
 
   const url = `${API_BASE}${API_AUCTIONS}${action}/${name}?_wins=true&_listings=true`;
-  // console.log('profileListings url', url);
 
   const response = await authFetch(url, 'GET');
-  // console.log('profileListings response:', response);
 
   return response;
 }

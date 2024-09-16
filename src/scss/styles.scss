@@ -97,6 +97,7 @@ article {
     border-color: $cb-silver-color-hsl-darkest;
   }
 }
+
 /* CAROUSEL STYLING */
 /* ----------------- Slider Styling ----------------- */
 .slider {
@@ -105,7 +106,7 @@ article {
   height: 40rem;
   margin: 0 auto;
   position: relative;
-  border-radius: 2px;
+  border-radius: 5px;
   overflow: hidden;
 }
 

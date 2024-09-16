@@ -76,11 +76,14 @@ export function profileTemplate(profileData, listings, bids) {
 
   // Loop through bids and display them
   if (bids && bids.length > 0) {
-    bids.forEach((bid) => {
-      const listItem = document.createElement('li');
-      listItem.textContent = `${bid.amount}$ by ${bid.bidder.name} on ${new Date(bid.created).toLocaleDateString()}`;
-      latestBidsList.append(listItem);
-    });
+    bids
+      .reverse()
+      .slice(0, 6)
+      .forEach((bid) => {
+        const listItem = document.createElement('li');
+        listItem.textContent = `${bid.amount}$ on ${new Date(bid.created).toLocaleDateString()}`;
+        latestBidsList.append(listItem);
+      });
   } else {
     const listItem = document.createElement('li');
     listItem.textContent = 'No bids available';
@@ -100,7 +103,7 @@ export function profileTemplate(profileData, listings, bids) {
 
   // Loop through active listings
   if (listings.listings && listings.listings.length > 0) {
-    listings.listings.forEach((listing) => {
+    listings.listings.slice(0, 6).forEach((listing) => {
       const listItem = document.createElement('li');
       listItem.textContent = `${listing.title}: Ends on ${new Date(listing.endsAt).toLocaleDateString()}`;
       activeListingsList.append(listItem);

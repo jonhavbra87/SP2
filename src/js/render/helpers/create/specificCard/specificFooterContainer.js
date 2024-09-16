@@ -1,3 +1,5 @@
+import { submitBid } from '../../../../api/fetch/submitBid.js';
+
 export function specificFooterContainer(postData) {
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('col-12', 'col-lg-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
@@ -45,12 +47,15 @@ export function specificFooterContainer(postData) {
   let limit = 4;
   // Loop through bids and add them to the container
   if (postData.bids && postData.bids.length > 0) {
-    postData.bids.slice(0, limit).forEach((bid) => {
-      const bidItem = document.createElement('li');
-      bidItem.classList.add('list-unstyled');
-      bidItem.textContent = `${bid.amount}$ by ${bid.bidder.name} on ${new Date(bid.created).toLocaleDateString()}`;
-      bidsContainer.append(bidItem);
-    });
+    postData.bids
+      .reverse()
+      .slice(0, limit)
+      .forEach((bid) => {
+        const bidItem = document.createElement('li');
+        bidItem.classList.add('list-unstyled');
+        bidItem.textContent = `${bid.amount}$ by ${bid.bidder.name} on ${new Date(bid.created).toLocaleDateString()}`;
+        bidsContainer.append(bidItem);
+      });
   } else {
     const noBidsItem = document.createElement('li');
     noBidsItem.classList.add('list-unstyled');
