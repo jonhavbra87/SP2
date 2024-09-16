@@ -16,6 +16,7 @@ export function createCarousel(postData) {
 
   const img = document.createElement('img');
   img.classList.add('img-fluid');
+  img.setAttribute('loading', 'lazy');
   img.src = postData.media[0]?.url || avatarPlaceholder;
   img.alt = postData.media[0]?.alt || `Image from ${postData.title}`;
 
@@ -31,7 +32,7 @@ export function createCarousel(postData) {
   const readMoreButton = document.createElement('a');
   readMoreButton.href = '/listings/?id=' + postData.id;
   readMoreButton.classList.add('btn', 'btn-cb-primary', 'fw-bold', 'text-uppercase');
-  readMoreButton.textContent = 'read now';
+  readMoreButton.textContent = 'View';
 
   textContainer.append(title, readMoreButton);
 
