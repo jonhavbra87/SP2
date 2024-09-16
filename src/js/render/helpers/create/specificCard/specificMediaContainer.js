@@ -2,20 +2,45 @@ import { avatarPlaceholder } from '../../images';
 
 export function specificMediaContainer(postData) {
   const mediaContainer = document.createElement('div');
-  mediaContainer.classList.add('col-12', 'col-lg-6', 'mb-3', 'mb-lg-0'); // mb-3 for space on mobile, no space on larger screens
+  mediaContainer.classList.add('col-12', 'col-md-6', 'mb-3', 'mb-lg-0', 'd-flex', 'flex-column');
 
-  const img = document.createElement('img');
-  img.classList.add('img-fluid', 'object-fit-cover', 'w-100');
-  // Check if the media array and URL exist
+  //IMgContainer
+  const imgContainer = document.createElement('div');
+  imgContainer.classList.add('ratio', 'ratio-4x3', 'w-100', 'media-container');
+  // Create the large image element
+  const largeImage = document.createElement('img');
+  largeImage.classList.add('object-fit-cover', 'main-image', 'w-100');
+
   if (postData.media && postData.media.length > 0 && postData.media[0].url) {
-    img.src = postData.media[0].url;
-    img.alt = postData.media[0].alt || `Image from ${postData.title}`;
+    largeImage.src = postData.media[0].url;
+    largeImage.alt = postData.media[0].alt || `Image from ${postData.title}`;
   } else {
-    // Fallback to placeholder image if no media exists
-    img.src = avatarPlaceholder;
-    img.alt = 'Placeholder image';
+    largeImage.src = avatarPlaceholder;
+    largeImage.alt = 'Placeholder image';
   }
 
-  mediaContainer.append(img);
+  imgContainer.append(largeImage);
+  mediaContainer.append(imgContainer);
+
+  // Create the thumbnail container for smaller images
+  const thumbnailContainer = document.createElement('div');
+  thumbnailContainer.classList.add('d-flex', 'flex-wrap', 'justify-content-around', 'mt-3', 'gap-1');
+
+  if (postData.media && postData.media.length > 0) {
+    postData.media.forEach((mediaItem) => {
+      const thumbnail = document.createElement('img');
+      thumbnail.classList.add('small-thumbnail', 'img-fluid', 'rounded', 'object-fit-cover', 'opacity-50');
+      thumbnail.src = mediaItem.url;
+      thumbnail.alt = mediaItem.alt || `Thumbnail of ${postData.title}`;
+      thumbnail.addEventListener('click', () => {
+        largeImage.src = mediaItem.url;
+        largeImage.alt = mediaItem.alt;
+      });
+      thumbnailContainer.append(thumbnail);
+    });
+  }
+
+  mediaContainer.append(thumbnailContainer);
+
   return mediaContainer;
 }
