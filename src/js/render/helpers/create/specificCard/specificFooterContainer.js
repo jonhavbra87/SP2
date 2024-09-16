@@ -2,7 +2,7 @@ import { submitBid } from '../../../../api/fetch/submitBid.js';
 
 export function specificFooterContainer(postData) {
   const footerContainer = document.createElement('div');
-  footerContainer.classList.add('col-12', 'col-lg-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
+  footerContainer.classList.add('col-12', 'col-md-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
 
   const cardTitle = document.createElement('p');
   cardTitle.classList.add('card-title', 'text-center');
