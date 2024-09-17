@@ -1,6 +1,9 @@
 export function hideLoader() {
   const loader = document.getElementById('loader');
   if (loader) {
-    loader.classList.add('d-none');
+    loader.style.display = 'none';
+    console.log('Loader hidden');
+  } else {
+    console.error('Loader not found.');
   }
 }

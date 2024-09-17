@@ -1,7 +1,9 @@
 export function showLoader() {
   const loader = document.getElementById('loader');
-  loader.textContent = '';
   if (loader) {
-    loader.classList.remove('d-none');
+    loader.style.display = 'block';
+    console.log('Loader shown');
+  } else {
+    console.error('Loader not found.');
   }
 }

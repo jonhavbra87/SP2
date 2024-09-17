@@ -8,6 +8,7 @@ import { navigateToProfileListener } from './render/helpers/create/profile/navig
 import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
 import { renderCarousel } from './render/renderCarousel.js';
 import { setupResponsiveImages } from './ui/listeners/renderResponsiveImage.js';
+import { fetchingDataScrolling } from './ui/listeners/fetchingDataScrolling.js';
 
 export default function router() {
   const path = location.pathname;
@@ -32,6 +33,7 @@ export default function router() {
       listeners.openCreateListingModal();
       renderCarousel();
       setupResponsiveImages();
+      fetchingDataScrolling();
       break;
 
     case '/listings':

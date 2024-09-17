@@ -1,13 +1,22 @@
 import { API_BASE, API_AUCTIONS } from '../constants.js';
 
-export async function getListings() {
-  const url = `${API_BASE}${API_AUCTIONS}/listings`;
+export async function getListings(page = 1, limit = 12) {
+  const url = `${API_BASE}${API_AUCTIONS}/listings?limit=${limit}&page=${page}`;
   console.log(url);
 
-  const response = await fetch(url);
-  console.log(response);
+  try {
+    const response = await fetch(url);
 
-  const results = await response.json();
+    if (!response.ok) {
+      throw new Error('Failed to fetch listings');
+    }
 
-  return results.data;
+    const results = await response.json();
+    console.log(results);
+
+    return results.data;
+  } catch (error) {
+    console.error('Error fetching listings:', error);
+    return [];
+  }
 }
