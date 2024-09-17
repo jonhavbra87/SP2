@@ -17,6 +17,7 @@ export function createCarousel(postData) {
   const img = document.createElement('img');
   img.classList.add('img-fluid');
   img.setAttribute('loading', 'lazy');
+
   img.src = postData.media[0]?.url || avatarPlaceholder;
   img.alt = postData.media[0]?.alt || `Image from ${postData.title}`;
 

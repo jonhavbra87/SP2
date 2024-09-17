@@ -1,6 +1,8 @@
 //Font families goes here!
 
 @import './variables';
+// @import './fonts';
+// @import './breakpoints';
 
 // Import Bootstrap SCSS
 @import '../../node_modules/bootstrap/scss/bootstrap';
@@ -11,16 +13,37 @@
 body {
   background-color: $body-bg;
   color: $text-color;
+
   background: radial-gradient(ellipse 100% 70% at center, rgba(112, 93, 31, 0.603) 0%, rgba(18, 18, 18, 1) 60%);
   backdrop-filter: blur(250px);
   background-size: cover;
   background-position: center;
   background-attachment: fixed;
   height: 100vh;
-}
 
-p {
-  color: #f5f5f5;
+  font-family: $font-family-base;
+  font-size: $font-size-base;
+  line-height: $line-height-base;
+
+  // Small devices (sm)
+  @include media-breakpoint-up(sm) {
+    font-size: $font-size-sm; // (0.875rem)
+  }
+
+  // Medium devices (md)
+  @include media-breakpoint-up(md) {
+    font-size: $font-size-md; // (1rem)
+  }
+
+  // Large devices (lg)
+  @include media-breakpoint-up(lg) {
+    font-size: $font-size-lg; // (1.25rem)
+  }
+
+  // Extra large devices (xl)
+  @include media-breakpoint-up(xl) {
+    font-size: $font-size-xl; // (1.5rem)
+  }
 }
 
 h1,
@@ -30,27 +53,10 @@ h4,
 h5,
 h6,
 .nav-link {
-  font-family: 'Playfair Display', serif;
+  font-family: $font-family-headings;
+  line-height: $line-height-heading;
   text-wrap: balance;
 }
-
-a,
-p,
-li {
-  font-family: 'Merriwether', serif;
-  font-optical-sizing: auto;
-  font-weight: 400;
-  font-style: normal;
-  text-wrap: pretty; //not supported in all browsers yet, but it's a good idea to use it (ref. Kevin Powell)
-  // max-width: 65ch;
-}
-
-// header,
-// footer,
-// main,
-// article {
-//   container-type: inline-size;
-// }
 
 .nav-link,
 #logoutButton {
@@ -58,6 +64,23 @@ li {
   font-size: 1rem;
   text-transform: uppercase;
   color: $cb-light-color;
+}
+
+a,
+p,
+li {
+  font-optical-sizing: auto;
+  font-weight: 400;
+  font-style: normal;
+  line-height: $line-height-base;
+  text-wrap: pretty; //not supported in all browsers yet, but it's a good idea to use it (ref. Kevin Powell)
+}
+
+header,
+footer,
+main,
+article {
+  container-type: inline-size;
 }
 
 /* BUTTON STYLING */
