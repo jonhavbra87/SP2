@@ -82,6 +82,13 @@ article {
   container-type: inline-size;
 }
 
+#image-container {
+  width: auto;
+  height: 70px;
+  img {
+    max-height: 100%;
+  }
+}
 /* BUTTON STYLING */
 .btn-cb-primary,
 .btn-cb-secondary {

@@ -14,11 +14,11 @@
   </head>
 
   <body>
-    <header class="bg-dark">
-      <nav class="navbar navbar-expand-lg navbar-dark sticky-top" data-bs-theme="dark">
-        <div class="container d-flex">
+    <header class="bg-dark sticky-top">
+      <nav class="navbar navbar-expand-lg navbar-dark">
+        <div class="container">
           <!-- Logo -->
-          <a class="navbar-brand flex-grow-1" href="/">
+          <a class="navbar-brand" href="/">
             <div id="image-container"></div>
           </a>
 
@@ -37,27 +37,25 @@
 
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left aligned navbar items (optional) -->
-            <!-- Search input field -->
-            <div class="d-flex flex-grow-1">
-              <form class="d-flex" role="search" id="searchForm">
-                <div class="input-group">
-                  <input
-                    class="form-control"
-                    type="search"
-                    placeholder="Type & magic happens..."
-                    aria-label="Search"
-                    id="searchInput"
-                    aria-describedby="basic-addon1"
-                  />
-                  <span class="input-group-text" id="basic-addon1">
-                    <i class="bi bi-search"></i>
-                  </span>
-                </div>
-              </form>
-            </div>
+            <!-- Search input field centered -->
+            <form class="d-flex mx-auto w-50" role="search" id="searchForm">
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Type & magic happens..."
+                  aria-label="Search"
+                  id="searchInput"
+                  aria-describedby="basic-addon1"
+                />
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="bi bi-search"></i>
+                </span>
+              </div>
+            </form>
+
             <!-- Right aligned navbar items -->
-            <div class="navbar-nav ml-auto">
+            <div class="navbar-nav ms-auto">
               <!-- Elements shown when logged out -->
               <button type="button" id="openLoginModal" class="btn btn-lg btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
                 Login
@@ -125,7 +123,7 @@
       </section>
     </main>
 
-    <footer class="sticky-bottom p-4 text-center z-4 bg-body">
+    <footer class="sticky-lg-bottom p-lg text-center z-4 bg-body">
       <p>&copy; 2024 CrownBid</p>
     </footer>
 
