@@ -84,7 +84,7 @@ export function specificFooterContainer(postData) {
   // Handle bid submission
   placeBidForm.addEventListener('submit', async (event) => {
     event.preventDefault();
-    const bidAmount = parseFloat(placeBidInput.value);
+    const bidAmount = parseInt(placeBidInput.value);
     if (!bidAmount || isNaN(bidAmount) || bidAmount <= 0) {
       alert('Please enter a valid bid amount.');
       return;

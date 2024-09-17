@@ -24,6 +24,9 @@ export async function login(email, password) {
 
     storage.save('token', accessToken);
     storage.save('profile', user);
+    console.log('User logged in:', user);
+    console.log('Access token:', accessToken);
+
     // alert('You have been logged in successfully')
 
     return user;

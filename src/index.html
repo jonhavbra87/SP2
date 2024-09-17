@@ -37,6 +37,22 @@
 
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Search input field centered -->
+            <form class="d-flex mx-auto" role="search" id="searchForm">
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Type & magic happens..."
+                  aria-label="Search"
+                  id="searchInput"
+                  aria-describedby="basic-addon1"
+                />
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="bi bi-search"></i>
+                </span>
+              </div>
+            </form>
             <!-- Left-aligned navigation links (wrapped in <ul> and <li> elements) -->
             <ul class="navbar-nav my-auto ms-auto mb-2 mb-lg-0">
               <li class="nav-item" id="homeLink">
@@ -52,23 +68,6 @@
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newListingModal">New Listing</a>
               </li>
             </ul>
-
-            <!-- Search input field centered -->
-            <form class="d-flex mx-auto w-50" role="search" id="searchForm">
-              <div class="input-group">
-                <input
-                  class="form-control"
-                  type="search"
-                  placeholder="Type & magic happens..."
-                  aria-label="Search"
-                  id="searchInput"
-                  aria-describedby="basic-addon1"
-                />
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="bi bi-search"></i>
-                </span>
-              </div>
-            </form>
 
             <!-- Right aligned navbar items (login/register buttons or logout button) -->
             <ul class="navbar-nav ms-auto">
@@ -136,14 +135,14 @@
     </footer>
 
     <!-- Login Modal -->
-    <div class="modalTwo fade overflow-y-auto" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
-        <div class="modal-content">
+    <div class="modalTwo" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg bg-opacity-75">
+        <div class="modal-content bg-dark">
           <button type="button" class="btn-close" id="closeLoginModal" aria-label="Close"></button>
           <div class="modal-body p-5 d-flex flex-column flex-lg-row">
             <!-- Left side (Image and text) -->
             <div class="col-lg-4 p-4 d-flex flex-column justify-content-center text-center bg-dark text-light order-0">
-              <img src="./assets/logo_full_size.png" class="img-modal mx-auto img-fluid mb-3" alt="Logo of CrownBid" />
+              <img src="./assets/logo-full-size.png" class="img-modal mx-auto img-fluid mb-3" alt="Logo of CrownBid" />
               <p class="lead">Discover the world of <span class="text-warning">luxury</span> at <span class="text-warning">CrownBid</span>.</p>
               <p>
                 Exclusive auctions, rare treasures, and unparalleled elegance await. Whether you're seeking a timeless masterpiece or a modern luxury
@@ -152,7 +151,7 @@
             </div>
 
             <!-- Login Form Content -->
-            <div class="col-lg-8 p-5 border-start-md-0 border-start order-1">
+            <div class="col-lg-8 p-5 border-start-md-0 border-start order-1 bg-dark">
               <h4 id="loginModalLabel" class="mb-4">Login</h4>
               <p class="mb-4">Please provide your existing information for successful login</p>
 
@@ -193,9 +192,9 @@
     </div>
 
     <!-- Registration Modal -->
-    <div class="modalTwo fade overflow-y-auto" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
-        <div class="modal-content">
+    <div class="modalTwo" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark">
           <button type="button" class="btn-close" id="closeRegistrationModal" aria-label="Close"></button>
           <div class="modal-body p-5 d-flex flex-column flex-lg-row">
             <!-- Left side (Image and text) -->
@@ -209,7 +208,7 @@
             </div>
 
             <!-- Registration Form Content -->
-            <div class="col-lg-8 p-5 border-start order-0 order-lg-1">
+            <div class="col-lg-8 p-5 border-start order-0 order-lg-1 bg-dark">
               <h4 id="registrationModalLabel" class="mb-4">Registration</h4>
               <p class="mb-4">Please provide your personal information for successful registration</p>
 
@@ -272,11 +271,11 @@
       </div>
     </div>
     <!-- Create Listing Modal -->
-    <div class="modal fade" id="createListingModal" tabindex="-1" aria-labelledby="createListingModalLabel" aria-hidden="true">
+    <div class="modalTwo" id="createListingModal" tabindex="-1" aria-labelledby="createListingModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
+        <div class="modal-content rounded rounded-1 bg-dark">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
-          <div class="modal-body p-5">
+          <div class="modal-body p-4">
             <h4 id="createListingModalLabel" class="mb-4 fw-bold">Create New Listing</h4>
             <p class="mb-4">Fill in the details below to create a new listing</p>
 

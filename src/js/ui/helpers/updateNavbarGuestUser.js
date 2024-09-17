@@ -12,9 +12,9 @@ export function updateNavbarGuestUser() {
   if (registerButton) registerButton.classList.remove('d-none');
 
   // Hide logged-in navbar items
-  if (homeLink) homeLink.classList.add('d-none');
-  if (profileLink) profileLink.classList.add('d-none');
-  if (listingsLink) listingsLink.classList.add('d-none');
-  if (newListingLink) newListingLink.classList.add('d-none');
-  if (logoutButton) logoutButton.classList.add('d-none');
+  // if (homeLink) homeLink.classList.add('d-none');
+  // if (profileLink) profileLink.classList.add('d-none');
+  // if (listingsLink) listingsLink.classList.add('d-none');
+  // if (newListingLink) newListingLink.classList.add('d-none');
+  // if (logoutButton) logoutButton.classList.add('d-none');
 }

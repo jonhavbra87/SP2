@@ -14,7 +14,7 @@
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
           <!-- Logo -->
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand active" href="/">
             <div id="logo-container"></div>
           </a>
 
@@ -33,24 +33,8 @@
 
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Left-aligned navigation links (wrapped in <ul> and <li> elements) -->
-            <ul class="navbar-nav my-auto ms-auto mb-2 mb-lg-0">
-              <li class="nav-item" id="homeLink">
-                <a class="nav-link" href="/">Home</a>
-              </li>
-              <li class="nav-item" id="listingsLink">
-                <a class="nav-link" href="#">Listings</a>
-              </li>
-              <li class="nav-item" id="profileLink">
-                <a class="nav-link active" aria-current="page" href="#">Profile</a>
-              </li>
-              <li class="nav-item d-none" id="newListingLink">
-                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newListingModal">New Listing</a>
-              </li>
-            </ul>
-
             <!-- Search input field centered -->
-            <form class="d-flex mx-auto w-50" role="search" id="searchForm">
+            <form class="d-flex mx-auto" role="search" id="searchForm">
               <div class="input-group">
                 <input
                   class="form-control"
@@ -65,6 +49,21 @@
                 </span>
               </div>
             </form>
+            <!-- Left-aligned navigation links (wrapped in <ul> and <li> elements) -->
+            <ul class="navbar-nav my-auto ms-auto mb-2 mb-lg-0">
+              <li class="nav-item" id="homeLink">
+                <a class="nav-link active" href="/">Home</a>
+              </li>
+              <li class="nav-item" id="listingsLink">
+                <a class="nav-link" href="#">Listings</a>
+              </li>
+              <li class="nav-item" id="profileLink">
+                <a class="nav-link active" aria-current="page" href="#">Profile</a>
+              </li>
+              <li class="nav-item d-none" id="newListingLink">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newListingModal">New Listing</a>
+              </li>
+            </ul>
 
             <!-- Right aligned navbar items (login/register buttons or logout button) -->
             <ul class="navbar-nav ms-auto">
@@ -110,9 +109,9 @@
     </footer>
 
     <!-- Avatar Update Modal -->
-    <div class="modalTwo fade" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
-        <div class="modal-content">
+    <div class="modalTwo" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           <div class="modal-body p-5">
             <h4 id="avatarModalLabel" class="mb-4 fw-bold">Update Avatar</h4>
@@ -133,9 +132,9 @@
     </div>
 
     <!-- Create Listing Modal -->
-    <div class="modalTwo fade" id="createListingModal" tabindex="-1" aria-labelledby="createListingModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
-        <div class="modal-content">
+    <div class="modalTwo" id="createListingModal" tabindex="-1" aria-labelledby="createListingModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark">
           <button type="button" class="btn-close" data-bs-dismiss="modal" aria-label="Close"></button>
           <div class="modal-body p-5">
             <h4 id="createListingModalLabel" class="mb-4 fw-bold">Create New Listing</h4>
