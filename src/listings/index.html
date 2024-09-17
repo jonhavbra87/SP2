@@ -17,7 +17,7 @@
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
           <!-- Logo -->
-          <a class="navbar-brand" href="/">
+          <a class="navbar-brand active" href="/">
             <div id="logo-container"></div>
           </a>
 
@@ -36,6 +36,22 @@
 
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Search input field centered -->
+            <form class="d-flex mx-auto" role="search" id="searchForm">
+              <div class="input-group">
+                <input
+                  class="form-control"
+                  type="search"
+                  placeholder="Type & magic happens..."
+                  aria-label="Search"
+                  id="searchInput"
+                  aria-describedby="basic-addon1"
+                />
+                <span class="input-group-text" id="basic-addon1">
+                  <i class="bi bi-search"></i>
+                </span>
+              </div>
+            </form>
             <!-- Left-aligned navigation links (wrapped in <ul> and <li> elements) -->
             <ul class="navbar-nav my-auto ms-auto mb-2 mb-lg-0">
               <li class="nav-item" id="homeLink">
@@ -51,23 +67,6 @@
                 <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newListingModal">New Listing</a>
               </li>
             </ul>
-
-            <!-- Search input field centered -->
-            <form class="d-flex mx-auto w-50" role="search" id="searchForm">
-              <div class="input-group">
-                <input
-                  class="form-control"
-                  type="search"
-                  placeholder="Type & magic happens..."
-                  aria-label="Search"
-                  id="searchInput"
-                  aria-describedby="basic-addon1"
-                />
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="bi bi-search"></i>
-                </span>
-              </div>
-            </form>
 
             <!-- Right aligned navbar items (login/register buttons or logout button) -->
             <ul class="navbar-nav ms-auto">

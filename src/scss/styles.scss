@@ -38,10 +38,12 @@ h6,
   text-wrap: balance;
 }
 
+.active {
+  text-decoration: line-through;
+}
+
 .nav-link,
 #logoutButton {
-  // display: none;
-  font-size: 1rem;
   text-transform: uppercase;
   color: $cb-light-color;
 }
@@ -409,6 +411,7 @@ article {
 
 .modalTwo.show {
   display: flex;
+  justify-content: center;
 }
 
 .modal-dialog {

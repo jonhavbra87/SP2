@@ -2,7 +2,7 @@ import { createListing } from '../../fetch/createListing';
 
 export async function handleCreateListingFormSubmit(event) {
   event.preventDefault();
-
+  const form = event.target;
   const title = event.target.title.value.trim();
   const description = event.target.description.value.trim();
   const mediaUrl = event.target.mediaUrl.value.trim();
@@ -25,7 +25,9 @@ export async function handleCreateListingFormSubmit(event) {
         console.warn('Response is not ok!');
         throw new Error('Response is not ok!');
       }
+
       console.log('Listing created:', response);
+      form.reset();
       window.location.reload();
     } catch (error) {
       console.error('Error creating listing:', error);
