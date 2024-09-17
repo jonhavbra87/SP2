@@ -15,11 +15,11 @@
 
   <body>
     <header class="bg-dark sticky-top">
-      <nav class="navbar navbar-expand-lg navbar-dark">
-        <div class="container">
+      <nav class="navbar navbar-expand-md navbar-dark">
+        <div class="container-fluid">
           <!-- Logo -->
-          <a class="navbar-brand" href="/">
-            <div id="image-container"></div>
+          <a class="navbar-brand active" href="/">
+            <div id="logo-container"></div>
           </a>
 
           <!-- Navbar Toggler for small screens -->
@@ -27,8 +27,8 @@
             class="navbar-toggler"
             type="button"
             data-bs-toggle="collapse"
-            data-bs-target="#navbarToggle"
-            aria-controls="navbarToggle"
+            data-bs-target="#navbarSupportedContent"
+            aria-controls="navbarSupportedContent"
             aria-expanded="false"
             aria-label="Toggle navigation"
           >
@@ -37,6 +37,22 @@
 
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <!-- Left-aligned navigation links (wrapped in <ul> and <li> elements) -->
+            <ul class="navbar-nav my-auto ms-auto mb-2 mb-lg-0">
+              <li class="nav-item" id="homeLink">
+                <a class="nav-link active" aria-current="page" href="/">Home</a>
+              </li>
+              <li class="nav-item" id="listingsLink">
+                <a class="nav-link" href="#">Listings</a>
+              </li>
+              <li class="nav-item" id="profileLink">
+                <a class="nav-link" href="#">Profile</a>
+              </li>
+              <li class="nav-item d-none" id="newListingLink">
+                <a class="nav-link" href="#" data-bs-toggle="modal" data-bs-target="#newListingModal">New Listing</a>
+              </li>
+            </ul>
+
             <!-- Search input field centered -->
             <form class="d-flex mx-auto w-50" role="search" id="searchForm">
               <div class="input-group">
@@ -54,29 +70,21 @@
               </div>
             </form>
 
-            <!-- Right aligned navbar items -->
-            <div class="navbar-nav ms-auto">
+            <!-- Right aligned navbar items (login/register buttons or logout button) -->
+            <ul class="navbar-nav ms-auto">
               <!-- Elements shown when logged out -->
-              <button type="button" id="openLoginModal" class="btn btn-lg btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">
-                Login
-              </button>
-              <button
-                type="button"
-                id="openRegisterModal"
-                class="btn btn-lg btn-cb-primary me-2"
-                data-bs-toggle="modal"
-                data-bs-target="#registrationModal"
-              >
-                Register
-              </button>
+              <li class="nav-item" id="openLoginModal">
+                <button class="btn btn-lg btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#loginModal">Login</button>
+              </li>
+              <li class="nav-item" id="openRegisterModal">
+                <button class="btn btn-lg btn-cb-primary me-2" data-bs-toggle="modal" data-bs-target="#registrationModal">Register</button>
+              </li>
 
               <!-- Elements shown when logged in -->
-              <a class="nav-link me-2" id="newListingLink" href="#" data-bs-toggle="modal" data-bs-target="#newListingModal">New Listing</a>
-              <a class="nav-link me-2" id="listingsLink" href="#">Listings</a>
-              <a class="nav-link me-2" id="profileLink" href="#">Profile</a>
-
-              <button class="btn btn-cb-primary" id="logoutButton" type="button" data-auth="logout">Logout</button>
-            </div>
+              <li class="nav-item d-none" id="logoutButton">
+                <button class="btn btn-cb-primary" type="button" data-auth="logout">Logout</button>
+              </li>
+            </ul>
           </div>
         </div>
       </nav>
@@ -317,7 +325,7 @@
       </div>
     </div>
     <!-- Card Modal -->
-    <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
+    <!-- <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content">
           <button type="button" class="btn-close" id="closeCardModal" aria-label="Close"></button>
@@ -343,6 +351,6 @@
           </div>
         </div>
       </div>
-    </div>
+    </div> -->
   </body>
 </html>
