@@ -5,7 +5,7 @@ export function updateNavbarAuthUser() {
   const profileLink = document.getElementById('profileLink');
   const listingsLink = document.getElementById('listingsLink');
   const newListingLink = document.getElementById('newListingLink');
-  const logoutButton = document.getElementById('logoutButton');
+  const logoutButton = document.getElementById('[data-auth="logout"]');
 
   // Hide login/register buttons
   if (loginButton) loginButton.classList.add('d-none');

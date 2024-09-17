@@ -16,15 +16,6 @@ export async function onAuth(event) {
     if (event.submitter.dataset.auth === 'register') {
       name = event.target.username.value;
 
-      // make this work
-      // const profile = {
-      //   name: name,
-      //   email: email,
-      //   password: password,
-      //   banner: banner,
-      //   avatar: avatar,
-      // };
-
       await register(name, email, password);
       await login(email, password); //This line automatically login after registration!
     }

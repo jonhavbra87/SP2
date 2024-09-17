@@ -1,18 +1,19 @@
 export function modalShowHide() {
   const loginModal = document.getElementById('loginModal');
   const registerModal = document.getElementById('registrationModal');
-  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  // const scrollY = window.scrollY || document.documentElement.scrollTop;
 
   const openLoginModalButton = document.querySelector('[data-bs-target="#loginModal"]');
   const openRegisterModalButton = document.querySelector('[data-bs-target="#registrationModal"]');
 
   const closeModalButtons = document.querySelectorAll('.btn-close');
 
-  loginModal.style.top = `${scrollY}px`;
-  registerModal.style.top = `${scrollY}px`;
+  // loginModal.style.top = `${scrollY}px`;
+  // registerModal.style.top = `${scrollY}px`;
 
   /* OPEN MODAL */
   openLoginModalButton.addEventListener('click', () => {
+    loginModal.style.top = `${window.scrollY}px`;
     loginModal.classList.add('show');
     document.body.classList.add('overflow-hidden');
   });
