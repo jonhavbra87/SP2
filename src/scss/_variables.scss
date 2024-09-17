@@ -7,29 +7,19 @@ $font-family-base: 'Merriweather', serif;
 $font-family-headings: 'Playfair Display', serif;
 
 // Font sizes
-$font-size-root: 16px; // Root font size
+// $font-size-root: 16px; // Root font size
 $font-size-base: 1rem; // Base font size
-$font-size-h1: 2.5rem; // H1 size (40px)
-$font-size-h2: 2rem; // H2 size (32px)
-$font-size-h3: 1.75rem; // H3 size (28px)
-$font-size-h4: 1.5rem; // H4 size (24px)
-$font-size-h5: 1.25rem; // H5 size (20px)
-$font-size-h6: 1rem; // H6 size (16px)
+// $font-size-h1: 2.5rem; // H1 size (40px)
+// $font-size-h2: 2rem; // H2 size (32px)
+// $font-size-h3: 1.75rem; // H3 size (28px)
+// $font-size-h4: 1.5rem; // H4 size (24px)
+// $font-size-h5: 1.25rem; // H5 size (20px)
+// $font-size-h6: 1rem; // H6 size (16px)
 
-// Breakpoints
-$grid-breakpoints: (
-  xs: 0,
-  // Extra small devices (portrait phones, less than 576px)
-  sm: 576px,
-  // Small devices (landscape phones, 576px and up)
-  md: 768px,
-  // Medium devices (tablets, 768px and up)
-  lg: 992px,
-  // Large devices (desktops, 992px and up)
-  xl: 1200px,
-  // Extra large devices (large desktops, 1200px and up)
-  xxl: 1400px // Extra extra large devices (larger desktops, 1400px and up),
-);
+$font-size-sm: $font-size-base * 0.875;
+$font-size-md: $font-size-base * 1;
+$font-size-lg: $font-size-base * 1.25;
+$font-size-xl: $font-size-base * 1.5;
 
 // Line heights
 $line-height-base: 1.5;

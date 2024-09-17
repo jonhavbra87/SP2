@@ -10,6 +10,8 @@ export function initializeCarousel() {
 
     let touchStartX = 0;
     let touchEndX = 0;
+    let touchStartY = 0;
+    let touchEndY = 0;
 
     // Functions
     const createDots = function () {
@@ -54,17 +56,25 @@ export function initializeCarousel() {
     // Touch handling functions
     const handleTouchStart = function (event) {
       touchStartX = event.changedTouches[0].screenX;
+      touchStartY = event.changedTouches[0].screenY;
     };
 
     const handleTouchMove = function (event) {
       touchEndX = event.changedTouches[0].screenX;
+      touchEndY = event.changedTouches[0].screenY;
     };
 
     const handleTouchEnd = function () {
-      if (touchEndX < touchStartX - 50) {
-        nextSlide(); // Swipe left
-      } else if (touchEndX > touchStartX + 50) {
-        prevSlide(); // Swipe right
+      const deltaX = touchEndX - touchStartX;
+      const deltaY = touchEndY - touchStartY;
+
+      // Check if swipe is more horizontal than vertical
+      if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
+        if (deltaX < 0) {
+          nextSlide(); // Swipe left
+        } else {
+          prevSlide(); // Swipe right
+        }
       }
     };
 
