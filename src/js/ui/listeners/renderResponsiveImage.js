@@ -5,7 +5,7 @@ export function setupResponsiveImages() {
 }
 
 function renderResponsiveImage() {
-  const container = document.getElementById('image-container');
+  const container = document.getElementById('logo-container');
 
   container.innerHTML = '';
 
@@ -14,7 +14,7 @@ function renderResponsiveImage() {
   const img = document.createElement('img');
   img.classList.add('img-fluid', 'object-fit-cover', 'h-100');
 
-  if (screenWidth < 768) {
+  if (screenWidth < 362) {
     img.src = '../../../assets/logo-small.png';
     img.alt = 'Mobile version of logo';
   } else {

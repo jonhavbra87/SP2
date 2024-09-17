@@ -1,18 +1,20 @@
 export function updateNavbarAuthUser() {
   const loginButton = document.getElementById('openLoginModal');
   const registerButton = document.getElementById('openRegisterModal');
-  const profile = document.getElementById('profileLink');
-  const listings = document.getElementById('listingsLink');
-  const newListing = document.getElementById('newListingLink');
-  const logoutButton = document.querySelector('[data-auth="logout"]');
+  const homeLink = document.getElementById('homeLink');
+  const profileLink = document.getElementById('profileLink');
+  const listingsLink = document.getElementById('listingsLink');
+  const newListingLink = document.getElementById('newListingLink');
+  const logoutButton = document.getElementById('logoutButton');
 
-  // Hide buttons for login/register
-  if (loginButton) loginButton.style.display = 'none';
-  if (registerButton) registerButton.style.display = 'none';
+  // Hide login/register buttons
+  if (loginButton) loginButton.classList.add('d-none');
+  if (registerButton) registerButton.classList.add('d-none');
 
-  // Show navbar as auth user
-  if (profile) profile.style.display = 'inline-block';
-  if (listings) listings.style.display = 'inline-block';
-  if (newListing) newListing.style.display = 'inline-block';
-  if (logoutButton) logoutButton.style.display = 'inline-block';
+  // Show logged-in navbar items
+  if (homeLink) homeLink.classList.remove('d-none');
+  if (profileLink) profileLink.classList.remove('d-none');
+  if (listingsLink) listingsLink.classList.remove('d-none');
+  if (newListingLink) newListingLink.classList.remove('d-none');
+  if (logoutButton) logoutButton.classList.remove('d-none');
 }
