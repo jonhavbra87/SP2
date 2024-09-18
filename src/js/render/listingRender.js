@@ -5,20 +5,23 @@ import { showLoader } from '../ui/helpers/showLoader.js';
 
 export async function listingRender() {
   showLoader();
+
   try {
     const url = new URL(window.location.href);
     let id = url.searchParams.get('id');
 
     const listingData = await getListing(id);
-    hideLoader();
-    // console.log('Listing data:', listingData);
 
-    if (listingData) {
-      const container = document.getElementById('specific-post');
-
-      const card = listingTemplate(listingData);
-      container.append(card);
+    if (!listingData) {
+      hideLoader();
+      return;
     }
+
+    const container = document.getElementById('specific-post');
+
+    const card = listingTemplate(listingData);
+
+    container.append(card);
   } catch (error) {
     throw new Error(`Error rendering post: ${error.message}`);
   } finally {

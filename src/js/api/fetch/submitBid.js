@@ -11,9 +11,8 @@ export async function submitBid(listingId, bidAmount) {
   try {
     const response = await placeBid(listingId, bidAmount);
     console.log('Bid placed successfully:', response);
-
     // Provide user feedback and refresh the page
-    reloadPage();
+    // reloadPage();
     // alert('Bid placed successfully!');
   } catch (error) {
     console.error('Error placing bid:', error);

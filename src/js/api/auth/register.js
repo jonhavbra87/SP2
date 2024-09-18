@@ -12,7 +12,7 @@ import { API_AUTH, API_BASE, API_REGISTER } from '../constants';
  * register(profile)
  * ```
  * **/
-
+// REWORK THIS FUNCTION TO USE THE AUTHFETCH FUNCTION
 const method = 'POST';
 
 export async function register(name, email, password) {

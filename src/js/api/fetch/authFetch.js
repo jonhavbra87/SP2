@@ -1,11 +1,11 @@
+import { handleApiError } from '../helpers/handleApiError.js';
 import { headers } from './headers.js';
 
-export async function authFetch(url, fetchMethod = 'GET', body = null) {
+export async function authFetch(url, fetchMethod = 'GET', body = null, fetchType) {
   try {
     // Resolve headers dynamically from the headers function
     const resolvedHeaders = await headers();
 
-    // Prepare fetch options with method, headers, and body if provided
     const options = {
       method: fetchMethod,
       headers: resolvedHeaders,
@@ -17,20 +17,16 @@ export async function authFetch(url, fetchMethod = 'GET', body = null) {
 
     // Perform the fetch request
     const response = await fetch(url, options);
-    // console.log('response:', response);
 
-    // Check if response is not OK
-    if (!response.ok) {
-      const errorBody = await response.text();
-      throw new Error(`Fetch failed: ${response.statusText}. Details: ${errorBody}`);
-    }
+    const result = await response.json();
 
-    // Return the parsed JSON response
-    const json = await response.json();
+    handleApiError(response.status, fetchType);
 
-    return json.data;
+    // Handle API errors
+
+    return result.data || result;
   } catch (error) {
-    console.error(`API Fetch Error: ${error.message}`);
+    console.error(`API Fetch Error: ${error.message}`, error);
     throw new Error(`Error fetching data: ${error.message}`);
   }
 }
