@@ -2,6 +2,8 @@ export function initializeCarousel() {
   const slider = function () {
     const slides = document.querySelectorAll('.slide');
     const btnLeft = document.getElementById('slider__btn--left');
+    console.log('btnLeft', btnLeft);
+
     const btnRight = document.getElementById('slider__btn--right');
     const dotContainer = document.querySelector('.dots');
 

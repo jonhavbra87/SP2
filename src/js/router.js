@@ -8,8 +8,10 @@ import { navigateToProfileListener } from './render/helpers/create/profile/navig
 import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
 import { renderCarousel } from './render/renderCarousel.js';
 import { setupResponsiveImages } from './ui/listeners/renderResponsiveImage.js';
+import { fetchingDataScrolling } from './ui/listeners/fetchingDataScrolling.js';
+import { initializeCarousel } from './utilities/initializeCarousel.js';
 
-export default function router() {
+export default async function router() {
   const path = location.pathname;
   console.log('current path', path);
 
@@ -30,8 +32,10 @@ export default function router() {
       searchListings();
       navigateToProfileListener();
       listeners.openCreateListingModal();
-      renderCarousel();
+      await renderCarousel();
       setupResponsiveImages();
+      fetchingDataScrolling();
+      initializeCarousel();
       break;
 
     case '/listings':
