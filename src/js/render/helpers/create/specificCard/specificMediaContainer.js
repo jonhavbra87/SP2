@@ -10,6 +10,7 @@ export function specificMediaContainer(postData) {
   // Create the large image element
   const largeImage = document.createElement('img');
   largeImage.classList.add('object-fit-cover', 'main-image', 'w-100');
+  largeImage.setAttribute('loading', 'lazy');
 
   if (postData.media && postData.media.length > 0 && postData.media[0].url) {
     largeImage.src = postData.media[0].url;
@@ -30,6 +31,7 @@ export function specificMediaContainer(postData) {
     postData.media.forEach((mediaItem) => {
       const thumbnail = document.createElement('img');
       thumbnail.classList.add('small-thumbnail', 'img-fluid', 'rounded', 'object-fit-cover', 'opacity-50');
+      thumbnail.setAttribute('loading', 'lazy');
       thumbnail.src = mediaItem.url;
       thumbnail.alt = mediaItem.alt || `Thumbnail of ${postData.title}`;
       thumbnail.addEventListener('click', () => {

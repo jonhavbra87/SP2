@@ -3,6 +3,7 @@ import { avatarPlaceholder } from '../images';
 export function createCarousel(postData) {
   const blogContainer = document.querySelector('.slider');
   blogContainer.classList.add('slider');
+
   if (!blogContainer) {
     console.error('Blog container not found for the post: ', postData);
     return;
@@ -12,14 +13,19 @@ export function createCarousel(postData) {
   postContainer.classList.add('slide');
 
   const imgContainer = document.createElement('div');
-  imgContainer.classList.add('ratio', 'ratio-1x1', 'object-fit-fill');
+  imgContainer.classList.add('ratio', 'ratio-16x9', 'object-fit-cover', 'w-100');
 
   const img = document.createElement('img');
   img.classList.add('img-fluid');
   img.setAttribute('loading', 'lazy');
 
-  img.src = postData.media[0]?.url || avatarPlaceholder;
-  img.alt = postData.media[0]?.alt || `Image from ${postData.title}`;
+  if (postData.media.length > 0 && postData.media[0].url) {
+    img.src = postData.media[0].url;
+    img.alt = postData.media[0].alt || `Image from ${postData.title}`;
+  } else {
+    img.src = avatarPlaceholder;
+    img.alt = 'Placeholder  image';
+  }
 
   imgContainer.append(img);
 
