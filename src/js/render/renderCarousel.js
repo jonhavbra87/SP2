@@ -1,7 +1,6 @@
 import { getListings } from '../api/fetch/getListings';
-import { initializeCarousel } from '../utilities/initializeCarousel';
 import { shuffleListings } from '../utilities/shuffleListings';
-import { createCarousel } from './helpers/create/crateCarousel';
+import { createCarousel } from './helpers/create/createCarousel';
 
 export async function renderCarousel() {
   const limit = 6;
@@ -16,8 +15,6 @@ export async function renderCarousel() {
     listings.slice(0, limit).forEach((postData) => {
       createCarousel(postData);
     });
-
-    initializeCarousel();
   } catch (error) {
     console.error('Unable to fetch listings:', error);
   }
