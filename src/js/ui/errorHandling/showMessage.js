@@ -1,10 +1,15 @@
-export function showMessage(message, status = false, timeout = 5000) {
-  console.log('message:', message);
+export function showMessage(message, status = false) {
+  console.log('Showing message:', message, status);
 
   const messageBox = document.getElementById('messageBox');
-  if (!messageBox) {
+  const messageText = document.getElementById('messageText');
+  const closeButton = document.getElementById('closeButton');
+
+  if (!messageBox || !messageText || !closeButton) {
     return;
   }
+
+  messageText.textContent = message;
 
   if (status) {
     messageBox.className = 'alert alert-success';
@@ -12,14 +17,11 @@ export function showMessage(message, status = false, timeout = 5000) {
     messageBox.className = 'alert alert-danger';
   }
 
-  messageBox.textContent = message;
-
   messageBox.classList.remove('d-none');
-  messageBox.classList.add('text-center', 'mx-auto');
+  messageBox.classList.add('text-center');
 
-  // if (timeout) {
-  //   setTimeout(() => {
-  //     messageBox.classList.add('d-none');
-  //   }, timeout);
-  // }
+  // Legg til click event for å skjule meldingen manuelt
+  closeButton.addEventListener('click', () => {
+    messageBox.classList.add('d-none');
+  });
 }

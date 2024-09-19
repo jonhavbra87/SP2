@@ -90,7 +90,10 @@
 
     <main class="flex-grow-1 h-lg-100 d-flex justify-content-center align-items-center">
       <section id="specific-post">
-        <div id="messageBox" class="d-none"></div>
+        <div id="messageBox" class="d-none position-relative">
+          <span id="messageText"></span>
+          <button id="closeButton" class="btn btn-danger btn-sm position-absolute top-0 end-0 me-2 mt-2 shadow">&times;</button>
+        </div>
         <div id="loader" class="lds-default">
           <div></div>
           <div></div>
@@ -110,6 +113,7 @@
     <footer class="sticky-bottom p-4 text-center z-4 bg-body">
       <p>&copy; 2024 CrownBid</p>
     </footer>
+
     <!-- Login Modal -->
     <div class="modalTwo fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
