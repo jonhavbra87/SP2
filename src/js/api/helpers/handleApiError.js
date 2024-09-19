@@ -8,11 +8,6 @@ import { showMessage } from '../../ui/errorHandling/showMessage';
  */
 // 200 login success
 // 201 new action created successfully
-// 400 registrer konto eksisterer allerede nav eller epost eksisterer
-// 400 new listing - bildeadresse er 300 bokstarve
-// 401 geil epost passord
-// 400 budet er for lite
-// 403 bude: kan ikke by på egen auksjon
 
 export function handleApiError(statusCode, fetchType) {
   console.log('handleApiError called with:', { statusCode, fetchType });
@@ -28,7 +23,7 @@ export function handleApiError(statusCode, fetchType) {
       break;
     case 400:
       if (fetchType === 'createListing') {
-        showMessage('The image address must be at least 300 characters long.', false);
+        showMessage('The image address can´t be longer than 300 characters.', false);
       } else if (fetchType === 'register') {
         showMessage('An account with that name or email already exists.', false);
       } else if (fetchType === 'bid') {
@@ -39,7 +34,7 @@ export function handleApiError(statusCode, fetchType) {
       showMessage('Unauthorized access. Please login to continue.', false);
       break;
     case 403:
-      showMessage('Forbidden. You do not have permission to access this resource.', false);
+      showMessage('Forbidden. You do not have permission to bid on your own listing.', false);
       break;
     case 404:
       showMessage('No listing with such ID', false);
