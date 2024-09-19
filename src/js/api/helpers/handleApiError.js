@@ -36,7 +36,7 @@ export function handleApiError(statusCode, fetchType) {
       }
       break;
     case 401:
-      showMessage('Unauthorized access. Please log in to continue.', false);
+      showMessage('Unauthorized access. Please login to continue.', false);
       break;
     case 403:
       showMessage('Forbidden. You do not have permission to access this resource.', false);

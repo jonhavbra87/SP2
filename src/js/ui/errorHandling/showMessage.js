@@ -15,10 +15,11 @@ export function showMessage(message, status = false, timeout = 5000) {
   messageBox.textContent = message;
 
   messageBox.classList.remove('d-none');
+  messageBox.classList.add('text-center', 'mx-auto');
 
-  if (timeout) {
-    setTimeout(() => {
-      messageBox.classList.add('d-none');
-    }, timeout);
-  }
+  // if (timeout) {
+  //   setTimeout(() => {
+  //     messageBox.classList.add('d-none');
+  //   }, timeout);
+  // }
 }

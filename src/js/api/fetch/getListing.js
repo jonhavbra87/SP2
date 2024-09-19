@@ -1,3 +1,4 @@
+import { showMessage } from '../../ui/errorHandling/showMessage';
 import { API_AUCTIONS, API_BASE } from '../constants';
 import { authFetch } from './authFetch';
 
