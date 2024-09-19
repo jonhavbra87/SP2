@@ -251,6 +251,7 @@ article {
   border: 1px solid $cb-silver-color-hsl;
   border-radius: 2px;
   box-shadow: 0 4px 10px rgba(0, 0, 0, 0.2);
+  flex-grow: 1 1 300px;
   // max-height: 80vh;
 
   .card-body {

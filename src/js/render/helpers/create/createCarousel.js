@@ -13,7 +13,7 @@ export function createCarousel(postData) {
   postContainer.classList.add('slide');
 
   const imgContainer = document.createElement('div');
-  imgContainer.classList.add('ratio', 'ratio-16x9', 'object-fit-cover', 'w-100');
+  imgContainer.classList.add('ratio', 'ratio-1x1', 'object-fit-cover', 'w-100');
 
   const img = document.createElement('img');
   img.classList.add('img-fluid');
