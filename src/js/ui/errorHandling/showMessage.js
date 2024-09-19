@@ -20,7 +20,6 @@ export function showMessage(message, status = false) {
   messageBox.classList.remove('d-none');
   messageBox.classList.add('text-center');
 
-  // Legg til click event for å skjule meldingen manuelt
   closeButton.addEventListener('click', () => {
     messageBox.classList.add('d-none');
   });
