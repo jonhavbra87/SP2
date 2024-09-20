@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap 2/vite</title>
     <script type="module" src="../js/main.js"></script>
-    <link rel="stylesheet" href="../scss/styles.scss" />
-    <link rel="shortcut icon" href="./assets/logo_full_size.png" type="image/x-icon" />
+    <link rel="stylesheet" href="../scss/styles.css" />
+    <link rel="shortcut icon" href="../assets/logoSmall.png" type="image/x-icon" />
   </head>
 
   <body>
@@ -14,7 +14,7 @@
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
           <!-- Logo -->
-          <a class="navbar-brand active" href="/">
+          <a class="navbar-brand" href="/">
             <div id="logo-container"></div>
           </a>
 
@@ -87,27 +87,29 @@
 
     <main>
       <section class="d-flex justify-content-center align-content-center" id="profile-container">
-        <div id="loader" class="lds-default d-none">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-        </div>
+        <!-- Profile content goes here -->
       </section>
     </main>
 
     <footer class="sticky-bottom p-4 text-center z-4 bg-body">
       <p>&copy; 2024 CrownBid</p>
     </footer>
-
+    <!-- Loader modal -->
+    <div id="loader-overlay" class="loader-overlay d-none">
+      <div id="loader" class="lds-default">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
     <!-- Avatar Update Modal -->
     <div class="modalTwo" id="avatarModal" tabindex="-1" aria-labelledby="avatarModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg">

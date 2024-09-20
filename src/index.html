@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>Bootstrap 2/vite</title>
     <script type="module" src="./js/main.js"></script>
-    <link rel="stylesheet" href="./scss/styles.scss" />
-    <link rel="shortcut icon" href="./assets/logo_full_size.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./scss/styles.css" />
+    <link rel="shortcut icon" href="/assets/logoSmall.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
@@ -18,7 +18,7 @@
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
           <!-- Logo -->
-          <a class="navbar-brand active" href="/">
+          <a class="navbar-brand" href="/">
             <div id="logo-container"></div>
           </a>
 
@@ -90,49 +90,51 @@
     </header>
 
     <main>
-      <!-- Slider -->
-      <div class="slider col-12">
-        <!-- Dynamisk innhold vil bli lagt til her -->
-      </div>
-
-      <!-- Pilene og dots for manuell navigasjon -->
-      <div class="d-flex mx-auto">
-        <div class="col-12 d-flex justify-content-center align-items-center">
-          <!-- Left arrow -->
-          <button class="btn btn-cb-secondary me-2">
-            <i class="bi bi-caret-left-fill" id="slider__btn--left"></i>
-          </button>
-          <!-- Dots -->
-          <div class="dots d-flex justify-content-center align-items-center"></div>
-
-          <!-- Right arrow -->
-          <button class="btn btn-cb-secondary ms-2">
-            <i class="bi bi-caret-right-fill" id="slider__btn--right"></i>
-          </button>
+      <section>
+        <!-- Slider -->
+        <div class="slider">
+          <!-- Dynamisk innhold vil bli lagt til her -->
         </div>
-      </div>
+        <!-- Pilene og dots for manuell navigasjon -->
+        <div class="d-flex mx-auto">
+          <div class="col-12 d-flex justify-content-center align-items-center">
+            <!-- Left arrow -->
+            <button class="btn btn-cb-secondary me-2">
+              <i class="bi bi-caret-left-fill" id="slider__btn--left"></i>
+            </button>
+            <!-- Dots -->
+            <div class="dots d-flex justify-content-center align-items-center"></div>
 
-      <section class="d-flex flex-wrap justify-content-center gap-3" id="listings">
-        <!-- All listings will be put here -->
-        <div id="loader" class="lds-default">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+            <!-- Right arrow -->
+            <button class="btn btn-cb-secondary ms-2">
+              <i class="bi bi-caret-right-fill" id="slider__btn--right"></i>
+            </button>
+          </div>
         </div>
       </section>
+
+      <section class="d-flex flex-wrap justify-content-center gap-3" id="listings"></section>
     </main>
 
     <footer class="sticky-lg-bottom p-lg text-center z-4 bg-body">
       <p>&copy; 2024 CrownBid</p>
     </footer>
+    <!-- Loader modal -->
+    <div id="loader-overlay" class="loader-overlay d-none">
+      <div id="loader" class="lds-default">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
 
     <!-- Login Modal -->
     <div class="modalTwo" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
@@ -142,7 +144,7 @@
           <div class="modal-body p-5 d-flex flex-column flex-lg-row">
             <!-- Left side (Image and text) -->
             <div class="col-lg-4 p-4 d-flex flex-column justify-content-center text-center bg-dark text-light order-0">
-              <img src="./assets/logo-full-size.png" class="img-modal mx-auto img-fluid mb-3" alt="Logo of CrownBid" />
+              <img src="./assets/logoFullSize.png" class="img-modal mx-auto img-fluid mb-3" alt="Logo of CrownBid" />
               <p class="lead">Discover the world of <span class="text-warning">luxury</span> at <span class="text-warning">CrownBid</span>.</p>
               <p>
                 Exclusive auctions, rare treasures, and unparalleled elegance await. Whether you're seeking a timeless masterpiece or a modern luxury
@@ -158,16 +160,7 @@
               <form id="loginForm">
                 <div class="form-group mb-3">
                   <label for="email">Email</label>
-                  <input
-                    class="form-control"
-                    type="email"
-                    id="login-email"
-                    name="email"
-                    placeholder="name@stud.noroff.no"
-                    pattern="^[^\s@]+@(stud.noroff.no)$"
-                    title="Only @stud.noroff.no domains are allowed to register."
-                    required
-                  />
+                  <input class="form-control" type="email" id="login-email" name="email" placeholder="example@stud.noroff.no" />
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
@@ -228,22 +221,13 @@
                 </div>
                 <div class="form-group mb-3">
                   <label for="email">Email</label>
-                  <input
-                    class="form-control"
-                    type="email"
-                    id="email"
-                    name="register-email"
-                    pattern="^[^\s@]+@(stud.noroff.no)$"
-                    placeholder="name@stud.noroff.no"
-                    title="Only @stud.noroff.no domains are allowed to register."
-                    required
-                  />
+                  <input class="form-control" type="email" id="email" name="register-email" placeholder="example@stud.noroff.no" />
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
                   <label for="register-password">Password</label>
                   <input class="form-control" type="password" id="password" name="register-password" placeholder="Password" />
-                  <div class="invalid-feedback text-secondary">Password must include at least 12 letters & numbers.</div>
+                  <div class="invalid-feedback text-secondary">Password must include at least 8 letters & numbers.</div>
                 </div>
                 <div class="form-group mb-3">
                   <label for="banner">Banner</label>
@@ -256,7 +240,7 @@
                   <div class="invalid-feedback text-secondary">Please enter a valid image url.</div>
                 </div>
 
-                <button class="btn btn-dark btn-lg" type="submit" aria-label="Register button" data-auth="register">Register</button>
+                <button class="btn btn-cb-primary btn-lg" type="submit" aria-label="Register button" data-auth="register">Register</button>
               </form>
 
               <div class="text-center mt-4">
@@ -278,7 +262,7 @@
           <div class="modal-body p-4">
             <h4 id="createListingModalLabel" class="mb-4 fw-bold">Create New Listing</h4>
             <p class="mb-4">Fill in the details below to create a new listing</p>
-
+            <div id="messageBox" class="d-none alert" role="alert"></div>
             <form id="createListingForm">
               <div class="form-group mb-3">
                 <label for="listingTitle">Listing Title</label>
@@ -323,33 +307,5 @@
         </div>
       </div>
     </div>
-    <!-- Card Modal -->
-    <!-- <div class="modal fade" id="cardModal" tabindex="-1" aria-labelledby="cardModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg">
-        <div class="modal-content">
-          <button type="button" class="btn-close" id="closeCardModal" aria-label="Close"></button>
-          <div class="modal-body p-5 d-flex"></div>
-          <div class="d-flex flex-wrap gap-3 justify-content-center">
-            <div class="d-block justify-content-center" id="listing">
-              <div id="loader" class="lds-default">
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-                <div></div>
-              </div>
-              <div class="cardModalContainer" id="cardModalContent"></div>
-            </div>
-          </div>
-        </div>
-      </div>
-    </div> -->
   </body>
 </html>

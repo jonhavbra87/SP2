@@ -27,8 +27,6 @@ export async function login(email, password) {
     console.log('User logged in:', user);
     console.log('Access token:', accessToken);
 
-    // alert('You have been logged in successfully')
-
     return user;
   } else {
     throw new Error('Failed to log in: ' + response.statusText);

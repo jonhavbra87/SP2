@@ -5,6 +5,7 @@ import { load } from '../storage/index.js';
 import { hideLoader } from '../ui/helpers/hideLoader.js';
 import { showLoader } from '../ui/helpers/showLoader.js';
 import { profileTemplate } from '../templates/profileTemplates.js';
+import { showMessage } from '../ui/errorHandling/showMessage.js';
 
 export async function renderProfile() {
   showLoader();
@@ -28,8 +29,7 @@ export async function renderProfile() {
 
       container.append(profileCard);
     } else {
-      alert(`No profile with the name ${name}. Please try again.`);
-      //Legg inn brukerinfo her. en melding på skjermen som viser hva som er feil.
+      showMessage(`No profile with the name ${name}. Please try again.`);
     }
   } catch (error) {
     throw new Error(`Failed to render profile: ${error.message}`);

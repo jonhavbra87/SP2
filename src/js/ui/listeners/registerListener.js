@@ -7,8 +7,9 @@ export function registerListener() {
     showLoader();
     await onAuth(event);
     setTimeout(() => {
-      window.location.reload();
+      window.location.href = '/';
       hideLoader();
+      window.body.classList.remove('overflow-hidden');
     }, 500);
   });
 }

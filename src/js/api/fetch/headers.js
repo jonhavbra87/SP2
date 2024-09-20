@@ -1,4 +1,5 @@
 import { load } from '../../storage/index.js';
+import { showMessage } from '../../ui/errorHandling/showMessage.js';
 import { API_KEY } from '../constants.js';
 
 export async function headers() {
@@ -6,7 +7,11 @@ export async function headers() {
     // Load access token from localStorage
     const token = load('token');
     if (!token) {
-      throw new Error('No access token available. Please log in.');
+      console.warn('No access token found. Proceeding without authentication.');
+      return {
+        'Content-Type': 'application/json',
+        'X-Noroff-API-Key': API_KEY,
+      };
     }
 
     return {
@@ -16,6 +21,9 @@ export async function headers() {
     };
   } catch (error) {
     console.error('Error in headers function:', error.message);
-    throw new Error('Unable to retrieve headers due to an access token issue.');
+    return {
+      'Content-Type': 'application/json',
+      'X-Noroff-API-Key': API_KEY,
+    };
   }
 }

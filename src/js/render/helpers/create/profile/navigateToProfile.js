@@ -1,12 +1,12 @@
+import { showMessage } from '../../../../ui/errorHandling/showMessage';
+
 export async function navigateToProfile() {
   try {
     // Retrieve profile data from localStorage
     const storedProfile = localStorage.getItem('profile');
-    console.log(storedProfile);
 
     if (storedProfile) {
       const storedProfileData = JSON.parse(storedProfile);
-      console.log(storedProfile);
 
       if (!storedProfileData || !storedProfileData.name) {
         throw new Error('Profile data is invalid.');
@@ -15,7 +15,6 @@ export async function navigateToProfile() {
       // Use the name from profile data
       const profileName = storedProfileData.name;
       const profileUrl = `/profile/?name=${profileName}`;
-      console.log('Profile URL:', profileUrl);
 
       // Navigate to the profile page
       window.location.href = profileUrl;
@@ -23,7 +22,7 @@ export async function navigateToProfile() {
       throw new Error('No profile data found in localStorage.');
     }
   } catch (error) {
-    alert('Failed to navigate to profile. Please try again.');
+    showMessage('Failed to navigate to profile. Please login & try again.');
     throw new Error(`Error navigating to profile: ${error.message}`);
   }
 }

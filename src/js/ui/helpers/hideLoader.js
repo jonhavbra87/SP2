@@ -1,9 +1,9 @@
 export function hideLoader() {
-  const loader = document.getElementById('loader');
-  if (loader) {
-    loader.style.display = 'none';
+  const loaderOverlay = document.getElementById('loader-overlay');
+  if (loaderOverlay) {
+    loaderOverlay.classList.add('d-none');
     console.log('Loader hidden');
   } else {
-    console.error('Loader not found.');
+    console.error('Loader overlay not found.');
   }
 }

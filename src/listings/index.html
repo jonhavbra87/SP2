@@ -5,8 +5,8 @@
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
     <title>LISTING SPECIFIC</title>
     <script type="module" src="../js/main.js"></script>
-    <link rel="stylesheet" href="../scss/styles.scss" />
-    <link rel="shortcut icon" href="../assets/logo_full_size.png" type="image/x-icon" />
+    <link rel="stylesheet" href="./scss/styles.scss" />
+    <link rel="shortcut icon" href="../assets/logoSmall.png" type="image/x-icon" />
     <link rel="preconnect" href="https://fonts.googleapis.com" />
     <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
     <link href="https://fonts.googleapis.com/css2?family=Playfair+Display:wght@400..900&display=swap" rel="stylesheet" />
@@ -17,7 +17,7 @@
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
           <!-- Logo -->
-          <a class="navbar-brand active" href="/">
+          <a class="navbar-brand" href="/">
             <div id="logo-container"></div>
           </a>
 
@@ -90,25 +90,33 @@
 
     <main class="flex-grow-1 h-lg-100 d-flex justify-content-center align-items-center">
       <section id="specific-post">
-        <div id="loader" class="lds-default">
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
-          <div></div>
+        <div id="messageBox" class="d-none position-relative">
+          <span id="messageText"></span>
+          <button id="closeButton" class="btn btn-danger btn-sm position-absolute top-0 end-0 me-2 mt-2 shadow">&times;</button>
         </div>
+        <!-- Specific listing goes here -->
       </section>
     </main>
     <footer class="sticky-bottom p-4 text-center z-4 bg-body">
       <p>&copy; 2024 CrownBid</p>
     </footer>
+    <!-- Loader modal -->
+    <div id="loader-overlay" class="loader-overlay d-none">
+      <div id="loader" class="lds-default">
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+        <div></div>
+      </div>
+    </div>
+
     <!-- Login Modal -->
     <div class="modalTwo fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
       <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">

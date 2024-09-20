@@ -1,3 +1,5 @@
+import { logo, logoSmall } from '../../render/helpers/images';
+
 export function setupResponsiveImages() {
   renderResponsiveImage();
 
@@ -15,10 +17,10 @@ function renderResponsiveImage() {
   img.classList.add('img-fluid', 'object-fit-cover', 'h-100');
 
   if (screenWidth < 362) {
-    img.src = '../../../assets/logo-small.png';
+    img.src = logoSmall;
     img.alt = 'Mobile version of logo';
   } else {
-    img.src = '../../../assets/logo.png';
+    img.src = logo;
     img.alt = 'Desktop version of logo';
   }
 

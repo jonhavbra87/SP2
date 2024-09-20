@@ -6,13 +6,15 @@ const action = '/auction';
 export async function createListing(listingData) {
   const url = `${API_BASE}${action}/listings`;
 
-  if (!url) {
-    const errorData = await response.json();
-    throw new Error(errorData.message || 'Failed to create listing');
+  try {
+    const data = await authFetch(url, 'POST', listingData, 'createListing');
+    if (!data) {
+      throw new Error('Failed to create listing');
+    }
+
+    return data;
+  } catch (error) {
+    console.error('Error creating listing:', error);
+    throw new Error('Failed to create listing');
   }
-
-  const data = await authFetch(url, 'POST', listingData);
-  console.log('data', data);
-
-  return data;
 }

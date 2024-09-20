@@ -1,3 +1,5 @@
+import { showMessage } from '../../ui/errorHandling/showMessage.js';
+import { handleApiError } from '../helpers/handleApiError.js';
 import { reloadPage } from '../helpers/reloadPage.js';
 import { placeBid } from './placeBid.js';
 
@@ -11,12 +13,8 @@ export async function submitBid(listingId, bidAmount) {
   try {
     const response = await placeBid(listingId, bidAmount);
     console.log('Bid placed successfully:', response);
-
-    // Provide user feedback and refresh the page
     reloadPage();
-    // alert('Bid placed successfully!');
   } catch (error) {
     console.error('Error placing bid:', error);
-    alert(`Failed to place bid: ${error.message}`);
   }
 }

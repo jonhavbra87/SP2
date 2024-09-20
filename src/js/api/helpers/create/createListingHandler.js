@@ -28,6 +28,7 @@ export async function handleCreateListingFormSubmit(event) {
 
       console.log('Listing created:', response);
       form.reset();
+      // debugger;
       window.location.reload();
     } catch (error) {
       console.error('Error creating listing:', error);

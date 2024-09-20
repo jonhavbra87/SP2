@@ -1,4 +1,5 @@
 import { API_AUTH, API_BASE, API_REGISTER } from '../constants';
+import { doFetch } from '../helpers/doFetch';
 
 /**
  * Registers a new user profile to the social network API.
@@ -12,24 +13,22 @@ import { API_AUTH, API_BASE, API_REGISTER } from '../constants';
  * register(profile)
  * ```
  * **/
-
-const method = 'POST';
+// REWORK THIS FUNCTION TO USE THE AUTHFETCH FUNCTION
+// const method = 'POST';
 
 export async function register(name, email, password) {
   const registerURL = `${API_BASE}${API_AUTH}${API_REGISTER}`;
 
-  const body = JSON.stringify({ name, email, password });
+  const body = { name, email, password };
   console.log(body);
 
-  const response = await fetch(registerURL, {
-    headers: {
-      'Content-Type': 'application/json',
-    },
-    method,
-    body,
-  });
+  try {
+    const result = await doFetch(registerURL, 'POST', body, 'register');
+    console.log('Results from authFetch:', result);
 
-  const result = await response.json();
-
-  return result;
+    return result;
+  } catch (error) {
+    console.error('Error fetching listing:', error);
+    throw error;
+  }
 }

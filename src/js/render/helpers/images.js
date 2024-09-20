@@ -1,5 +1,7 @@
-import avatarPlaceholder from '../../../assets/avatar-placeholder.webp';
-import profileBannerPlaceholder from '../../../assets/profile-banner-placeholder.png';
-//add placholder images for cards also here
+import avatarPlaceholder from '../../../assets/avatarPlaceholder.webp';
+import profileBannerPlaceholder from '../../../assets/profileBannerPlaceholder.png';
 
-export { avatarPlaceholder, profileBannerPlaceholder };
+import logo from '../../../assets/logo.png';
+import logoSmall from '../../../assets/logoSmall.png';
+
+export { avatarPlaceholder, profileBannerPlaceholder, logo, logoSmall };
