@@ -1,4 +1,3 @@
-import { sortListings } from '../../ui/helpers/sortListings.js';
 import { API_BASE, API_AUCTIONS } from '../constants.js';
 import { doFetch } from '../helpers/doFetch.js';
 import { returnSortedListings } from '../helpers/returnSortedListings.js';
