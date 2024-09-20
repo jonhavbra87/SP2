@@ -1,4 +1,5 @@
 import { remove } from '../../storage/index.js';
+import { showMessage } from '../../ui/errorHandling/showMessage.js';
 import { hideLoader } from '../../ui/helpers/hideLoader.js';
 import { showLoader } from '../../ui/helpers/showLoader.js';
 
@@ -13,7 +14,7 @@ export async function logout() {
       window.location.href = '/';
     } catch (error) {
       console.error('Error during logout:', error);
-      // alert('Logout failed. Please try again.');
+      showMessage(error.message);
     }
   });
 }

@@ -1,4 +1,5 @@
 import { submitBid } from '../../../../api/fetch/submitBid.js';
+import { showMessage } from '../../../../ui/errorHandling/showMessage.js';
 
 export function specificFooterContainer(postData) {
   const footerContainer = document.createElement('div');
@@ -86,7 +87,7 @@ export function specificFooterContainer(postData) {
     event.preventDefault();
     const bidAmount = parseInt(placeBidInput.value);
     if (!bidAmount || isNaN(bidAmount) || bidAmount <= 0) {
-      alert('Please enter a valid bid amount.');
+      showMessage('Invalid bid amount. Please enter a valid number.');
       return;
     }
 
@@ -95,7 +96,6 @@ export function specificFooterContainer(postData) {
       // Optionally re-fetch and re-render the bids after a successful bid
     } catch (error) {
       console.error('Error placing bid:', error);
-      alert(`Failed to place bid: ${error.message}`);
     }
   });
 

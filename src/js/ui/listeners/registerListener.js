@@ -6,9 +6,10 @@ export function registerListener() {
   document.getElementById('registrationModal').addEventListener('submit', async (event) => {
     showLoader();
     await onAuth(event);
-    // setTimeout(() => {
-    //   window.location.reload();
-    //   hideLoader();
-    // }, 500);
+    setTimeout(() => {
+      window.location.href = '/';
+      hideLoader();
+      window.body.classList.remove('overflow-hidden');
+    }, 500);
   });
 }
