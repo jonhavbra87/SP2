@@ -1,31 +1,41 @@
-export async function searchListings() {
-  const formElement = document.getElementById('searchForm');
-  const inputElement = document.getElementById('searchInput');
+// import { API_AUCTIONS, API_BASE } from "../api/constants";
 
-  // I wanted to have search-function with key up, but then I had disabled the submit event with preventDefault.
+// export async function searchListings() {
+//   const formElement = document.getElementById('searchForm');
+//   const inputElement = document.getElementById('searchInput');
 
-  if (formElement && inputElement) {
-    formElement.addEventListener('submit', function (event) {
-      event.preventDefault();
-    });
+//   const url = `${API_BASE}${API_AUCTIONS}/listings/search?q=${encodeURIComponent(query)}?page`;
 
-    inputElement.addEventListener('keyup', function () {
-      const value = inputElement.value.toLowerCase();
+// }
 
-      const listingsContainer = document.getElementById('listings');
-      const listingsCards = listingsContainer.querySelectorAll('.card');
+// export async function searchListings() {
+//   const formElement = document.getElementById('searchForm');
+//   const inputElement = document.getElementById('searchInput');
 
-      listingsCards.forEach(function (item) {
-        const text = item.textContent.toLowerCase();
+//   // I wanted to have search-function with key up, but then I had disabled the submit event with preventDefault.
 
-        if (value === '') {
-          item.style.display = '';
-        } else if (text.includes(value)) {
-          item.style.display = '';
-        } else {
-          item.style.display = 'none';
-        }
-      });
-    });
-  }
-}
+//   if (formElement && inputElement) {
+//     formElement.addEventListener('submit', function (event) {
+//       event.preventDefault();
+//     });
+
+//     inputElement.addEventListener('keyup', function () {
+//       const value = inputElement.value.toLowerCase();
+
+//       const listingsContainer = document.getElementById('listings');
+//       const listingsCards = listingsContainer.querySelectorAll('.card');
+
+//       listingsCards.forEach(function (item) {
+//         const text = item.textContent.toLowerCase();
+
+//         if (value === '') {
+//           item.style.display = '';
+//         } else if (text.includes(value)) {
+//           item.style.display = '';
+//         } else {
+//           item.style.display = 'none';
+//         }
+//       });
+//     });
+//   }
+// }

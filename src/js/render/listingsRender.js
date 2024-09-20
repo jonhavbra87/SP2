@@ -17,7 +17,7 @@ export async function listingsRender() {
   const container = document.getElementById('listings');
 
   try {
-    const listings = await getListings(page, 12);
+    const listings = await getListings(page, 100);
     console.log('Listings fetched: ', listings);
 
     hideLoader();
