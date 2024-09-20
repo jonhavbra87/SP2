@@ -27,7 +27,7 @@ export function handleApiError(statusCode, fetchType) {
       } else if (fetchType === 'register') {
         showMessage('An account with that name or email already exists.', false);
       } else if (fetchType === 'bid') {
-        showMessage('The bid amount is too low.', false);
+        showMessage('The bid amount is too low or the listing has ended.', false);
       }
       break;
     case 401:

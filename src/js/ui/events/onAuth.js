@@ -1,5 +1,7 @@
 import { login } from '../../api/auth/login.js';
 import { register } from '../../api/auth/register.js';
+import { validateEmail } from '../../api/auth/validateEmail.js';
+import { handleApiError } from '../../api/helpers/handleApiError.js';
 
 export async function onAuth(event) {
   event.preventDefault();
@@ -7,6 +9,12 @@ export async function onAuth(event) {
   let name;
   const email = event.target.email.value;
   const password = event.target.password.value;
+
+  if (!email) {
+    validateEmail(email);
+    handleApiError('Email is not valid');
+    return;
+  }
 
   try {
     if (event.submitter.dataset.auth === 'login') {

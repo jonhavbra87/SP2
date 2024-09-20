@@ -3,15 +3,15 @@
   <head>
     <meta charset="UTF-8" />
     <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-    <title>Bootstrap 2/vite</title>
+    <title>Bootstrap 2/vite</title>
     <link rel="stylesheet" href="./scss/styles.css" />
     <link rel="shortcut icon" href="/assets/logo-small.png" type="image/x-icon" />
     <link
       href="https://fonts.googleapis.com/css2?family=Merriweather:wght@300;400;700&family=Playfair+Display:wght@400;500;600;700;900&display=swap"
       rel="stylesheet"
     />
-    <script type="module" crossorigin src="/assets/main-yW7XTWDQ.js"></script>
-    <link rel="stylesheet" crossorigin href="/assets/main-C7RpyyEg.css">
+    <script type="module" crossorigin src="/assets/main-CZn_YDQJ.js"></script>
+    <link rel="stylesheet" crossorigin href="/assets/main-BOI-j3gL.css">
   </head>
 
   <body>
@@ -19,7 +19,7 @@
       <nav class="navbar navbar-expand-md navbar-dark">
         <div class="container-fluid">
           <!-- Logo -->
-          <a class="navbar-brand active" href="/">
+          <a class="navbar-brand" href="/">
             <div id="logo-container"></div>
           </a>
 
@@ -157,6 +157,10 @@
       <div class="modal-dialog modal-dialog-centered modal-lg bg-opacity-75">
         <div class="modal-content bg-dark">
           <button type="button" class="btn-close" id="closeLoginModal" aria-label="Close"></button>
+          <div id="messageBox" class="d-none position-relative">
+            <span id="messageText"></span>
+            <button id="closeButton" class="btn btn-danger btn-sm position-absolute top-0 end-0 me-2 mt-2 shadow">&times;</button>
+          </div>
           <div class="modal-body p-5 d-flex flex-column flex-lg-row">
             <!-- Left side (Image and text) -->
             <div class="col-lg-4 p-4 d-flex flex-column justify-content-center text-center bg-dark text-light order-0">
@@ -176,16 +180,7 @@
               <form id="loginForm">
                 <div class="form-group mb-3">
                   <label for="email">Email</label>
-                  <input
-                    class="form-control"
-                    type="email"
-                    id="login-email"
-                    name="email"
-                    placeholder="name@stud.noroff.no"
-                    pattern="^[^\s@]+@(stud.noroff.no)$"
-                    title="Only @stud.noroff.no domains are allowed to register."
-                    required
-                  />
+                  <input class="form-control" type="email" id="login-email" name="email" placeholder="example@stud.noroff.no" />
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
@@ -214,6 +209,10 @@
       <div class="modal-dialog modal-dialog-centered modal-lg">
         <div class="modal-content bg-dark">
           <button type="button" class="btn-close" id="closeRegistrationModal" aria-label="Close"></button>
+          <div id="messageBox" class="d-none position-relative">
+            <span id="messageText"></span>
+            <button id="closeButton" class="btn btn-danger btn-sm position-absolute top-0 end-0 me-2 mt-2 shadow">&times;</button>
+          </div>
           <div class="modal-body p-5 d-flex flex-column flex-lg-row">
             <!-- Left side (Image and text) -->
             <div class="col-lg-4 p-4 d-flex flex-column justify-content-center text-center bg-dark text-light order-1 order-lg-0">
@@ -246,22 +245,13 @@
                 </div>
                 <div class="form-group mb-3">
                   <label for="email">Email</label>
-                  <input
-                    class="form-control"
-                    type="email"
-                    id="email"
-                    name="register-email"
-                    pattern="^[^\s@]+@(stud.noroff.no)$"
-                    placeholder="name@stud.noroff.no"
-                    title="Only @stud.noroff.no domains are allowed to register."
-                    required
-                  />
+                  <input class="form-control" type="email" id="email" name="register-email" placeholder="example@stud.noroff.no" />
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
                   <label for="register-password">Password</label>
                   <input class="form-control" type="password" id="password" name="register-password" placeholder="Password" />
-                  <div class="invalid-feedback text-secondary">Password must include at least 12 letters & numbers.</div>
+                  <div class="invalid-feedback text-secondary">Password must include at least 8 letters & numbers.</div>
                 </div>
                 <div class="form-group mb-3">
                   <label for="banner">Banner</label>
