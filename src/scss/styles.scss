@@ -288,17 +288,10 @@ article {
 
 .media-container {
   width: 100%;
-  height: auto;
+  max-height: 400px;
   overflow: hidden;
 }
 
-.main-image {
-  width: 100%;
-  height: auto;
-  object-fit: cover;
-  overflow: hidden;
-  aspect-ratio: 1/1;
-}
 /* Thumbnail images */
 .small-thumbnail {
   flex: 1 1 50px;

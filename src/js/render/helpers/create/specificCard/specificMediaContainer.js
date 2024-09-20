@@ -9,7 +9,7 @@ export function specificMediaContainer(postData) {
   imgContainer.classList.add('media-container');
 
   const largeImage = document.createElement('img');
-  largeImage.classList.add('img-fluid', 'object-fit-cover', 'w-100', 'h-auto');
+  largeImage.classList.add('img-fluid', 'object-fit-cover', 'w-100', 'h-auto', 'ratio', 'ratio-4x3', 'overflow-hidden');
 
   largeImage.setAttribute('loading', 'lazy');
 
