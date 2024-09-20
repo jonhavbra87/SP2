@@ -6,10 +6,11 @@ export function specificMediaContainer(postData) {
 
   //IMgContainer
   const imgContainer = document.createElement('div');
-  imgContainer.classList.add('ratio', 'ratio-4x3', 'w-100', 'media-container');
-  // Create the large image element
+  imgContainer.classList.add('media-container');
+
   const largeImage = document.createElement('img');
-  largeImage.classList.add('object-fit-cover', 'main-image', 'w-100');
+  largeImage.classList.add('img-fluid', 'object-fit-cover', 'w-100', 'h-auto');
+
   largeImage.setAttribute('loading', 'lazy');
 
   if (postData.media && postData.media.length > 0 && postData.media[0].url) {

@@ -15,10 +15,10 @@ function renderResponsiveImage() {
   img.classList.add('img-fluid', 'object-fit-cover', 'h-100');
 
   if (screenWidth < 362) {
-    img.src = '../../../assets/logo-small.png';
+    img.src = '/assets/logo-small.png';
     img.alt = 'Mobile version of logo';
   } else {
-    img.src = '../../../assets/logo.png';
+    img.src = '/assets/logo.png';
     img.alt = 'Desktop version of logo';
   }
 

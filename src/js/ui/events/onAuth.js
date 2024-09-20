@@ -1,6 +1,5 @@
 import { login } from '../../api/auth/login.js';
 import { register } from '../../api/auth/register.js';
-import { twoSecDelay } from '../../api/helpers/twoSecDelay.js';
 
 export async function onAuth(event) {
   event.preventDefault();
