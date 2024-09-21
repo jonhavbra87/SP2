@@ -12,6 +12,7 @@ import { fetchingDataScrolling } from './ui/listeners/fetchingDataScrolling.js';
 import { initializeCarousel } from './utilities/initializeCarousel.js';
 import { searchFetch } from './api/fetch/searchFetch.js';
 import { initPage } from './ui/listeners/isSearchActive.js';
+import { initSearchFunction } from './utilities/searchListings.js';
 
 export default async function router() {
   const path = location.pathname;
@@ -34,6 +35,7 @@ export default async function router() {
       searchFetch();
       // templates.limitListingsRender();
       // searchListings();
+      initSearchFunction();
       navigateToProfileListener();
       listeners.openCreateListingModal();
       await renderCarousel();

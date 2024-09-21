@@ -37,22 +37,6 @@
 
           <!-- Navbar content -->
           <div class="collapse navbar-collapse" id="navbarSupportedContent">
-            <!-- Search input field centered -->
-            <form class="d-flex mx-auto" role="search" id="searchForm">
-              <div class="input-group">
-                <input
-                  class="form-control"
-                  type="search"
-                  placeholder="Type & magic happens..."
-                  aria-label="Search"
-                  id="searchBar"
-                  aria-describedby="basic-addon1"
-                />
-                <span class="input-group-text" id="basic-addon1">
-                  <i class="bi bi-search"></i>
-                </span>
-              </div>
-            </form>
             <!-- Left-aligned navigation links (wrapped in <ul> and <li> elements) -->
             <ul class="navbar-nav my-auto ms-auto mb-2 mb-lg-0">
               <li class="nav-item" id="homeLink">
@@ -112,7 +96,26 @@
           </div>
         </div>
       </section>
-
+      <section class="col-10 col-lg-8 mx-auto my-5">
+        <!-- Search input field centered -->
+        <form class="d-flex mx-auto" role="search" id="searchForm">
+          <div class="input-group">
+            <input
+              class="form-control"
+              type="search"
+              placeholder="Type & magic happens..."
+              aria-label="Search"
+              id="searchInput"
+              aria-describedby="basic-addon1"
+            />
+            <!-- <span class="input-group-text" id="basic-addon1">
+              <i class="bi bi-search"></i>
+            </span> -->
+            <button class="btn btn-cb-primary" type="submit"><i class="bi bi-search"></i></button>
+          </div>
+        </form>
+      </section>
+      <section class="d-flex flex-wrap justify-content-center gap-3 mb-5 border-bottom-3" id="searchResults"></section>
       <section class="d-flex flex-wrap justify-content-center gap-3" id="listings"></section>
     </main>
 

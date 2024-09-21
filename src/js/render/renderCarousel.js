@@ -1,4 +1,5 @@
 import { getListings } from '../api/fetch/getListings';
+import { sortFetch } from '../api/fetch/sortFetch';
 import { shuffleListings } from '../utilities/shuffleListings';
 import { createCarousel } from './helpers/create/createCarousel';
 
@@ -8,7 +9,7 @@ export async function renderCarousel() {
   container.innerHTML = '';
 
   try {
-    let listings = await getListings();
+    let listings = await sortFetch();
 
     listings = shuffleListings(listings);
 

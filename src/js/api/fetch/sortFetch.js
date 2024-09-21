@@ -8,7 +8,7 @@ export async function sortFetch() {
   let limit = 100;
   let hasMorePages = true;
 
-  // Fetch data from API until there are no more pages
+  // Fetch data from API as log as hoasMorePages is true. when it is false, it will stop fetching data
   while (hasMorePages) {
     const url = `${API_BASE}${API_AUCTIONS}/listings?limit=${limit}&page=${page}`;
 

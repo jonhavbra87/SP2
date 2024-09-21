@@ -1,7 +1,7 @@
 import { API_AUCTIONS, API_BASE } from '../constants';
 
-export async function searchFetch(query) {
-  const url = `${API_BASE}${API_AUCTIONS}/listings?search=${encodeURIComponent(query)}`;
+export async function searchFetch(query, page = 1, limit = 100) {
+  const url = `${API_BASE}${API_AUCTIONS}/listings?search=${encodeURIComponent(query)}&limit=${limit}&page=${page}`;
   try {
     const response = await fetch(url);
     if (!response.ok) {

@@ -1,14 +1,9 @@
 import { searchFetch } from '../api/fetch/searchFetch';
 import { listingsTemplate } from '../templates/listingsTemplate';
 
-function getQueryParam(param) {
-  const urlParams = new URLSearchParams(window.location.search);
-  return urlParams.get(param);
-}
-
 export async function searchResults() {
   const searchQuery = getQueryParam('search'); // Henter søkespørringen fra URL-en
-  const searchResultsContainer = document.getElementById('listingsContainer');
+  const searchResultsContainer = document.querySelector('.listings'); // Bruker .listings som container
   searchResultsContainer.innerHTML = ''; // Tømmer tidligere resultater
 
   if (!searchQuery) {

@@ -86,7 +86,10 @@ article {
     max-height: 100%;
   }
 }
-
+.seperator {
+  border: 1px solid $cb-gold-color-hsl;
+  width: 100%;
+}
 /* BUTTON STYLING */
 .btn-cb-primary,
 .btn-cb-secondary {
