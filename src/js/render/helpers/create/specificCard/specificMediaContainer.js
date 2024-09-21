@@ -1,5 +1,22 @@
 import { avatarPlaceholder } from '../../images';
 
+/**
+ * Creates and returns a media container for a post, including a large main image and thumbnails for additional media.
+ *
+ * This function generates a media section with a large image and clickable thumbnails that update the main image.
+ * If no media is available, a placeholder image is displayed.
+ *
+ * @function specificMediaContainer
+ * @param {Object} postData - The data object containing media and title information.
+ * @param {Array<Object>} postData.media - An array of media objects with `url` and `alt` properties.
+ * @param {string} postData.title - The title of the post used for image alt attributes.
+ * @returns {HTMLDivElement} The created media container element.
+ *
+ * @example
+ * const mediaContainer = specificMediaContainer(postData);
+ * document.body.appendChild(mediaContainer);
+ */
+
 export function specificMediaContainer(postData) {
   const mediaContainer = document.createElement('div');
   mediaContainer.classList.add('col-12', 'col-md-6', 'mb-3', 'mb-lg-0', 'd-flex', 'flex-column');

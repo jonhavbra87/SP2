@@ -3,12 +3,12 @@
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as render from './render/index.js';
-import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
 import { renderCarousel } from './render/renderCarousel.js';
 import { setupResponsiveImages } from './ui/listeners/renderResponsiveImage.js';
 import { initializeCarousel } from './utilities/initializeCarousel.js';
 import { initSearchFunction } from './ui/listeners/initSearchFunction.js';
+import { navigateToProfileListener } from './ui/listeners/navigateToProfile.js';
 
 export default async function router() {
   const path = location.pathname;
@@ -32,7 +32,6 @@ export default async function router() {
       listeners.openCreateListingModal();
       await renderCarousel();
       setupResponsiveImages();
-
       initializeCarousel();
       break;
 

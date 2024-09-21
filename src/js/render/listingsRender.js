@@ -2,11 +2,28 @@ import { sortFetch } from '../api/fetch/sortFetch.js';
 import { listingsTemplate } from '../templates/listingsTemplate.js';
 import { hideLoader } from '../ui/helpers/hideLoader.js';
 import { showLoader } from '../ui/helpers/showLoader.js';
+import { isBottomOfPage } from '../ui/listeners/isBottomOfPage.js';
 
 let page = 1;
 let isLoading = false;
 let allListings = [];
 const ITEMS_PER_PAGE = 12;
+
+/**
+ * Renders paginated listings with infinite scroll, fetching and sorting data as needed.
+ *
+ * This function fetches and sorts all listings if they haven't been loaded yet. It renders listings
+ * in pages, with a maximum of `ITEMS_PER_PAGE` listings per page. The function supports infinite scrolling
+ * and automatically loads more listings when the user reaches the bottom of the page.
+ *
+ * @async
+ * @function listingsRender
+ * @returns {void}
+ * @throws {Error} If there is an issue fetching or rendering listings.
+ *
+ * @example
+ * listingsRender();
+ */
 
 export async function listingsRender() {
   if (isLoading) return;
@@ -48,14 +65,3 @@ export async function listingsRender() {
     isLoading = false;
   }
 }
-
-function isBottomOfPage() {
-  return window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
-}
-
-// Add event listener for scroll
-window.addEventListener('scroll', () => {
-  if (isBottomOfPage() && !isLoading) {
-    listingsRender();
-  }
-});

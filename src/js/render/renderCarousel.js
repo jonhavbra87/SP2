@@ -1,4 +1,3 @@
-import { getListings } from '../api/fetch/getListings';
 import { sortFetch } from '../api/fetch/sortFetch';
 import { shuffleListings } from '../utilities/shuffleListings';
 import { createCarousel } from './helpers/create/createCarousel';
