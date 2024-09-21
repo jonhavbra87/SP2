@@ -25,7 +25,6 @@ export function submitAvatarUrl() {
 
     // Make sure profile name is loaded correctly
     const profileName = load('profile')?.name;
-    // console.log('Profile name:', profileName);
 
     try {
       // Update the profile avatar with the provided URL

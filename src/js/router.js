@@ -3,21 +3,19 @@
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as render from './render/index.js';
-// import { searchListings } from './utilities/searchListings.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
 import { renderCarousel } from './render/renderCarousel.js';
 import { setupResponsiveImages } from './ui/listeners/renderResponsiveImage.js';
 import { initializeCarousel } from './utilities/initializeCarousel.js';
-
-import { initSearchFunction } from './utilities/searchListings.js';
+import { initSearchFunction } from './ui/listeners/initSearchFunction.js';
 
 export default async function router() {
   const path = location.pathname;
-  console.log('current path', path);
 
-  const urlParams = new URLSearchParams(window.location.search); // For handling query parameters
-  const id = urlParams.get('id'); // For example: to get 'id=12345' from '/listings/?id=12345'
+  const urlParams = new URLSearchParams(window.location.search);
+
+  const id = urlParams.get('id');
 
   switch (path) {
     case '/':

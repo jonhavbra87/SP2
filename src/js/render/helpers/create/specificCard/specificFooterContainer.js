@@ -5,7 +5,7 @@ export function specificFooterContainer(postData) {
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('col-12', 'col-md-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
 
-  const cardTitle = document.createElement('p');
+  const cardTitle = document.createElement('h1');
   cardTitle.classList.add('card-title', 'text-center');
   cardTitle.textContent = postData.title;
 
@@ -18,10 +18,10 @@ export function specificFooterContainer(postData) {
 
   const createdText = document.createElement('span');
   createdText.classList.add('fw-bold');
-  createdText.textContent = 'Created:';
+  createdText.textContent = 'Created: ';
 
   const createdDateText = document.createElement('span');
-  createdDateText.textContent = ` ${new Date(postData.created).toLocaleDateString()}`;
+  createdDateText.textContent = `${new Date(postData.created).toLocaleDateString()}`;
 
   cardCreated.append(createdText, createdDateText);
 
@@ -30,22 +30,23 @@ export function specificFooterContainer(postData) {
 
   const endsAtText = document.createElement('span');
   cardEndsAt.classList.add('fw-bold');
-  endsAtText.textContent = 'Ends at:';
+  endsAtText.textContent = 'Ends at: ';
 
   const dateText = document.createElement('span');
   dateText.classList.add('fw-light');
-  dateText.textContent = `Ends at: ${new Date(postData.endsAt).toLocaleString('en-GB', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'Europe/Oslo' })}`;
+  dateText.textContent = `${new Date(postData.endsAt).toLocaleString('en-GB', { year: 'numeric', month: 'long', day: 'numeric', hour: 'numeric', minute: 'numeric', timeZone: 'Europe/Oslo' })}`;
 
   cardEndsAt.append(endsAtText, dateText);
 
   // Bids section
-  const bidsTitle = document.createElement('h5', 'card-title');
+  const bidsTitle = document.createElement('h6', 'card-title', 'fw-bold');
   bidsTitle.textContent = 'Latest bids:';
 
   const bidsContainer = document.createElement('ul');
   bidsContainer.classList.add('list-group', 'mb-3');
 
   let limit = 4;
+
   // Loop through bids and add them to the container
   if (postData.bids && postData.bids.length > 0) {
     postData.bids
@@ -64,7 +65,7 @@ export function specificFooterContainer(postData) {
     bidsContainer.append(noBidsItem);
   }
   const placeBidContainer = document.createElement('div');
-  // placeBidContainer.classList.add('col-12', 'col-lg-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
+
   // Place bid form
   const placeBidForm = document.createElement('form');
   placeBidForm.classList.add('d-flex', 'flex-column', 'align-items-start', 'mt-3');
@@ -93,7 +94,6 @@ export function specificFooterContainer(postData) {
 
     try {
       await submitBid(postData.id, bidAmount);
-      // Optionally re-fetch and re-render the bids after a successful bid
     } catch (error) {
       console.error('Error placing bid:', error);
     }

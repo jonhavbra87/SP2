@@ -13,7 +13,6 @@ export async function renderProfile() {
     let name = load('profile').name;
 
     const profileData = await getProfile(name);
-    // console.log(profileData);
 
     const listings = await profileListings();
 

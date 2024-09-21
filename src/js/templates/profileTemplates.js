@@ -135,11 +135,10 @@ export function profileTemplate(profileData, listings, bids) {
         const listItem = document.createElement('li');
         listItem.textContent = `${listing.title}: ${highestBid.amount}$`;
         winningBidsList.append(listItem);
-        hasWinningBids = true; // Indikerer at det er minst ett vinnende bud
+        hasWinningBids = true;
       }
     });
 
-    // Hvis ingen vinnende bud ble funnet, vis meldingen "No winning bids"
     if (!hasWinningBids) {
       const listItem = document.createElement('li');
       listItem.textContent = 'No winning bids';
@@ -185,6 +184,7 @@ export function profileTemplate(profileData, listings, bids) {
     document.getElementById('avatarUrl').value = '';
   };
   const createListingModal = document.getElementById('createListingModal');
+
   // Create Listing Button
   const createListingButton = document.createElement('button');
   createListingButton.classList.add('btn', 'btn-cb-primary', 'me-2');

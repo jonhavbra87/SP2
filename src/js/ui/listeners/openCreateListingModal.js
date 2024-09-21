@@ -21,8 +21,6 @@ export function openCreateListingModal() {
     createListingModal.setAttribute('aria-modal', 'true');
     createListingModal.setAttribute('role', 'dialog');
     submitCreateListing();
-
-    // window.location.reload();
   });
 
   const closeModalButton = createListingModal.querySelector('.btn-close');
