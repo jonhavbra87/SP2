@@ -69,7 +69,7 @@ export function profileTemplate(profileData, listings, bids) {
   const latestBidsCol = document.createElement('div');
   latestBidsCol.classList.add('col-md-3');
   const latestBidsTitle = document.createElement('h5');
-  latestBidsTitle.classList.add('fw-bold');
+  latestBidsTitle.classList.add('fw-bold', 'text-uppercase', 'linear-text-color');
   latestBidsTitle.textContent = 'Latest Bids';
   const latestBidsList = document.createElement('ul');
   latestBidsList.classList.add('list-unstyled');
@@ -96,7 +96,7 @@ export function profileTemplate(profileData, listings, bids) {
   const activeListingsCol = document.createElement('div');
   activeListingsCol.classList.add('col-md-3');
   const activeListingsTitle = document.createElement('h5');
-  activeListingsTitle.classList.add('fw-bold');
+  activeListingsTitle.classList.add('fw-bold', 'text-uppercase', 'linear-text-color');
   activeListingsTitle.textContent = 'Active Listings';
   const activeListingsList = document.createElement('ul');
   activeListingsList.classList.add('list-unstyled');
@@ -120,7 +120,7 @@ export function profileTemplate(profileData, listings, bids) {
   const winningBidsCol = document.createElement('div');
   winningBidsCol.classList.add('col-md-3');
   const winningBidsTitle = document.createElement('h5');
-  winningBidsTitle.classList.add('fw-bold');
+  winningBidsTitle.classList.add('fw-bold', 'text-uppercase', 'linear-text-color');
   winningBidsTitle.textContent = 'Winning Bids';
   const winningBidsList = document.createElement('ul');
   winningBidsList.classList.add('list-unstyled');
@@ -135,11 +135,10 @@ export function profileTemplate(profileData, listings, bids) {
         const listItem = document.createElement('li');
         listItem.textContent = `${listing.title}: ${highestBid.amount}$`;
         winningBidsList.append(listItem);
-        hasWinningBids = true; // Indikerer at det er minst ett vinnende bud
+        hasWinningBids = true;
       }
     });
 
-    // Hvis ingen vinnende bud ble funnet, vis meldingen "No winning bids"
     if (!hasWinningBids) {
       const listItem = document.createElement('li');
       listItem.textContent = 'No winning bids';
@@ -157,7 +156,7 @@ export function profileTemplate(profileData, listings, bids) {
   const creditsCol = document.createElement('div');
   creditsCol.classList.add('col-md-3');
   const creditsTitle = document.createElement('h5');
-  creditsTitle.classList.add('fw-bold');
+  creditsTitle.classList.add('fw-bold', 'text-uppercase', 'linear-text-color');
   creditsTitle.textContent = 'Credits';
   const creditsValue = document.createElement('p');
   creditsValue.textContent = `${profileData.credits || 0}`;
@@ -185,6 +184,7 @@ export function profileTemplate(profileData, listings, bids) {
     document.getElementById('avatarUrl').value = '';
   };
   const createListingModal = document.getElementById('createListingModal');
+
   // Create Listing Button
   const createListingButton = document.createElement('button');
   createListingButton.classList.add('btn', 'btn-cb-primary', 'me-2');
