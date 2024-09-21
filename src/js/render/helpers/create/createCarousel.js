@@ -13,10 +13,10 @@ export function createCarousel(postData) {
   postContainer.classList.add('slide');
 
   const imgContainer = document.createElement('div');
-  imgContainer.classList.add('ratio', 'ratio-1x1', 'object-fit-cover', 'w-100');
+  imgContainer.classList.add('w-100', 'h-100', 'position-relative');
 
   const img = document.createElement('img');
-  img.classList.add('img-fluid');
+  img.classList.add('img-fluid', 'carousel-image');
   img.setAttribute('loading', 'lazy');
 
   if (postData.media.length > 0 && postData.media[0].url) {
@@ -32,13 +32,13 @@ export function createCarousel(postData) {
   const textContainer = document.createElement('div');
   textContainer.classList.add('carousel-text-container');
 
-  const title = document.createElement('h3');
+  const title = document.createElement('h1');
   title.textContent = postData.title;
-  title.classList.add('carousel-title');
+  title.classList.add('card-title', 'mb-3', 'text-uppercase', 'fw-bold', 'linear-text-color');
 
   const readMoreButton = document.createElement('a');
   readMoreButton.href = '/listings/?id=' + postData.id;
-  readMoreButton.classList.add('btn', 'btn-cb-primary', 'fw-bold', 'text-uppercase');
+  readMoreButton.classList.add('btn', 'btn-cb-primary', 'fw-bold', 'text-uppercase', 'py-1', 'py-sm-2', 'py-md-3', 'px-3', 'px-sm-4', 'px-md-5');
   readMoreButton.textContent = 'View';
 
   textContainer.append(title, readMoreButton);
