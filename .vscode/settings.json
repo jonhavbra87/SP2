@@ -3,5 +3,7 @@
     "cSpell.words": [
         "Brattås",
         "Haveråen"
-    ]
+    ],
+    "prettier.bracketSameLine": true,
+    "editor.tabSize": 2
 }

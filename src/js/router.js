@@ -3,13 +3,14 @@
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as render from './render/index.js';
-import { searchListings } from './utilities/searchListings.js';
+// import { searchListings } from './utilities/searchListings.js';
 import { navigateToProfileListener } from './render/helpers/create/profile/navigateToProfile.js';
 import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
 import { renderCarousel } from './render/renderCarousel.js';
 import { setupResponsiveImages } from './ui/listeners/renderResponsiveImage.js';
-import { fetchingDataScrolling } from './ui/listeners/fetchingDataScrolling.js';
 import { initializeCarousel } from './utilities/initializeCarousel.js';
+
+import { initSearchFunction } from './utilities/searchListings.js';
 
 export default async function router() {
   const path = location.pathname;
@@ -28,13 +29,12 @@ export default async function router() {
       listeners.loginListener();
       listeners.registerListener();
       render.listingsRender();
-      // templates.limitListingsRender();
-      searchListings();
+      initSearchFunction();
       navigateToProfileListener();
       listeners.openCreateListingModal();
       await renderCarousel();
       setupResponsiveImages();
-      fetchingDataScrolling();
+
       initializeCarousel();
       break;
 

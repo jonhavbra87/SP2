@@ -10,7 +10,6 @@ import { showMessage } from '../../ui/errorHandling/showMessage';
 // 201 new action created successfully
 
 export function handleApiError(statusCode, fetchType) {
-  console.log('handleApiError called with:', { statusCode, fetchType });
   switch (statusCode) {
     case 200:
       if (fetchType === 'bid') {
