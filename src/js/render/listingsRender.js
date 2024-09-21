@@ -37,7 +37,6 @@ export async function listingsRender() {
     });
 
     page++;
-
     // Implement infinite scroll
     if (isBottomOfPage()) {
       listingsRender();
