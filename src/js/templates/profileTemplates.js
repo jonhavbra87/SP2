@@ -216,7 +216,6 @@ export function profileTemplate(profileData, listings, bids) {
     createListingModal.style.top = `${window.scrollY}px`;
     createListingModal.classList.add('show');
     document.body.classList.add('overflow-hidden');
-    console.log('Opening Create Listing Modal');
     submitCreateListing();
   };
 

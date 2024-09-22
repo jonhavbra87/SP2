@@ -26,11 +26,9 @@ export async function register(name, email, password) {
   const registerURL = `${API_BASE}${API_AUTH}${API_REGISTER}`;
 
   const body = { name, email, password };
-  console.log(body);
 
   try {
     const result = await doFetch(registerURL, 'POST', body, 'register');
-    console.log('Results from authFetch:', result);
 
     return result;
   } catch (error) {

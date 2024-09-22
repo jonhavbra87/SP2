@@ -41,7 +41,6 @@ export async function handleCreateListingFormSubmit(event) {
         throw new Error('Response is not ok!');
       }
 
-      console.log('Listing created:', response);
       form.reset();
 
       window.location.reload();

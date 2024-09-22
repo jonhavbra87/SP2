@@ -31,9 +31,7 @@ export default async function router() {
 
     case '/listings':
     case '/listings/':
-      console.log('Router is working on /listings/ path');
       if (id) {
-        console.log(`router is working on /listings/ with id ${id}`);
         listeners.checkIfUserLoggedIn();
         listeners.navbarShowHide();
         listeners.modalShowHide();

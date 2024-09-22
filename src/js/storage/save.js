@@ -17,7 +17,6 @@
 export function save(key, value) {
   if (key && value !== undefined) {
     localStorage.setItem(key, JSON.stringify(value));
-    console.log(`Saved ${key}:`, value);
   } else {
     console.warn(`Attempted to save invalid key or value: ${key}, ${value}`);
   }
