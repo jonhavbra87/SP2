@@ -56,6 +56,16 @@ export function createCarousel(postData) {
   readMoreButton.classList.add('btn', 'btn-cb-primary', 'fw-bold', 'text-uppercase', 'py-1', 'py-sm-2', 'py-md-3', 'px-3', 'px-sm-4', 'px-md-5');
   readMoreButton.textContent = 'View';
 
+  // Prevent both click and touch events from bubbling up to the slide
+  readMoreButton.addEventListener('click', (event) => {
+    event.stopPropagation();
+  });
+
+  // Prevent touch events from affecting the carousel
+  readMoreButton.addEventListener('touchstart', (event) => {
+    event.stopPropagation();
+  });
+
   textContainer.append(title, readMoreButton);
 
   postContainer.append(imgContainer, textContainer);

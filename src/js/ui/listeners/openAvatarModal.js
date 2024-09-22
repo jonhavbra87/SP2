@@ -1,8 +1,8 @@
 /**
- * Opens the avatar modal and sets up event listeners to close it.
+ * Opens and manages the behavior of the avatar modal, including closing functionality.
  *
- * This function adds a click event listener to the modal close button and the window to detect clicks outside the modal.
- * When the modal is closed, the `avatarUrl` input field is cleared and the page overflow is reset.
+ * This function adds event listeners to handle closing the avatar modal when the close button is clicked or
+ * when the user clicks outside the modal. The modal's attributes are reset upon closing, and the avatar form is cleared.
  *
  * @function openAvatarModal
  * @returns {void}
@@ -15,18 +15,23 @@ export function openAvatarModal() {
   const avatarModal = document.getElementById('avatarModal');
 
   const closeModalButton = document.querySelector('.btn-close');
+  const avatarForm = document.getElementById('avatarForm');
+
+  function closeModal() {
+    avatarModal.classList.remove('show');
+    avatarModal.removeAttribute('aria-modal');
+    avatarModal.removeAttribute('role');
+    avatarForm.reset();
+    document.body.classList.remove('overflow-hidden');
+  }
 
   closeModalButton.addEventListener('click', () => {
-    avatarModal.classList.remove('show');
-    document.body.classList.remove('overflow-hidden');
-    document.getElementById('avatarUrl').value = '';
+    closeModal();
   });
 
   window.addEventListener('click', (event) => {
     if (event.target === avatarModal) {
-      avatarModal.classList.remove('show');
-      document.body.classList.remove('overflow-hidden');
-      document.getElementById('avatarUrl').value = '';
+      closeModal();
     }
   });
 }

@@ -3,21 +3,18 @@ import { API_AUCTIONS, API_BASE } from '../constants';
 import { doFetch } from '../helpers/doFetch';
 
 /**
- * Fetches and sorts all auction listings from the API, handling pagination.
+ * Fetches all active auction listings from the API, paginates through multiple pages, and sorts the listings.
  *
- * This function retrieves auction listings from the API in a paginated manner,
- * continuously fetching pages until no more listings are available. Once all
- * listings are retrieved, they are sorted using the `sortListings` helper function.
+ * This function retrieves listings from the API in batches, paginating through results until no more pages are available.
+ * It fetches only active listings and sorts them after all pages are retrieved.
  *
  * @async
  * @function sortFetch
- * @returns {Promise<Object[]>} The sorted array of auction listings.
- * @throws {Error} If fetching data from the API fails.
+ * @returns {Promise<Array<Object>>} A sorted array of active listings.
+ * @throws {Error} If there is an issue fetching the data.
  *
  * @example
- * sortFetch()
- *   .then(sortedListings => console.log(sortedListings))
- *   .catch(error => console.error(error));
+ * const listings = await sortFetch();
  */
 
 export async function sortFetch() {
@@ -28,7 +25,7 @@ export async function sortFetch() {
 
   // Fetch data from API as log as hoasMorePages is true. when it is false, it will stop fetching data
   while (hasMorePages) {
-    const url = `${API_BASE}${API_AUCTIONS}/listings?limit=${limit}&page=${page}`;
+    const url = `${API_BASE}${API_AUCTIONS}/listings?limit=${limit}&page=${page}&_active=true`;
 
     try {
       const results = await doFetch(url);
@@ -36,13 +33,13 @@ export async function sortFetch() {
       if (results && results.length > 0) {
         // Add the current page's listings to the total listings array
         listings = [...listings, ...results];
-        page++; // Go to the next page
+        page++;
       } else {
-        hasMorePages = false; // No more listings, exit the loop
+        hasMorePages = false;
       }
     } catch (error) {
       console.error(`Error fetching page ${page}:`, error);
-      hasMorePages = false; // Exit the loop if there's an error
+      hasMorePages = false;
     }
   }
 

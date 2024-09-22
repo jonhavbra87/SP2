@@ -36,7 +36,6 @@ export function modalShowHide() {
   /* HIDE MODAL */
   closeModalButtons.forEach((button) => {
     button.addEventListener('click', () => {
-      console.log('Modal closed');
       loginModal.classList.remove('show');
       registerModal.classList.remove('show');
       document.body.classList.remove('overflow-hidden');

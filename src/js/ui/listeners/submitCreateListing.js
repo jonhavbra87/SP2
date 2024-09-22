@@ -37,8 +37,7 @@ export function submitCreateListing() {
     event.preventDefault(); // Forhindre standard skjema-innsendelse
 
     try {
-      handleCreateListingFormSubmit(event); // Asynkron operasjon
-      console.log('Listing successfully created');
+      handleCreateListingFormSubmit(event);
       reloadPage();
     } catch (error) {
       console.error('Failed to create listing:', error);

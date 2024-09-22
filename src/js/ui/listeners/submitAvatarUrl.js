@@ -6,8 +6,8 @@ import { load } from '../../storage/load.js';
  * Handles the submission of the avatar URL form to update the user's profile avatar and reloads the page.
  *
  * This function listens for form submission, retrieves the avatar URL, and sends it to the API
- * to update the user's profile avatar. It checks that the profile name is valid and, on success,
- * reloads the page to reflect the updated avatar.
+ * to update the user's profile avatar. It checks if the profile name is valid and reloads the page upon success.
+ * Displays an error if the process fails.
  *
  * @function submitAvatarUrl
  * @returns {void}
@@ -48,8 +48,7 @@ export function submitAvatarUrl() {
     try {
       // Update the profile avatar with the provided URL
       const response = await updateProfileAvatar(profileName, avatarData);
-      console.log('Profile avatar updated:', response);
-      reloadPage();
+      return response && reloadPage();
     } catch (error) {
       console.error('Failed to update profile avatar:', error);
       alert('An error occurred while updating the profile avatar. Please try again.');
