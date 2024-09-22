@@ -2,7 +2,7 @@
 
 import * as mocks from '../../mocks/index.js';
 import { login } from './login.js';
-import { load } from '../../storage/index.js';
+import { load } from '../../storage/load.js';
 import { validateEmail } from './validateEmail.js';
 
 const userResponseClone = () => ({ ...mocks.authResponse });
@@ -20,7 +20,7 @@ describe('login', () => {
 
   it('should set the token with a successful login', async () => {
     await login(mocks.validUserData.email, mocks.validUserData.password);
-    expect(load('accessToken')).toBe(mocks.authResponse.data.accessToken);
+    expect(load('token')).toBe(mocks.authResponse.data.accessToken);
   });
 
   it('should return the user name with a successful login', async () => {

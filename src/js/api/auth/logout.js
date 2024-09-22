@@ -1,12 +1,11 @@
 import { remove } from '../../storage/remove.js';
-import { showMessage } from '../../ui/errorHandling/showMessage.js';
 
 /**
  * Logs out the user by removing their authentication data and redirects to the homepage.
  *
  * This function listens for a click event on a button with the attribute `data-auth="logout"`.
  * When clicked, it removes the stored token and profile, then navigates the user to the home page.
- * If an error occurs during logout, an error message is shown.
+ * If an error occurs during logout, an error message is logged in the console with the error details.
  *
  * @async
  * @function logout
@@ -29,7 +28,6 @@ export async function logout() {
       window.location.href = '/';
     } catch (error) {
       console.error('Error during logout:', error);
-      showMessage(error.message);
     }
   });
 }

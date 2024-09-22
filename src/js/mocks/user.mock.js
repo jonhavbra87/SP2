@@ -1,7 +1,7 @@
 export const validUserData = {
   name: 'Valid User',
   email: 'validUser@stud.noroff.no',
-  password: 'password!23',
+  password: 'Password!23',
 };
 
 export const invalidUserData = {
