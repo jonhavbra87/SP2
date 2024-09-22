@@ -2,7 +2,7 @@
 
 Semester Project second-year
 
-![GitHub Workflow](https://kevinsguides.com/images/seriescontent/coding/devops/filemgmt/github-merges-conflicts-workflow/intro.webp)
+![CrownBid](https://i.postimg.cc/mkKMgLbZ/auctionhaouse.jpg)
 
 <p align="center">
 Learn how to use workflows in your work.
