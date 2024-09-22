@@ -10,7 +10,7 @@ Learn how to use workflows in your work.
 
 ## Description
 
-Using the skills and knowledge gained from the first year, I have created an auction house website with full CRUD and testing.
+Using the skills and knowledge gained from the first year. The task was to created an auction house website that interact with an API so a user can buy and sell listings. I have also implemented unit testing.
 
 Here goes my history
 
@@ -21,6 +21,7 @@ Technology Stack
 - [Html](https://developer.mozilla.org/en-US/docs/Web/HTML)
 - [Bootstrap](https://getbootstrap.com)
 - [Scss](https://sass-lang.com/)
+- [Vite](https://vitejs.dev/)
 
 ## Getting Started
 
@@ -43,7 +44,7 @@ npm install
 Run the app:
 
 ```
-npm run start
+npm run dev
 ```
 
 Check Format:
@@ -62,11 +63,7 @@ npm run lint
 
 ### Testing with Actions on GitHub
 
-Lint - test - badge
-
-Unit - test - bagde
-
-e2e - test - bagde
+[![Unit Test](https://github.com/jonhavbra87/SP2/actions/workflows/main.yml/badge.svg?branch=master)](https://github.com/jonhavbra87/SP2/actions/workflows/main.yml)
 
 ### Command line testing
 
@@ -74,12 +71,6 @@ Run UNIT-tests:
 
 ```
 npm run test:unit
-```
-
-Run E2E-tests:
-
-```
-npm run test:e2e
 ```
 
 ## Contributing
