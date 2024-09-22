@@ -1,4 +1,17 @@
-import { submitCreateListing } from './submitCreateListeing';
+import { submitCreateListing } from './submitCreateListing';
+
+/**
+ * Opens the "Create Listing" modal and sets up event listeners to close it.
+ *
+ * This function manages the opening of the "Create Listing" modal, positioning it correctly based on the current scroll position.
+ * It also listens for the close button and outside click events to close the modal, resetting the listing form when the modal is closed.
+ *
+ * @function openCreateListingModal
+ * @returns {void}
+ *
+ * @example
+ * openCreateListingModal();
+ */
 
 export function openCreateListingModal() {
   const createListingModal = document.getElementById('createListingModal');
@@ -35,7 +48,6 @@ export function openCreateListingModal() {
   }
 
   closeModalButton.addEventListener('click', () => {
-    console.log('Modal closed');
     closeModal();
   });
 

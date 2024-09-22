@@ -7,6 +7,21 @@ let page = 1;
 let isLoading = false;
 let allListings = [];
 const ITEMS_PER_PAGE = 12;
+/**
+ * Renders paginated listings on the page, fetching and sorting data as needed.
+ *
+ * This function fetches all listings (if not already fetched), paginates them, and renders
+ * a set number of listings per page. It handles loading states, displays an error message if fetching fails,
+ * and supports pagination.
+ *
+ * @async
+ * @function listingsRender
+ * @returns {void}
+ * @throws {Error} If there is an issue fetching or rendering listings.
+ *
+ * @example
+ * listingsRender();
+ */
 
 export async function listingsRender() {
   if (isLoading) return;
@@ -19,7 +34,6 @@ export async function listingsRender() {
     if (allListings.length === 0) {
       // Fetch listings and sort them with sorting function
       allListings = await sortFetch();
-      console.log('All listings fetched and sorted: ', allListings);
     }
 
     const start = (page - 1) * ITEMS_PER_PAGE;
@@ -37,25 +51,13 @@ export async function listingsRender() {
     });
 
     page++;
-    // Implement infinite scroll
-    if (isBottomOfPage()) {
-      listingsRender();
-    }
   } catch (error) {
     console.error('Failed to render listings:', error);
+    const errorMessage = document.createElement('p');
+    errorMessage.textContent = 'Could not load more listings. Please try again later.';
+    container.append(errorMessage);
   } finally {
     hideLoader();
     isLoading = false;
   }
 }
-
-function isBottomOfPage() {
-  return window.innerHeight + window.scrollY >= document.body.offsetHeight - 100;
-}
-
-// Add event listener for scroll
-window.addEventListener('scroll', () => {
-  if (isBottomOfPage() && !isLoading) {
-    listingsRender();
-  }
-});

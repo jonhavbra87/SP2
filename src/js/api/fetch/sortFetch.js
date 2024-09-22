@@ -2,6 +2,24 @@ import { sortListings } from '../../ui/helpers/sortListings';
 import { API_AUCTIONS, API_BASE } from '../constants';
 import { doFetch } from '../helpers/doFetch';
 
+/**
+ * Fetches and sorts all auction listings from the API, handling pagination.
+ *
+ * This function retrieves auction listings from the API in a paginated manner,
+ * continuously fetching pages until no more listings are available. Once all
+ * listings are retrieved, they are sorted using the `sortListings` helper function.
+ *
+ * @async
+ * @function sortFetch
+ * @returns {Promise<Object[]>} The sorted array of auction listings.
+ * @throws {Error} If fetching data from the API fails.
+ *
+ * @example
+ * sortFetch()
+ *   .then(sortedListings => console.log(sortedListings))
+ *   .catch(error => console.error(error));
+ */
+
 export async function sortFetch() {
   let listings = [];
   let page = 1;

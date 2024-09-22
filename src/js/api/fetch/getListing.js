@@ -1,8 +1,26 @@
-import { showMessage } from '../../ui/errorHandling/showMessage';
 import { API_AUCTIONS, API_BASE } from '../constants';
 import { authFetch } from './authFetch';
 
 const action = '/listings';
+/**
+ * Retrieves an auction listing by its ID, including its bids.
+ *
+ * This function sends a GET request to the auction listing endpoint to fetch
+ * the listing data along with any associated bids. It uses the `authFetch`
+ * function for making the authenticated request.
+ *
+ * @async
+ * @function getListing
+ * @param {string} id - The ID of the listing to be retrieved.
+ * @param {string} fetchType - A description of the fetch request type (used for error handling).
+ * @returns {Promise<Object>} The retrieved listing data, including bids.
+ * @throws {Error} If the listing ID is not provided or the request fails.
+ *
+ * @example
+ * getListing('12345', 'fetchListing')
+ *   .then(data => console.log(data))
+ *   .catch(error => console.error(error));
+ */
 
 export async function getListing(id, fetchType) {
   if (!id) {
@@ -13,7 +31,6 @@ export async function getListing(id, fetchType) {
 
   try {
     const results = await authFetch(url, 'GET', null, fetchType);
-    console.log('Results from authFetch:', results);
 
     return results;
   } catch (error) {

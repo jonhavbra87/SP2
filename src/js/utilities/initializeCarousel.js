@@ -1,3 +1,16 @@
+/**
+ * Initializes a touch-enabled image slider (carousel) with next/previous buttons, keyboard, and dot navigation.
+ *
+ * This function sets up a responsive carousel that supports keyboard and button navigation, as well as touch gestures for mobile devices.
+ * It also creates navigation dots and highlights the active slide. Users can swipe left or right to navigate through slides on touch devices.
+ *
+ * @function initializeCarousel
+ * @returns {void}
+ *
+ * @example
+ * initializeCarousel();
+ */
+
 export function initializeCarousel() {
   const slider = function () {
     const slides = document.querySelectorAll('.slide');

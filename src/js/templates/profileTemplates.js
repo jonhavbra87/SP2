@@ -1,6 +1,24 @@
 import { avatarPlaceholder, profileBannerPlaceholder } from '../render/helpers/images';
 import { submitAvatarUrl } from '../ui/listeners';
-import { submitCreateListing } from '../ui/listeners/submitCreateListeing';
+import { submitCreateListing } from '../ui/listeners/submitCreateListing';
+
+/**
+ * Creates and returns a profile container element, displaying user details, stats, listings, bids, and controls.
+ *
+ * This function generates the profile page layout, including the user's banner, avatar, bio, latest bids,
+ * active listings, winning bids, credits, and buttons to update the avatar or create a new listing.
+ * It organizes the content in a responsive and user-friendly format.
+ *
+ * @function profileTemplate
+ * @param {Object} profileData - The data object containing user profile information.
+ * @param {Object} listings - The user's listings and wins data.
+ * @param {Array<Object>} bids - The user's latest bids.
+ * @returns {HTMLDivElement} The created profile container element.
+ *
+ * @example
+ * const profilePage = profileTemplate(profileData, listings, bids);
+ * document.body.appendChild(profilePage);
+ */
 
 export function profileTemplate(profileData, listings, bids) {
   const profileContainer = document.createElement('div');

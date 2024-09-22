@@ -1,5 +1,20 @@
 import { avatarPlaceholder } from '../images';
 
+/**
+ * Creates a carousel slide for a post, including an image and a button to view the post details.
+ *
+ * This function generates a carousel slide element with a post image and title. If the post has media,
+ * it displays the first image; otherwise, it uses a placeholder image. A "View" button redirects the user
+ * to the post's detailed listing page.
+ *
+ * @function createCarousel
+ * @param {Object} postData - The data object containing the post's media, title, and ID.
+ * @returns {void}
+ *
+ * @example
+ * createCarousel(postData);
+ */
+
 export function createCarousel(postData) {
   const blogContainer = document.querySelector('.slider');
   blogContainer.classList.add('slider');

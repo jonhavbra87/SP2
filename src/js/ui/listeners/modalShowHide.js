@@ -1,15 +1,25 @@
+/**
+ * Manages the display and hiding of login and registration modals.
+ *
+ * This function opens the login or registration modals when the corresponding buttons are clicked and
+ * hides the modals when the close button is clicked or the user clicks outside the modal. It adjusts
+ * the page scroll and prevents overflow when the modals are visible.
+ *
+ * @function modalShowHide
+ * @returns {void}
+ *
+ * @example
+ * modalShowHide();
+ */
+
 export function modalShowHide() {
   const loginModal = document.getElementById('loginModal');
   const registerModal = document.getElementById('registrationModal');
-  // const scrollY = window.scrollY || document.documentElement.scrollTop;
 
   const openLoginModalButton = document.querySelector('[data-bs-target="#loginModal"]');
   const openRegisterModalButton = document.querySelector('[data-bs-target="#registrationModal"]');
 
   const closeModalButtons = document.querySelectorAll('.btn-close');
-
-  // loginModal.style.top = `${scrollY}px`;
-  // registerModal.style.top = `${scrollY}px`;
 
   /* OPEN MODAL */
   openLoginModalButton.addEventListener('click', () => {

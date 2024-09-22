@@ -1,5 +1,22 @@
 import { createListing } from '../../fetch/createListing';
 
+/**
+ * Handles the submission of the create listing form by gathering form data and sending it to the API.
+ *
+ * This function prevents the default form submission behavior, collects the input values,
+ * creates the listing data object, and calls the `createListing` function to submit the data.
+ * If the listing is successfully created, the form is reset and the page is reloaded.
+ *
+ * @async
+ * @function handleCreateListingFormSubmit
+ * @param {Event} event - The form submit event.
+ * @returns {void}
+ * @throws {Error} If the listing creation fails or if the response is not ok.
+ *
+ * @example
+ * document.querySelector('form').addEventListener('submit', handleCreateListingFormSubmit);
+ */
+
 export async function handleCreateListingFormSubmit(event) {
   event.preventDefault();
   const form = event.target;
@@ -15,8 +32,6 @@ export async function handleCreateListingFormSubmit(event) {
     endsAt,
   };
 
-  console.log('Listing data:', listingData);
-
   if (listingData) {
     try {
       const response = await createListing(listingData);
@@ -28,11 +43,10 @@ export async function handleCreateListingFormSubmit(event) {
 
       console.log('Listing created:', response);
       form.reset();
-      // debugger;
+
       window.location.reload();
     } catch (error) {
       console.error('Error creating listing:', error);
-      //   alert('Failed to create listing. Please check your input and try again.');
     }
   }
 }

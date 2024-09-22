@@ -94,6 +94,10 @@
         </div>
       </section>
       <section class="col-10 col-lg-8 col-xxl-6 mx-auto my-5">
+        <div id="messageBox" class="d-none position-relative">
+          <span id="messageText"></span>
+          <button id="closeButton" class="btn btn-danger btn-sm position-absolute top-0 end-0 me-2 mt-2 shadow">&times;</button>
+        </div>
         <!-- Search input field centered -->
         <form class="d-flex mx-auto" role="search" id="searchForm">
           <div class="input-group">
@@ -105,9 +109,6 @@
               id="searchInput"
               aria-describedby="basic-addon1"
             />
-            <!-- <span class="input-group-text" id="basic-addon1">
-              <i class="bi bi-search"></i>
-            </span> -->
             <button class="btn btn-cb-primary" type="submit"><i class="bi bi-search"></i></button>
           </div>
         </form>
@@ -262,7 +263,6 @@
           <div class="modal-body p-4">
             <h4 id="createListingModalLabel" class="mb-4 fw-bold">Create New Listing</h4>
             <p class="mb-4">Fill in the details below to create a new listing</p>
-            <div id="messageBox" class="d-none alert" role="alert"></div>
             <form id="createListingForm">
               <div class="form-group mb-3">
                 <label for="listingTitle">Listing Title</label>

@@ -4,6 +4,25 @@ import { authFetch } from './authFetch';
 
 const action = '/listings';
 
+/**
+ * Places a bid on an auction listing by sending the bid amount to the API.
+ *
+ * This function sends a POST request with the bid amount to the specified listing.
+ * It validates the input, ensures the user is authenticated, and returns the server response.
+ *
+ * @async
+ * @function placeBid
+ * @param {string} id - The ID of the auction listing to place a bid on.
+ * @param {number} bidAmount - The amount to bid on the listing.
+ * @returns {Promise<Object|null>} The server's response if successful, or `null` if the user is not logged in.
+ * @throws {Error} If either the listing ID or bid amount is missing, or if the request fails.
+ *
+ * @example
+ * placeBid('12345', 500)
+ *   .then(response => console.log(response))
+ *   .catch(error => console.error(error));
+ */
+
 export async function placeBid(id, bidAmount) {
   // Validate input
   console.log('Listing ID:', id);

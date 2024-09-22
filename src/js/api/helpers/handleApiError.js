@@ -1,13 +1,19 @@
 import { showMessage } from '../../ui/errorHandling/showMessage';
 
 /**
- * Handles API errors by mapping the HTTP status codes to messages
- * and performing appropriate actions.
+ * Handles API errors based on the status code and fetch type, displaying appropriate messages.
  *
- * @param {number} statusCode - The HTTP status code returned by the API.
+ * This function checks the HTTP status code returned from an API request and shows an error or success message
+ * using the `showMessage` function. The message is customized based on the status code and the type of fetch action.
+ *
+ * @function handleApiError
+ * @param {number} statusCode - The HTTP status code returned from the API.
+ * @param {string} fetchType - The type of API request (e.g., 'bid', 'createListing', 'register').
+ * @returns {void}
+ *
+ * @example
+ * handleApiError(400, 'createListing');
  */
-// 200 login success
-// 201 new action created successfully
 
 export function handleApiError(statusCode, fetchType) {
   switch (statusCode) {

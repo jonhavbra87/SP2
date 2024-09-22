@@ -1,3 +1,18 @@
+/**
+ * Sorts a list of auction listings into active and expired groups, with active listings shown first.
+ *
+ * Active listings are sorted by the earliest ending date (ascending), and expired listings
+ * are sorted by the latest ending date (descending). The function returns a combined array
+ * with active listings followed by expired listings.
+ *
+ * @function sortListings
+ * @param {Array<Object>} listings - The array of listing objects to be sorted.
+ * @returns {Array<Object>} A sorted array with active listings first and expired listings last.
+ *
+ * @example
+ * const sortedListings = sortListings(listings);
+ */
+
 export function sortListings(listings) {
   const now = new Date();
 

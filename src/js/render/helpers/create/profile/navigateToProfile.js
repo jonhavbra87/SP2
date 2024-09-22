@@ -1,5 +1,21 @@
 import { showMessage } from '../../../../ui/errorHandling/showMessage';
 
+/**
+ * Navigates the user to their profile page based on stored profile data in localStorage.
+ *
+ * This function retrieves profile data from localStorage and redirects the user to the profile page using
+ * the stored profile name. If the profile data is missing or invalid, an error message is displayed, and
+ * the error is logged.
+ *
+ * @async
+ * @function navigateToProfile
+ * @throws {Error} If the profile data is missing, invalid, or navigation fails.
+ *
+ * @example
+ * navigateToProfile()
+ *   .catch(error => console.error(error));
+ */
+
 export async function navigateToProfile() {
   try {
     // Retrieve profile data from localStorage
@@ -23,13 +39,6 @@ export async function navigateToProfile() {
     }
   } catch (error) {
     showMessage('Failed to navigate to profile. Please login & try again.');
-    throw new Error(`Error navigating to profile: ${error.message}`);
+    console.error('Failed to navigate to profile:', error);
   }
-}
-
-export function navigateToProfileListener() {
-  const navigateToProfileLissen = document.querySelector('#profileLink');
-  navigateToProfileLissen.addEventListener('click', () => {
-    navigateToProfile();
-  });
 }

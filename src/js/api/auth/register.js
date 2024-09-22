@@ -2,19 +2,25 @@ import { API_AUTH, API_BASE, API_REGISTER } from '../constants';
 import { doFetch } from '../helpers/doFetch';
 
 /**
- * Registers a new user profile to the social network API.
- * This function takes a profile object, converts it to JSON,
- * and sends it to the register endpoint. If successful, it alerts
- * the user of successful registration and returns the result.
- * @param {Object} profile - The user profile to register
- * @returns {Promise} response - The result of the API call
- * @throws {Error} result - The error which was thrown during the API call
- * ```js
- * register(profile)
- * ```
- * **/
-// REWORK THIS FUNCTION TO USE THE AUTHFETCH FUNCTION
-// const method = 'POST';
+ * Registers a new user by sending their details (name, email, and password) to the API.
+ *
+ * This function sends a POST request to the registration endpoint and returns the result.
+ * If the registration is successful, the function resolves with the server's response.
+ * In case of an error, it throws the error for further handling.
+ *
+ * @async
+ * @function register
+ * @param {string} name - The full name of the user.
+ * @param {string} email - The user's email address.
+ * @param {string} password - The user's password.
+ * @returns {Promise<Object>} The server's response to the registration request.
+ * @throws {Error} If the registration request fails.
+ *
+ * @example
+ * register('John Doe', 'john@example.com', 'password123')
+ *   .then(result => console.log(result))
+ *   .catch(error => console.error(error));
+ */
 
 export async function register(name, email, password) {
   const registerURL = `${API_BASE}${API_AUTH}${API_REGISTER}`;

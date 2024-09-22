@@ -1,6 +1,20 @@
 import { listingsTemplate } from '../../templates/listingsTemplate';
 import { searchListings } from '../../utilities/searchListings';
 
+/**
+ * Initializes the search functionality by adding an event listener to the search form.
+ *
+ * This function listens for the form submission event, retrieves the user's search query, performs a search using
+ * `searchListings`, and then renders the search results using the `listingsTemplate`. The existing search results
+ * container is cleared before new results are displayed.
+ *
+ * @function initSearchFunction
+ * @returns {void}
+ *
+ * @example
+ * initSearchFunction();
+ */
+
 export function initSearchFunction() {
   const formElement = document.getElementById('searchForm');
   const inputElement = document.getElementById('searchInput');

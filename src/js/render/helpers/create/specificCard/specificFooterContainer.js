@@ -1,6 +1,28 @@
 import { submitBid } from '../../../../api/fetch/submitBid.js';
 import { showMessage } from '../../../../ui/errorHandling/showMessage.js';
 
+/**
+ * Creates and returns a footer container for a specific post, including title, description, creation date, end date,
+ * recent bids, and a bid submission form.
+ *
+ * This function generates a detailed footer for an auction post, showing the post's metadata, latest bids,
+ * and a form to place new bids. It also handles bid submission via the `submitBid` function.
+ *
+ * @function specificFooterContainer
+ * @param {Object} postData - The data object containing the post information.
+ * @param {string} postData.title - The title of the post.
+ * @param {string} postData.description - The description of the post.
+ * @param {string} postData.created - The creation date of the post in ISO format.
+ * @param {string} postData.endsAt - The end date of the auction in ISO format.
+ * @param {Array<Object>} postData.bids - An array of bid objects with amount, bidder name, and created date.
+ * @param {number} postData.id - The ID of the post.
+ * @returns {HTMLDivElement} The created footer container element.
+ *
+ * @example
+ * const footer = specificFooterContainer(postData);
+ * document.body.appendChild(footer);
+ */
+
 export function specificFooterContainer(postData) {
   const footerContainer = document.createElement('div');
   footerContainer.classList.add('col-12', 'col-md-6', 'd-flex', 'flex-column', 'justify-content-center', 'p-3');
