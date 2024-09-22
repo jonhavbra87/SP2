@@ -1,4 +1,4 @@
-import * as storage from '../../storage/save.js';
+import { save } from '../../storage/save.js';
 import { API_BASE, API_AUTH, API_LOGIN } from '../constants';
 
 const method = 'POST';
@@ -38,9 +38,8 @@ export async function login(email, password) {
     if (!accessToken) {
       throw new Error('No access token found in response');
     }
-
-    storage.save('token', accessToken);
-    storage.save('profile', user);
+    save('token', accessToken);
+    save('profile', user);
 
     return user;
   } else {

@@ -23,7 +23,7 @@ export function registerListener() {
     setTimeout(() => {
       window.location.href = '/';
       hideLoader();
-      window.body.classList.remove('overflow-hidden');
+      document.body.classList.remove('overflow-hidden');
     }, 500);
   });
 }
