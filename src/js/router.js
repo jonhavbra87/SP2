@@ -6,6 +6,21 @@ import * as render from './render/index.js';
 import * as utilities from './utilities/index.js';
 import { showMessage } from './ui/errorHandling/showMessage.js';
 
+/**
+ * Handles client-side routing for the application by listening to the current URL path and executing the corresponding logic.
+ *
+ * This function determines the current page based on the URL path, initializes event listeners and renders content
+ * accordingly. It supports routes for the homepage, listings pages, and profile pages, setting up features like modals,
+ * carousels, search functionality, and user authentication. If a page is not found, a 404 error message is shown.
+ *
+ * @async
+ * @function router
+ * @returns {void}
+ *
+ * @example
+ * router();
+ */
+
 export default async function router() {
   const path = location.pathname;
 
