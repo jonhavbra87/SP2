@@ -1,8 +1,9 @@
 /**
- * Initializes a touch-enabled image slider (carousel) with next/previous buttons, keyboard, and dot navigation.
+ * Initializes a touch-enabled image carousel with next/previous buttons, keyboard navigation, and swipe functionality.
  *
- * This function sets up a responsive carousel that supports keyboard and button navigation, as well as touch gestures for mobile devices.
- * It also creates navigation dots and highlights the active slide. Users can swipe left or right to navigate through slides on touch devices.
+ * This function sets up a carousel that supports multiple forms of navigation, including touch gestures,
+ * keyboard arrow keys, and clickable navigation dots. It allows users to swipe horizontally on mobile devices
+ * to navigate between slides and includes smooth transitions for better UX.
  *
  * @function initializeCarousel
  * @returns {void}
@@ -15,7 +16,6 @@ export function initializeCarousel() {
   const slider = function () {
     const slides = document.querySelectorAll('.slide');
     const btnLeft = document.getElementById('slider__btn--left');
-
     const btnRight = document.getElementById('slider__btn--right');
     const dotContainer = document.querySelector('.dots');
 
@@ -26,6 +26,7 @@ export function initializeCarousel() {
     let touchEndX = 0;
     let touchStartY = 0;
     let touchEndY = 0;
+    let isSwiping = false;
 
     // Functions
     const createDots = function () {
@@ -37,7 +38,6 @@ export function initializeCarousel() {
 
     const activateDot = function (slide) {
       document.querySelectorAll('.dots__dot').forEach((dot) => dot.classList.remove('dots__dot--active'));
-
       document.querySelector(`.dots__dot[data-slide="${slide}"]`).classList.add('dots__dot--active');
     };
 
@@ -45,50 +45,50 @@ export function initializeCarousel() {
       slides.forEach((s, i) => (s.style.transform = `translateX(${100 * (i - slide)}%)`));
     };
 
-    // Next slide
     const nextSlide = function () {
-      if (curSlide === maxSlide - 1) {
-        curSlide = 0;
-      } else {
-        curSlide++;
-      }
+      curSlide = curSlide === maxSlide - 1 ? 0 : curSlide + 1;
       goToSlide(curSlide);
       activateDot(curSlide);
     };
 
-    // Previous slide
     const prevSlide = function () {
-      if (curSlide === 0) {
-        curSlide = maxSlide - 1;
-      } else {
-        curSlide--;
-      }
+      curSlide = curSlide === 0 ? maxSlide - 1 : curSlide - 1;
       goToSlide(curSlide);
       activateDot(curSlide);
     };
 
-    // Touch handling functions
+    // Enhanced touch handling functions
     const handleTouchStart = function (event) {
       touchStartX = event.changedTouches[0].screenX;
       touchStartY = event.changedTouches[0].screenY;
+      isSwiping = false;
     };
 
     const handleTouchMove = function (event) {
       touchEndX = event.changedTouches[0].screenX;
       touchEndY = event.changedTouches[0].screenY;
-    };
 
-    const handleTouchEnd = function () {
+      // Determine swipe direction (horizontal or vertical)
       const deltaX = touchEndX - touchStartX;
       const deltaY = touchEndY - touchStartY;
 
-      // Check if swipe is more horizontal than vertical
+      // If the swipe is more horizontal than vertical
       if (Math.abs(deltaX) > Math.abs(deltaY) && Math.abs(deltaX) > 50) {
-        if (deltaX < 0) {
-          nextSlide(); // Swipe left
-        } else {
-          prevSlide(); // Swipe right
-        }
+        isSwiping = true;
+        event.preventDefault(); // Prevent vertical scrolling
+      }
+    };
+
+    const handleTouchEnd = function () {
+      if (!isSwiping) return;
+
+      const deltaX = touchEndX - touchStartX;
+
+      // Check swipe direction
+      if (deltaX < 0) {
+        nextSlide(); // Swipe left
+      } else if (deltaX > 0) {
+        prevSlide(); // Swipe right
       }
     };
 
@@ -97,7 +97,6 @@ export function initializeCarousel() {
       createDots();
       activateDot(0);
 
-      // Event handlers for buttons
       if (btnRight && btnLeft) {
         btnRight.addEventListener('click', nextSlide);
         btnLeft.addEventListener('click', prevSlide);
@@ -118,7 +117,7 @@ export function initializeCarousel() {
         }
       });
 
-      // Touch events for swipe navigation
+      // Add touch event listeners to handle swipe navigation
       slides.forEach((slide) => {
         slide.addEventListener('touchstart', handleTouchStart);
         slide.addEventListener('touchmove', handleTouchMove);
@@ -128,5 +127,6 @@ export function initializeCarousel() {
 
     init();
   };
+
   slider();
 }

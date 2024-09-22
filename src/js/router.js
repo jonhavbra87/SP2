@@ -3,6 +3,7 @@
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as render from './render/index.js';
+import * as utilities from './utilities/index.js';
 import { showMessage } from './ui/errorHandling/showMessage.js';
 
 export default async function router() {
@@ -26,6 +27,7 @@ export default async function router() {
       listeners.openCreateListingModal();
       render.listingsRender();
       await render.renderCarousel();
+      utilities.initializeCarousel();
       logout();
       break;
 

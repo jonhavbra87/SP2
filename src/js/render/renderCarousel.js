@@ -1,5 +1,4 @@
 import { sortFetch } from '../api/fetch/sortFetch';
-import { initializeCarousel } from '../utilities';
 import { shuffleListings } from '../utilities/shuffleListings';
 import { createCarousel } from './helpers/create/createCarousel';
 
@@ -7,7 +6,7 @@ import { createCarousel } from './helpers/create/createCarousel';
  * Renders a carousel of listings by fetching, shuffling, and displaying a limited number of listings.
  *
  * This function fetches auction listings using `sortFetch`, shuffles them with `shuffleListings`, and renders
- * up to 6 listings using `createCarousel`. It also initializes the carousel's navigation functionality via `initializeCarousel`.
+ * up to 6 listings using `createCarousel`.
  *
  * @async
  * @function renderCarousel
@@ -31,8 +30,6 @@ export async function renderCarousel() {
     listings.slice(0, limit).forEach((postData) => {
       createCarousel(postData);
     });
-
-    initializeCarousel();
   } catch (error) {
     console.error('Unable to fetch listings:', error);
   }

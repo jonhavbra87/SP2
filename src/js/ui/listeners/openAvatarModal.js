@@ -3,6 +3,7 @@ export function openAvatarModal() {
 
   const closeModalButton = document.querySelector('.btn-close');
   const avatarForm = document.getElementById('avatarForm');
+
   function closeModal() {
     avatarModal.classList.remove('show');
     avatarModal.removeAttribute('aria-modal');
