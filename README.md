@@ -122,6 +122,6 @@ This is a Noroff semester project. I appreciate a peer review if you got the tim
     <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Instagram.svg" width="50" > 
   </a>
   <a href="mailto:mail@kongsvinger-it.no">
-    <img src="[./icons/Gmail-Dark.svg](https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Gmail-Dark.svg)" > 
+    <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Gmail-Dark.svg" width="50" > 
   </a>
 </p>
