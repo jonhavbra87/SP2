@@ -17,18 +17,18 @@ export function openCreateListingModal() {
   const createListingModal = document.getElementById('createListingModal');
   const createListingButton = document.getElementById('newListingLink');
 
-  const scrollY = window.scrollY || document.documentElement.scrollTop;
+  // const scrollY = window.scrollY || document.documentElement.scrollTop;
 
   if (!createListingModal || !createListingButton) {
     console.error('Modal or button not found');
     return;
   }
 
-  createListingModal.style.top = `${scrollY}px`;
-  createListingButton.style.top = `${scrollY}px`;
+  // createListingModal.style.top = `${scrollY}px`;
+  // createListingButton.style.top = `${scrollY}px`;
 
   createListingButton.addEventListener('click', () => {
-    createListingModal.style.top = `${window.scrollY}px`;
+    // createListingModal.style.top = `${window.scrollY}px`;
     createListingModal.classList.add('show');
     document.body.classList.add('overflow-hidden');
     createListingModal.setAttribute('aria-modal', 'true');

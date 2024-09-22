@@ -189,18 +189,20 @@ export function profileTemplate(profileData, listings, bids) {
   const updateAvatarButton = document.createElement('button');
   updateAvatarButton.classList.add('btn', 'btn-cb-primary', 'me-2');
   updateAvatarButton.type = 'button';
-  updateAvatarButton.id = 'AvatarModal';
+  updateAvatarButton.id = 'updateAvatarButton';
   updateAvatarButton.setAttribute('data-bs-toggle', 'modal');
+  updateAvatarButton.setAttribute('role', 'dialog');
   updateAvatarButton.setAttribute('data-bs-target', '#avatarModal');
   updateAvatarButton.textContent = 'Update Avatar';
 
   updateAvatarButton.onclick = () => {
     const avatarModal = document.getElementById('avatarModal');
-    avatarModal.classList.add('show', 'overflow-y-auto');
+    avatarModal.style.top = `${window.scrollY}px`;
+    avatarModal.classList.add('show');
     document.body.classList.add('overflow-hidden');
     submitAvatarUrl();
-    document.getElementById('avatarUrl').value = '';
   };
+
   const createListingModal = document.getElementById('createListingModal');
 
   // Create Listing Button
@@ -209,6 +211,7 @@ export function profileTemplate(profileData, listings, bids) {
   createListingButton.type = 'button';
   createListingButton.id = 'createListingModalButton';
   createListingButton.setAttribute('data-bs-toggle', 'modal');
+  createListingModal.setAttribute('role', 'dialog');
   createListingButton.setAttribute('data-bs-target', '#createListingModal');
   createListingButton.textContent = 'Create Listing';
 
