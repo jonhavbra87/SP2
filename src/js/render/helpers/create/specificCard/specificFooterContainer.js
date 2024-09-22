@@ -93,6 +93,12 @@ export function specificFooterContainer(postData) {
   placeBidForm.classList.add('d-flex', 'flex-column', 'align-items-start', 'mt-3');
   placeBidForm.id = 'placeBidForm';
 
+  // Create the label for the input
+  const placeBidLabel = document.createElement('label');
+  placeBidLabel.setAttribute('for', 'placeBidInput');
+  placeBidLabel.classList.add('form-label');
+  placeBidLabel.textContent = 'Enter your bid amount:';
+
   const placeBidInput = document.createElement('input');
   placeBidInput.classList.add('form-control', 'mb-5');
   placeBidInput.type = 'number';
@@ -121,7 +127,7 @@ export function specificFooterContainer(postData) {
     }
   });
 
-  placeBidForm.append(placeBidInput, placeBidButton);
+  placeBidForm.append(placeBidLabel, placeBidInput, placeBidButton);
 
   placeBidContainer.append(placeBidForm);
 
