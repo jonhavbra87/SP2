@@ -100,56 +100,30 @@
     </div>
 
     <!-- Login Modal -->
-    <div class="modalTwo fade" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
-        <div class="modal-content">
+    <div class="modalTwo" id="loginModal" tabindex="-1" aria-labelledby="loginModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg bg-opacity-75">
+        <div class="modal-content bg-dark">
           <button type="button" class="btn-close" id="closeLoginModal" aria-label="Close"></button>
-          <div class="modal-body p-5 d-flex">
-            <!-- Loader -->
-            <div id="loader" class="lds-default d-none">
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-              <div></div>
-            </div>
+          <div class="modal-body p-0 p-sm-3 p-md-5 d-flex flex-column flex-lg-row">
             <!-- Left side (Image and text) -->
-            <div class="col-md-4 p-4 d-flex flex-column justify-content-center text-center bg-dark text-light">
-              <img src="../assets/logo_full_size.png" class="img-modal mx-auto" alt="Logo of CrownBid" class="img-fluid mx-auto mb-3" />
-              <p class="lead">
-                Discover the world of
-                <span class="text-warning">luxury</span> at <span class="text-warning">CrownBid</span>.
-              </p>
-              <p>
+            <div class="col-lg-4 p-3 p-sm-4 d-flex flex-column justify-content-center text-center bg-dark text-light order-0">
+              <img src="./assets/logoFullSize.png" class="img-modal mx-auto img-fluid mb-3" alt="Logo of CrownBid" />
+              <p class="lead">Discover the world of <span class="text-warning">luxury</span> at <span class="text-warning">CrownBid</span>.</p>
+              <p class="text-start">
                 Exclusive auctions, rare treasures, and unparalleled elegance await. Whether you're seeking a timeless masterpiece or a modern luxury
                 item, CrownBid is your gateway to premium selections and extraordinary deals. Elevate your collection—one bid at a time.
               </p>
             </div>
+
             <!-- Login Form Content -->
-            <div class="col-md-8 p-5 border-start">
+            <div class="col-lg-8 px-2 px-sm-3 px-md-5 border-start-md-0 border-start order-1 bg-dark">
               <h4 id="loginModalLabel" class="mb-4">Login</h4>
               <p class="mb-4">Please provide your existing information for successful login</p>
 
               <form id="loginForm">
                 <div class="form-group mb-3">
                   <label for="email">Email</label>
-                  <input
-                    class="form-control"
-                    type="email"
-                    id="login-email"
-                    name="email"
-                    placeholder="name@stud.noroff.no"
-                    pattern="^[^\s@]+@(stud.noroff.no)$"
-                    title="Only @stud.noroff.no domains are allowed to register."
-                    required
-                  />
+                  <input class="form-control" type="email" id="login-email" name="email" placeholder="example@stud.noroff.no" />
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
@@ -160,8 +134,9 @@
 
                 <button class="btn btn-cb-primary btn-lg" type="submit" aria-label="Login button" data-auth="login">Login</button>
               </form>
+
               <div class="text-center mt-4">
-                <p class="border-top">
+                <p class="border-top text-secondary">
                   Not an account yet?
                   <a href="#" class="text-warning">Register here &rarr;</a>
                 </p>
@@ -173,25 +148,31 @@
     </div>
 
     <!-- Registration Modal -->
-    <div class="modalTwo fade overflow-y-auto" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
-      <div class="modal-dialog modal-dialog-centered modal-lg bg-dark">
-        <div class="modal-content">
+    <div class="modalTwo" id="registrationModal" tabindex="-1" aria-labelledby="registrationModalLabel" aria-hidden="true">
+      <div class="modal-dialog modal-dialog-centered modal-lg">
+        <div class="modal-content bg-dark">
           <button type="button" class="btn-close" id="closeRegistrationModal" aria-label="Close"></button>
-          <div class="modal-body p-5 d-flex flex-column flex-lg-row">
+          <div class="modal-body p-0 p-sm-3 p-md-5 d-flex flex-column flex-lg-row">
             <!-- Left side (Image and text) -->
-            <div class="col-lg-4 p-4 d-flex flex-column justify-content-center text-center bg-dark text-light order-1 order-lg-0">
-              <img src="./assets/logo_full_size.png" class="img-modal mx-auto img-fluid mb-3" alt="Logo of CrownBid" />
+            <div class="col-lg-4 px-2 px-sm-3 px-md-5 d-flex flex-column justify-content-center text-center bg-dark text-light order-0">
+              <img src="./assets/logoFullSize.png" class="img-modal mx-auto img-fluid object-fit-cover mb-3" alt="Logo of CrownBid" />
               <p class="lead">Discover the world of <span class="text-warning">luxury</span> at <span class="text-warning">CrownBid</span>.</p>
-              <p>
+              <p class="text-start">
                 Exclusive auctions, rare treasures, and unparalleled elegance await. Whether you're seeking a timeless masterpiece or a modern luxury
                 item, CrownBid is your gateway to premium selections and extraordinary deals. Elevate your collection—one bid at a time.
               </p>
             </div>
 
             <!-- Registration Form Content -->
-            <div class="col-lg-8 p-5 border-start order-0 order-lg-1">
+            <div class="col-lg-8 px-2 px-sm-3 px-md-5 border-start order-1 bg-dark">
               <h4 id="registrationModalLabel" class="mb-4">Registration</h4>
-              <p class="mb-4">Please provide your personal information for successful registration</p>
+              <p class="mb-4">
+                Please provide your personal information for successful registration.
+                <span class="text-secondary"
+                  >Please note that the password must include at least one lowercase letter, one uppercase letter, one number and it must be at least
+                  8 characters long.</span
+                >
+              </p>
 
               <form id="registerForm">
                 <div class="form-group mb-3">
@@ -209,22 +190,15 @@
                 </div>
                 <div class="form-group mb-3">
                   <label for="email">Email</label>
-                  <input
-                    class="form-control"
-                    type="email"
-                    id="email"
-                    name="register-email"
-                    pattern="^[^\s@]+@(stud.noroff.no)$"
-                    placeholder="name@stud.noroff.no"
-                    title="Only @stud.noroff.no domains are allowed to register."
-                    required
-                  />
+                  <input class="form-control" type="email" id="email" name="register-email" placeholder="example@stud.noroff.no" />
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
                   <label for="register-password">Password</label>
                   <input class="form-control" type="password" id="password" name="register-password" placeholder="Password" />
-                  <div class="invalid-feedback text-secondary">Password must include at least 12 letters & numbers.</div>
+                  <div class="invalid-feedback text-secondary">
+                    Password must include at least one lowercase letter, one uppercase letter, one number and it must be at least 8 characters long.
+                  </div>
                 </div>
                 <div class="form-group mb-3">
                   <label for="banner">Banner</label>
@@ -237,13 +211,13 @@
                   <div class="invalid-feedback text-secondary">Please enter a valid image url.</div>
                 </div>
 
-                <button class="btn btn-dark btn-lg" type="submit" aria-label="Register button" data-auth="register">Register</button>
+                <button class="btn btn-cb-primary btn-lg" type="submit" aria-label="Register button" data-auth="register">Register</button>
               </form>
 
               <div class="text-center mt-4">
-                <p class="border-top">
-                  Not an account yet?
-                  <a href="#" class="text-warning">Register here &rarr;</a>
+                <p class="border-top text-secondary">
+                  Alredy an account?
+                  <a href="#" class="text-warning">Login here &rarr;</a>
                 </p>
               </div>
             </div>

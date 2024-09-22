@@ -16,15 +16,15 @@ export default async function router() {
   switch (path) {
     case '/':
       listeners.checkIfUserLoggedIn();
-      listeners.navbarShowHide();
-      listeners.modalShowHide();
-      listeners.loginListener();
-      listeners.registerListener();
-      listeners.navigateToProfileListener();
-      listeners.setupResponsiveImages();
-      listeners.scrollListener();
       listeners.initSearchFunction();
+      listeners.loginListener();
+      listeners.modalShowHide();
+      listeners.navbarShowHide();
+      listeners.navigateToProfileListener();
       listeners.openCreateListingModal();
+      listeners.registerListener();
+      listeners.scrollListener();
+      listeners.setupResponsiveImages();
       render.listingsRender();
       await render.renderCarousel();
       utilities.initializeCarousel();
@@ -35,6 +35,8 @@ export default async function router() {
     case '/listings/':
       if (id) {
         listeners.checkIfUserLoggedIn();
+        listeners.loginListener();
+        listeners.registerListener();
         listeners.navbarShowHide();
         listeners.modalShowHide();
         listeners.navigateToProfileListener();
