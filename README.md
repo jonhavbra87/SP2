@@ -1,31 +1,60 @@
-# SP2
+# Semester Project 2nd year
 
-Semester Project second-year
 
-![CrownBid](https://i.postimg.cc/mkKMgLbZ/auctionhaouse.jpg)
+![CrownBid](https://i.postimg.cc/cLRYdGPZ/auctionhaouse.png)
 
-<p align="center">
-Learn how to use workflows in your work.
-</p>
 
-## Description
+## 🎯 **Project Goal**
+The objective of this project is to apply the front-end development skills acquired over the past three semesters by building an auction website. The website will allow users to bid on items, as well as create and manage their own listings.
 
-Using the skills and knowledge gained from the first year. The task was to created an auction house website that interact with an API so a user can buy and sell listings. I have also implemented unit testing.
+## 📝 **Project Brief**
+The goal is to create a front-end auction site where:
+- Users can register with their **stud.noroff.no** email.
+- Registered users receive **1000 credits** upon signup, which can be used for bidding on listings or earned by selling items.
+- Unregistered users can browse listings but cannot place bids or create listings.
 
-Here goes my history
+The back-end API functionality is already managed by an existing application, so this project focuses solely on building the **front-end** to interact with the API.
 
-## Built With
+## 🖥️ **Live Demo**
+[Link to live demo](https://sp2-jahb.netlify.app/)
 
-Technology Stack
+---
 
-- [Html](https://developer.mozilla.org/en-US/docs/Web/HTML)
-- [Bootstrap](https://getbootstrap.com)
-- [Scss](https://sass-lang.com/)
-- [Vite](https://vitejs.dev/)
+## 🔧 **Features**
+### User Authentication
+- **Register**: Users with a valid **stud.noroff.no** email can sign up.
+- **Login/Logout**: Users can log in and out of the system.
+- **Avatar Update**: Registered users can update their profile pictures.
+  
+### Listing & Bidding
+- **Create Listing**: Registered users can create new auction listings with:
+  - Title
+  - Deadline date
+  - Media gallery
+  - Description
+- **Bidding**: Registered users can place bids on other users' listings.
+  
+### Search & View
+- **View Listings**: Unregistered users can search through the listings.
+- **View Bids**: Registered users can view all bids placed on a listing.
+  
+### User Credits
+- Each registered user starts with **1000 credits**.
+- Credits can be earned by selling items or used to purchase items via bidding.
 
-## Getting Started
+---
 
-### Installing
+## 🚀 **Technologies Used**
+- **HTML5**, **SCSS**, and **JavaScript** for the front-end development.
+- **Bootstrap** for responsive design and UI components.
+- **Vite** as the build tool and development server for fast module-based development.
+- **Figma** for design and prototyping
+- **API**: The site interacts with the [Noroff Auction API](https://docs.noroff.dev/docs/v2) to manage listing data and bids.
+- **Jest** for unit testing.
+
+---
+
+## 🛠️ **Setup Instructions**
 
 1. Clone the repo:
 
@@ -59,7 +88,10 @@ Check Lint:
 npm run lint
 ```
 
-## Testing
+
+
+
+## 🧪 **Testing**
 
 ### Testing with Actions on GitHub
 
@@ -75,28 +107,21 @@ npm run test:unit
 
 ## Contributing
 
-This is a Noroff semester project. I appreciate a peer review!
+This is a Noroff semester project. I appreciate a peer review if you got the time!
 
 ## Contact
 
-<p style="display: inline-block;" align="center" widht="80%">
-  <kbd>
-    <kbd>
-     <kbd>Connect with me</kbd>
-    <br>
-    <br>
-       <a href="https://no.linkedin.com/in/jon-are-haver%C3%A5en-bratt%C3%A5s-5a3805262?trk=people-guest_people_search-card"><img width="50px" src="https://camo.githubusercontent.com/6eeeae9698286e45eda5d2973026a896fd42fa7f4271bf31aa74e9557e82181a/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6c696e6b6564696e2e737667" /></a>
-        <a href="https://www.discord.com"><img width="50px" src="https://camo.githubusercontent.com/f66a24788a2818b82624c61c17c513d16ea14ac6c579dd1c2b3ffe5df8c6cc22/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f646973636f72642e737667" /></a>
-     <a href="https://www.facebook.com"><img width="50px" src="https://camo.githubusercontent.com/05bf51513179d5b864921ba868f4bf54d2d74054f8f293f4569d969409b60a69/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f66616365626f6f6b2e737667" /></a>
-         <a href="https://www.instagram.com/jonareb87?igsh=MTAwdDEzZHFwMWFjbQ%3D%3D&utm_source=qr"><img width="50px" src="https://camo.githubusercontent.com/d94fd60f67ea9647bb508da87ad32b1eacd2bfb6745fac2be9869f9483bd0dca/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f696e7374616772616d2e737667" /></a>
-    </kbd>
-        <kbd>
-        <kbd>Reach Me</kbd>
-        <br>
-        <br>
-<a href="mailto:mail@kongsvinger-it.no">
-  <img width="50px" src="https://camo.githubusercontent.com/e626c5e6524798b6b31cb05eddba0fb781bd2f920f11fa3261692e61db288696/68747470733a2f2f6564656e742e6769746875622e696f2f537570657254696e7949636f6e732f696d616765732f7376672f6f75746c6f6f6b2e737667" />
-</a>
-    </kbd>
-  </kbd>
+<p align="center">
+  <a href="https://no.linkedin.com/in/jon-are-haver%C3%A5en-bratt%C3%A5s-5a3805262?trk=people-guest_people_search-card">
+    <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/LinkedIn.svg" width="50" > 
+  </a>
+  <a href="https://www.discord.com">
+    <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Discord.svg" width="50" > 
+  </a>
+  <a href="https://www.instagram.com/jonareb87?igsh=MTAwdDEzZHFwMWFjbQ%3D%3D&utm_source=qr">
+    <img src="https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Instagram.svg" width="50" > 
+  </a>
+  <a href="mailto:mail@kongsvinger-it.no">
+    <img src="[./icons/Gmail-Dark.svg](https://raw.githubusercontent.com/tandpfun/skill-icons/65dea6c4eaca7da319e552c09f4cf5a9a8dab2c8/icons/Gmail-Dark.svg)" > 
+  </a>
 </p>
