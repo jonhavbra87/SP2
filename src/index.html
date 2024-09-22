@@ -80,14 +80,14 @@
         <div class="d-flex mx-auto my-3">
           <div class="col-12 d-flex justify-content-center align-items-center flex-wrap">
             <!-- Left arrow -->
-            <button class="btn btn-cb-secondary me-2">
+            <button class="btn btn-cb-secondary me-2" aria-label="Slide left">
               <i class="bi bi-caret-left-fill" id="slider__btn--left"></i>
             </button>
             <!-- Dots -->
             <div class="dots d-flex justify-content-center align-items-center"></div>
 
             <!-- Right arrow -->
-            <button class="btn btn-cb-secondary ms-2">
+            <button class="btn btn-cb-secondary ms-2" aria-label="Slide right">
               <i class="bi bi-caret-right-fill" id="slider__btn--right"></i>
             </button>
           </div>
@@ -101,15 +101,8 @@
         <!-- Search input field centered -->
         <form class="d-flex mx-auto" role="search" id="searchForm">
           <div class="input-group">
-            <input
-              class="form-control"
-              type="search"
-              placeholder="Type & magic happens..."
-              aria-label="Search"
-              id="searchInput"
-              aria-describedby="basic-addon1"
-            />
-            <button class="btn btn-cb-primary" type="submit"><i class="bi bi-search"></i></button>
+            <input class="form-control" type="search" placeholder="Type & magic happens..." aria-label="Search" id="searchInput" />
+            <button class="btn btn-cb-primary" aria-label="Submit search" type="submit"><i class="bi bi-search"></i></button>
           </div>
         </form>
       </section>
@@ -160,14 +153,17 @@
 
               <form id="loginForm">
                 <div class="form-group mb-3">
-                  <label for="email">Email</label>
+                  <label for="login-email">Email</label>
                   <input class="form-control" type="email" id="login-email" name="email" placeholder="example@stud.noroff.no" />
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
                 <div class="form-group mb-3">
                   <label for="login-password">Password</label>
                   <input class="form-control" type="password" name="password" id="login-password" minlength="8" placeholder="Password" required />
-                  <div class="invalid-feedback text-secondary">Password must include at least 8 letters & numbers.</div>
+                  <div class="invalid-feedback text-secondary">
+                    The password must include at least one lowercase letter, one uppercase letter, one number and it must be at least 8 characters
+                    long.
+                  </div>
                 </div>
 
                 <button class="btn btn-cb-primary btn-lg" type="submit" aria-label="Login button" data-auth="login">Login</button>
@@ -214,7 +210,7 @@
 
               <form id="registerForm">
                 <div class="form-group mb-3">
-                  <label for="username">Username</label>
+                  <label for="register-username">Username</label>
                   <input
                     class="form-control"
                     type="text"
@@ -227,7 +223,7 @@
                   <div class="invalid-feedback text-secondary">Please enter your email.</div>
                 </div>
                 <div class="form-group mb-3">
-                  <label for="email">Email</label>
+                  <label for="register-email">Email</label>
                   <input class="form-control" type="email" id="email" name="register-email" placeholder="example@stud.noroff.no" />
                   <div class="invalid-feedback text-secondary">Please enter your @stud.noroff.no email.</div>
                 </div>
