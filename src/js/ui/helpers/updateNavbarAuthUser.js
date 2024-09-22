@@ -1,3 +1,16 @@
+/**
+ * Updates the navbar for authenticated users by showing or hiding specific elements.
+ *
+ * This function hides the login and register buttons and displays navbar elements
+ * for authenticated users, such as links to home, profile, listings, new listing, and the logout button.
+ *
+ * @function updateNavbarAuthUser
+ * @returns {void}
+ *
+ * @example
+ * updateNavbarAuthUser();
+ */
+
 export function updateNavbarAuthUser() {
   const loginButton = document.getElementById('openLoginModal');
   const registerButton = document.getElementById('openRegisterModal');

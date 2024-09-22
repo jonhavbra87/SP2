@@ -1,4 +1,4 @@
-import { load } from '../../storage';
+import { load } from '../../storage/load.js';
 import { API_AUCTIONS, API_BASE } from '../constants';
 import { authFetch } from '../fetch/authFetch';
 

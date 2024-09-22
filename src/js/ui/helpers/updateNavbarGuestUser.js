@@ -1,3 +1,16 @@
+/**
+ * Updates the navbar for guest users by showing or hiding specific elements.
+ *
+ * This function displays the login and register buttons for guest users and hides the navbar items
+ * intended for authenticated users, such as links to home, profile, listings, new listing, and the logout button.
+ *
+ * @function updateNavbarGuestUser
+ * @returns {void}
+ *
+ * @example
+ * updateNavbarGuestUser();
+ */
+
 export function updateNavbarGuestUser() {
   const loginButton = document.getElementById('openLoginModal');
   const registerButton = document.getElementById('openRegisterModal');

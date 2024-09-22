@@ -1,4 +1,4 @@
-import { remove } from '../../storage/index.js';
+import { remove } from '../../storage/remove.js';
 import { showMessage } from '../../ui/errorHandling/showMessage.js';
 
 /**

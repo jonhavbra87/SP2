@@ -1,12 +1,20 @@
 import { logo, logoSmall } from '../../render/helpers/images';
 
-export function setupResponsiveImages() {
-  renderResponsiveImage();
+/**
+ * Renders a responsive logo image based on the screen width.
+ *
+ * This function selects the logo container and clears its content, then checks the screen width
+ * to determine which version of the logo to display (small logo for narrow screens, full logo for larger screens).
+ * The logo is then inserted into the container.
+ *
+ * @function renderResponsiveImage
+ * @returns {void}
+ *
+ * @example
+ * renderResponsiveImage();
+ */
 
-  window.addEventListener('resize', renderResponsiveImage);
-}
-
-function renderResponsiveImage() {
+export function renderResponsiveImage() {
   const container = document.getElementById('logo-container');
 
   container.innerHTML = '';

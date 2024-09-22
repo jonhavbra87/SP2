@@ -1,14 +1,9 @@
-/* ------ ROUTER ------ */
+/* ------------------------ ROUTER ------------------------ */
 
 import { logout } from './api/auth/logout.js';
 import * as listeners from './ui/listeners/index.js';
 import * as render from './render/index.js';
-import { checkIfUserLoggedIn } from './ui/listeners/checkIfUserLoggedIn.js';
-import { renderCarousel } from './render/renderCarousel.js';
-import { setupResponsiveImages } from './ui/listeners/renderResponsiveImage.js';
-import { initializeCarousel } from './utilities/initializeCarousel.js';
-import { initSearchFunction } from './ui/listeners/initSearchFunction.js';
-import { navigateToProfileListener } from './ui/listeners/navigateToProfile.js';
+import { showMessage } from './ui/errorHandling/showMessage.js';
 
 export default async function router() {
   const path = location.pathname;
@@ -19,20 +14,19 @@ export default async function router() {
 
   switch (path) {
     case '/':
-      console.log('router is working on /');
-      logout();
-      checkIfUserLoggedIn();
+      listeners.checkIfUserLoggedIn();
       listeners.navbarShowHide();
       listeners.modalShowHide();
       listeners.loginListener();
       listeners.registerListener();
-      render.listingsRender();
-      initSearchFunction();
-      navigateToProfileListener();
+      listeners.navigateToProfileListener();
+      listeners.setupResponsiveImages();
+      listeners.scrollListener();
+      listeners.initSearchFunction();
       listeners.openCreateListingModal();
-      await renderCarousel();
-      setupResponsiveImages();
-      initializeCarousel();
+      render.listingsRender();
+      await render.renderCarousel();
+      logout();
       break;
 
     case '/listings':
@@ -40,14 +34,14 @@ export default async function router() {
       console.log('Router is working on /listings/ path');
       if (id) {
         console.log(`router is working on /listings/ with id ${id}`);
-        checkIfUserLoggedIn();
-        logout();
+        listeners.checkIfUserLoggedIn();
         listeners.navbarShowHide();
         listeners.modalShowHide();
-        render.listingRender(id);
-        navigateToProfileListener();
+        listeners.navigateToProfileListener();
         listeners.openCreateListingModal();
-        setupResponsiveImages();
+        listeners.setupResponsiveImages();
+        render.listingRender(id);
+        logout();
       } else {
         console.error('No listing ID provided.');
       }
@@ -55,16 +49,17 @@ export default async function router() {
 
     case '/profile':
     case '/profile/':
-      checkIfUserLoggedIn();
-      logout();
-      render.renderProfile();
+      listeners.checkIfUserLoggedIn();
       listeners.navbarShowHide();
       listeners.openAvatarModal();
       listeners.openCreateListingModal();
-      setupResponsiveImages();
+      listeners.setupResponsiveImages();
+      render.renderProfile();
+      logout();
       break;
 
     default:
-      console.log('404 error. Page not found.');
+      console.warn('404 error. Page not found.');
+      showMessage('404 error. Page not found.');
   }
 }

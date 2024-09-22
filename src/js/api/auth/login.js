@@ -1,4 +1,4 @@
-import * as storage from '../../storage/index.js';
+import * as storage from '../../storage/save.js';
 import { API_BASE, API_AUTH, API_LOGIN } from '../constants';
 
 const method = 'POST';
@@ -41,8 +41,6 @@ export async function login(email, password) {
 
     storage.save('token', accessToken);
     storage.save('profile', user);
-    console.log('User logged in:', user);
-    console.log('Access token:', accessToken);
 
     return user;
   } else {
