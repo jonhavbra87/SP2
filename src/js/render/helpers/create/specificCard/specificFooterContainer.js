@@ -1,22 +1,17 @@
 import { submitBid } from '../../../../api/fetch/submitBid.js';
+import { load } from '../../../../storage/load.js';
 import { showMessage } from '../../../../ui/errorHandling/showMessage.js';
 
 /**
- * Creates and returns a footer container for a specific post, including title, description, creation date, end date,
- * recent bids, and a bid submission form.
+ * Creates and returns the footer container for a specific listing, including bid display and form submission.
  *
- * This function generates a detailed footer for an auction post, showing the post's metadata, latest bids,
- * and a form to place new bids. It also handles bid submission via the `submitBid` function.
+ * This function generates the footer for a specific listing, displaying details such as the title, description,
+ * creation date, and the latest bids. If the user is logged in, they can view the bids and place a bid using the form.
+ * If not, a message prompts them to log in. First as a warning to view latest bids, and then if a user tries to make a bid it shows an alert-error message at the top that it must be logged in. The function handles bid submissions and error reporting.
  *
  * @function specificFooterContainer
- * @param {Object} postData - The data object containing the post information.
- * @param {string} postData.title - The title of the post.
- * @param {string} postData.description - The description of the post.
- * @param {string} postData.created - The creation date of the post in ISO format.
- * @param {string} postData.endsAt - The end date of the auction in ISO format.
- * @param {Array<Object>} postData.bids - An array of bid objects with amount, bidder name, and created date.
- * @param {number} postData.id - The ID of the post.
- * @returns {HTMLDivElement} The created footer container element.
+ * @param {Object} postData - The data object containing listing information such as title, description, and bids.
+ * @returns {HTMLDivElement} The constructed footer container element.
  *
  * @example
  * const footer = specificFooterContainer(postData);
@@ -60,6 +55,7 @@ export function specificFooterContainer(postData) {
 
   cardEndsAt.append(endsAtText, dateText);
 
+  const token = load('token');
   // Bids section
   const bidsTitle = document.createElement('h6', 'card-title', 'fw-bold');
   bidsTitle.textContent = 'Latest bids:';
@@ -67,24 +63,33 @@ export function specificFooterContainer(postData) {
   const bidsContainer = document.createElement('ul');
   bidsContainer.classList.add('list-group', 'mb-3');
 
-  let limit = 4;
-
-  // Loop through bids and add them to the container
-  if (postData.bids && postData.bids.length > 0) {
-    postData.bids
-      .reverse()
-      .slice(0, limit)
-      .forEach((bid) => {
-        const bidItem = document.createElement('li');
-        bidItem.classList.add('list-unstyled');
-        bidItem.textContent = `${bid.amount}$ by ${bid.bidder.name} on ${new Date(bid.created).toLocaleDateString()}`;
-        bidsContainer.append(bidItem);
-      });
+  if (!token) {
+    // User is not logged in, show a message to log in to view bids
+    const loginMessage = document.createElement('p');
+    loginMessage.textContent = 'You need to log in to view the latest bids.';
+    loginMessage.classList.add('alert', 'alert-warning');
+    bidsContainer.append(loginMessage);
   } else {
-    const noBidsItem = document.createElement('li');
-    noBidsItem.classList.add('list-unstyled');
-    noBidsItem.textContent = 'No bids yet.';
-    bidsContainer.append(noBidsItem);
+    // User is logged in, show the latest bids
+    let limit = 4;
+
+    if (postData.bids && postData.bids.length > 0) {
+      postData.bids
+        .reverse()
+        .slice(0, limit)
+        .forEach((bid) => {
+          const bidItem = document.createElement('li');
+          bidItem.classList.add('list-unstyled');
+          bidItem.textContent = `${bid.amount}$ by ${bid.bidder.name} on ${new Date(bid.created).toLocaleDateString()}`;
+          bidsContainer.append(bidItem);
+        });
+    } else {
+      // No bids found, show "No bids yet."
+      const noBidsItem = document.createElement('li');
+      noBidsItem.classList.add('list-unstyled');
+      noBidsItem.textContent = 'No bids yet.';
+      bidsContainer.append(noBidsItem);
+    }
   }
   const placeBidContainer = document.createElement('div');
 
